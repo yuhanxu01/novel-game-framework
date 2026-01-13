@@ -14,7 +14,8 @@ from pathlib import Path
 class SmartTaskGenerator:
     def __init__(self, project_dir=None):
         if project_dir is None:
-            self.project_dir = Path(__file__).resolve().parent
+            # 脚本在 scripts/ 目录下，项目根目录是其父目录
+            self.project_dir = Path(__file__).resolve().parent.parent
         else:
             self.project_dir = Path(project_dir)
             
