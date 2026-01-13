@@ -1,0 +1,42 @@
+{
+  "common_errors": [
+    "忘记更新 progress.json 导致重复处理",
+    "JSON 格式错误（中文标点符号）",
+    "跳过阅读原文导致分析不准确"
+  ],
+  "successful_patterns": [
+    "先完整阅读章节，再进行分析",
+    "每次更新都 git commit，保持小步提交",
+    "使用 Read 工具完整读取文件，不猜测内容"
+  ],
+  "prompt_improvements": [
+    {
+      "timestamp": "2026-01-13T10:00:00",
+      "suggestion": "在任务指令中强调'完整阅读'，避免跳步骤"
+    },
+    {
+      "timestamp": "2026-01-13T10:00:00",
+      "suggestion": "添加 JSON 格式检查提醒"
+    }
+  ],
+  "script_improvements": [
+    {
+      "timestamp": "2026-01-13T10:00:00",
+      "suggestion": "添加自动等待5小时额度恢复功能"
+    },
+    {
+      "timestamp": "2026-01-13T10:00:00",
+      "suggestion": "使用 caffeinate 防止 Mac 休眠"
+    }
+  ],
+  "best_practices": [
+    "完整阅读章节内容，不要跳过",
+    "保持 JSON 格式正确，避免中文标点",
+    "及时提交 Git，commit message 要详细",
+    "遇到错误时记录到 learning 文件",
+    "每10章进行一次回顾检查",
+    "分析要深入，不要敷衍",
+    "数据更新要保持一致性",
+    "进度文件必须更新"
+  ]
+}

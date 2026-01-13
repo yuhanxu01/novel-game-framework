@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏选择 - 文字冒险游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2em;
+            margin-bottom: 50px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .game-card-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .game-card-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .game-card-genre {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .game-card-body {
+            padding: 30px;
+        }
+
+        .game-card-description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 2px solid #f0f0f0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .game-features {
+            margin: 20px 0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 10px;
+        }
+
+        .badge-demo {
+            background: #FF9800;
+        }
+
+        .badge-new {
+            background: #f44336;
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .game-card-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 选择你的冒险</h1>
+        <p class="subtitle">沉浸式文字冒险游戏 - 你的选择，你的命运</p>
+
+        <div class="game-grid">
+            <!-- 斗破苍穹游戏 -->
+            <div class="game-card" onclick="location.href='index.html?game=doupo'">
+                <div class="game-card-header">
+                    <div>
+                        <span class="badge badge-new">NEW</span>
+                        <span class="badge">基于真实小说</span>
+                    </div>
+                    <h2 class="game-card-title">斗破苍穹：萧炎的逆袭</h2>
+                    <p class="game-card-genre">玄幻 · 修真 · 复仇</p>
+                </div>
+                <div class="game-card-body">
+                    <p class="game-card-description">
+                        从拍卖会的智慧博弈，到闭关苦修的艰辛历程。从掌握八极崩到突破第七段，从隐藏身份到成人仪式...
+                        完整的8章剧情，体验萧炎从废材到强者的蜕变之路！
+                    </p>
+
+                    <div class="game-stats">
+                        <div class="stat">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">章节</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">9</div>
+                            <div class="stat-label">角色</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">50+</div>
+                            <div class="stat-label">选择点</div>
+                        </div>
+                    </div>
+
+                    <div class="game-features">
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>拍卖会智慧博弈 + 炼药师伪装</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>闭关修炼：从第3段到第7段的完整历程</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>学习斗技：八极崩、吸掌、吹火掌组合技</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>50+选择点，每个选择影响属性和关系</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>三年之约、成人仪式等经典剧情</span>
+                        </div>
+                    </div>
+
+                    <button class="btn">开始游戏 →</button>
+                </div>
+            </div>
+
+            <!-- 示例游戏 -->
+            <div class="game-card" onclick="location.href='index.html?game=demo'">
+                <div class="game-card-header">
+                    <div>
+                        <span class="badge badge-demo">DEMO</span>
+                    </div>
+                    <h2 class="game-card-title">穿越修仙记</h2>
+                    <p class="game-card-genre">修真 · 穿越 · 奇幻</p>
+                </div>
+                <div class="game-card-body">
+                    <p class="game-card-description">
+                        一个现代程序员穿越到修仙世界的故事。在这个斗气的世界里，
+                        你将从炼气期开始，踏上漫漫修仙路，结识各路仙友，探索玄天大陆的奥秘...
+                    </p>
+
+                    <div class="game-stats">
+                        <div class="stat">
+                            <div class="stat-value">1</div>
+                            <div class="stat-label">章节</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">角色</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">15+</div>
+                            <div class="stat-label">选择点</div>
+                        </div>
+                    </div>
+
+                    <div class="game-features">
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>穿越设定，现代思维闯修真界</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>修真境界和功法系统</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>门派关系和角色好感度</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">✓</span>
+                            <span>系统演示和教学</span>
+                        </div>
+                    </div>
+
+                    <button class="btn">开始游戏 →</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>💡 提示：游戏会自动保存进度，随时可以继续</p>
+            <p style="margin-top: 10px;">基于小说《斗破苍穹》的第23-30章内容改编 | 游戏引擎 v2.0 | 8章完整体验</p>
+        </div>
+    </div>
+
+    <script>
+        // 添加键盘导航
+        document.addEventListener('keydown', function(e) {
+            const cards = document.querySelectorAll('.game-card');
+            if (e.key === '1') {
+                cards[0].click();
+            } else if (e.key === '2') {
+                cards[1].click();
+            }
+        });
+    </script>
+</body>
+</html>
