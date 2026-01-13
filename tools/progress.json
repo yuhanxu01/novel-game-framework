@@ -1,10 +1,10 @@
 {
-    "current_chapter": 68,
+    "current_chapter": 69,
     "total_chapters": 1694,
     "auto_mode": true,
     "review_milestone": 70,
     "last_success": true,
-    "needs_review": false,
+    "needs_review": true,
     "last_review_chapter": 60,
     "last_review_date": "2026-01-13"
 }
