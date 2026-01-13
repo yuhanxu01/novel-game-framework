@@ -1,19 +1,19 @@
 #!/bin/bash
 
 ###############################################
-# Claude Code 完全自动化脚本 - 无需人工干预
+# OpenCode 完全自动化脚本 - 无需人工干预
 #
 # 特性：
-# - ✅ 100% 自动运行，使用 Claude Code CLI
+# - ✅ 100% 自动运行，使用 OpenCode CLI
 # - ✅ 自动检测并处理卡死情况
 # - ✅ 自动恢复 5 小时额度限制
 # - ✅ 实时日志记录
 # - ✅ 进度监控和自动重启
 #
 # 使用方法：
-#   ./RUN_AUTO_CLAUDE.sh          # 正常模式
-#   ./RUN_AUTO_CLAUDE.sh --meta   # 元任务模式
-#   ./RUN_AUTO_CLAUDE.sh --status # 查看状态
+#   ./RUN_AUTO_OPENCODE.sh          # 正常模式
+#   ./RUN_AUTO_OPENCODE.sh --meta   # 元任务模式
+#   ./RUN_AUTO_OPENCODE.sh --status # 查看状态
 ###############################################
 
 set -e
@@ -23,11 +23,11 @@ PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$PROJECT_DIR"
 
 # 自动化配置
-MAX_RUN_TIME=1800          # 单次 claude 最大运行时间（30分钟）
+MAX_RUN_TIME=1800          # 单次 opencode 最大运行时间（30分钟）
 CHECK_INTERVAL=60          # 进度检查间隔（秒）
 MAX_IDLE_TIME=600          # 最大空闲时间（10分钟）
 LOG_DIR="logs"
-STATE_FILE="auto_state.json"
+STATE_FILE="auto_state_opencode.json"
 
 # 颜色
 RED='\033[0;31m'
@@ -43,9 +43,9 @@ mkdir -p "$LOG_DIR/history"
 
 # 轮转日志
 rotate_logs() {
-    if [ -f "$LOG_DIR/claude_output.log" ]; then
+    if [ -f "$LOG_DIR/opencode_output.log" ]; then
         local timestamp=$(date '+%Y%m%d_%H%M%S')
-        mv "$LOG_DIR/claude_output.log" "$LOG_DIR/history/claude_output_${timestamp}.log"
+        mv "$LOG_DIR/opencode_output.log" "$LOG_DIR/history/opencode_output_${timestamp}.log"
         # 保持最新的 50 个历史日志
         ls -t "$LOG_DIR/history/"* | tail -n +51 | xargs rm -f 2>/dev/null || true
     fi
@@ -57,7 +57,7 @@ log() {
     local level=$1
     shift
     local msg="[$(date '+%Y-%m-%d %H:%M:%S')] [$level] $*"
-    echo -e "$msg" | tee -a "$LOG_DIR/auto_runner.log"
+    echo -e "$msg" | tee -a "$LOG_DIR/auto_runner_opencode.log"
 }
 
 # 打印banner
@@ -65,7 +65,7 @@ print_banner() {
     echo -e "${CYAN}"
     echo "╔═══════════════════════════════════════════════════════════╗"
     echo "║                                                           ║"
-    echo "║     🤖 Claude Code 完全自动化系统 - 无需人工干预          ║"
+    echo "║     🤖 OpenCode 完全自动化系统 - 无需人工干预            ║"
     echo "║                                                           ║"
     echo "║     ✅ 100% 自动运行                                      ║"
     echo "║     🔄 自动检测卡死并重启                                 ║"
@@ -80,11 +80,10 @@ print_banner() {
 check_environment() {
     log "INFO" "🔍 检查运行环境..."
 
-    # 检查 claude 命令
-    if ! command -v claude &> /dev/null; then
-        log "ERROR" "❌ 找不到 claude 命令"
-        echo -e "${YELLOW}请先安装 Claude Code CLI：${NC}"
-        echo "  npm install -g @anthropic-ai/claude-code"
+    # 检查 opencode 命令
+    if ! command -v opencode &> /dev/null; then
+        log "ERROR" "❌ 找不到 opencode 命令"
+        echo -e "${YELLOW}请先安装 OpenCode CLI${NC}"
         exit 1
     fi
 
@@ -146,7 +145,7 @@ show_status() {
         python3 << 'EOF'
 import json
 try:
-    with open('auto_state.json') as f:
+    with open('auto_state_opencode.json') as f:
         state = json.load(f)
     print(f"  总运行次数: {state.get('total_runs', 0)} 次")
     print(f"  成功完成: {state.get('successful_runs', 0)} 次")
@@ -239,13 +238,13 @@ generate_task() {
     echo ""
 }
 
-# 监控 claude 进程
-monitor_claude() {
+# 监控 opencode 进程
+monitor_opencode() {
     local pid=$1
     local start_time=$(date +%s)
     local last_chapter=$(python3 -c "import json; print(json.load(open('tools/progress.json'))['current_chapter'])" 2>/dev/null || echo "0")
 
-    log "INFO" "👀 开始监控 claude 进程 (PID: $pid)"
+    log "INFO" "👀 开始监控 opencode 进程 (PID: $pid)"
 
     while kill -0 $pid 2>/dev/null; do
         current_time=$(date +%s)
@@ -269,16 +268,16 @@ monitor_claude() {
         sleep $CHECK_INTERVAL
     done
 
-    log "INFO" "✅ claude 进程正常结束"
+    log "INFO" "✅ opencode 进程正常结束"
     return 0
 }
 
-# 启动 claude（完全自动化）
-start_claude() {
-    log "INFO" "🚀 启动 Claude Code..."
+# 启动 opencode（完全自动化）
+start_opencode() {
+    log "INFO" "🚀 启动 OpenCode..."
 
     # 生成包含自动化指令的提示词
-    cat > CLAUDE_AUTO_INSTRUCTION.txt << 'EOF'
+    cat > OPENCODE_AUTO_INSTRUCTION.txt << 'EOF'
 你现在是完全自动化模式。请严格执行以下任务：
 
 **核心原则**：
@@ -308,36 +307,27 @@ EOF
     # 记录开始时间
     update_stats "start"
 
-    # 后台启动 claude 并监控
+    # 后台启动 opencode 并监控
     echo -e "${MAGENTA}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${MAGENTA}             Claude Code 自动执行开始${NC}"
+    echo -e "${MAGENTA}             OpenCode 自动执行开始${NC}"
     echo -e "${MAGENTA}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
 
-    # 使用 claude -p (print模式，非交互式)
-    # 使用 --permission-mode bypassPermissions 跳过权限检查
-    # 使用 --dangerously-skip-permissions 完全跳过权限
-
+    # 使用 opencode run 命令执行任务
     # 检查系统是否有 timeout 命令
     if command -v timeout &> /dev/null; then
-        timeout $MAX_RUN_TIME claude -p \
-            --permission-mode bypassPermissions \
-            --dangerously-skip-permissions \
-            < CLAUDE_AUTO_INSTRUCTION.txt >> "$LOG_DIR/claude_output.log" 2>&1 &
+        timeout $MAX_RUN_TIME opencode run "$(cat OPENCODE_AUTO_INSTRUCTION.txt)" >> "$LOG_DIR/opencode_output.log" 2>&1 &
     else
         # macOS 没有 timeout，使用后台运行 + 手动超时控制
-        claude -p \
-            --permission-mode bypassPermissions \
-            --dangerously-skip-permissions \
-            < CLAUDE_AUTO_INSTRUCTION.txt >> "$LOG_DIR/claude_output.log" 2>&1 &
+        opencode run "$(cat OPENCODE_AUTO_INSTRUCTION.txt)" >> "$LOG_DIR/opencode_output.log" 2>&1 &
     fi
 
-    local claude_pid=$!
+    local opencode_pid=$!
 
-    log "INFO" "Claude PID: $claude_pid"
+    log "INFO" "OpenCode PID: $opencode_pid"
 
     # 监控进程
-    if monitor_claude $claude_pid; then
+    if monitor_opencode $opencode_pid; then
         update_stats "success"
         log "INFO" "✅ 任务完成"
     else
@@ -345,27 +335,27 @@ EOF
         log "WARN" "⚠️  检测到卡死，终止进程"
 
         # 终止卡死的进程
-        kill $claude_pid 2>/dev/null || true
-        pkill -9 -P $claude_pid 2>/dev/null || true
+        kill $opencode_pid 2>/dev/null || true
+        pkill -9 -P $opencode_pid 2>/dev/null || true
 
         return 1
     fi
 
     echo ""
     echo -e "${MAGENTA}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${MAGENTA}             Claude Code 执行结束${NC}"
+    echo -e "${MAGENTA}             OpenCode 执行结束${NC}"
     echo -e "${MAGENTA}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo ""
 
     # 清理
-    rm -f CLAUDE_AUTO_INSTRUCTION.txt
+    rm -f OPENCODE_AUTO_INSTRUCTION.txt
 }
 
 # 检查是否触发额度限制
 check_quota_limit() {
-    if [ -f "$LOG_DIR/claude_output.log" ]; then
+    if [ -f "$LOG_DIR/opencode_output.log" ]; then
         # 更准确的检测：只检测真正的额度限制错误
-        if grep -qi "rate limit exceeded\|quota exceeded\|429\|usage limit\| hourly.*limit" "$LOG_DIR/claude_output.log"; then
+        if grep -qi "rate limit exceeded\|quota exceeded\|429\|usage limit\|hourly.*limit" "$LOG_DIR/opencode_output.log"; then
             log "WARN" "⚠️  检测到额度限制"
             update_stats "quota"
             return 1
@@ -479,8 +469,8 @@ main() {
         # 生成任务
         generate_task "$mode"
 
-        # 启动 claude
-        if start_claude; then
+        # 启动 opencode
+        if start_opencode; then
             consecutive_failures=0
         else
             consecutive_failures=$((consecutive_failures + 1))

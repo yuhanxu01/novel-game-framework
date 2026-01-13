@@ -12,8 +12,12 @@ from datetime import datetime
 from pathlib import Path
 
 class SmartTaskGenerator:
-    def __init__(self, project_dir="/home/user/novel-game-framework"):
-        self.project_dir = Path(project_dir)
+    def __init__(self, project_dir=None):
+        if project_dir is None:
+            self.project_dir = Path(__file__).resolve().parent
+        else:
+            self.project_dir = Path(project_dir)
+            
         self.progress_file = self.project_dir / "tools" / "progress.json"
         self.learning_file = self.project_dir / "task_learning.json"
         self.prompts_dir = self.project_dir / "prompts"
