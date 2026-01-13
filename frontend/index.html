@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字冒险游戏</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="static/css/game.css">
+    <link rel="stylesheet" href="static/css/creative.css">
+</head>
+<body>
+    <div id="app">
+        <div id="loading-screen" class="screen active">
+            <div class="loading-content">
+                <h1>文字冒险游戏</h1>
+                <p>加载中...</p>
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="title-screen" class="screen">
+            <div class="title-content">
+                <h1 id="game-title">游戏标题</h1>
+                <p id="game-description">游戏描述</p>
+                <div class="menu-buttons">
+                    <button id="btn-new-game" class="menu-btn">开始新游戏</button>
+                    <button id="btn-load-game" class="menu-btn">读取存档</button>
+                    <button id="btn-creative-mode" class="menu-btn">创造模式</button>
+                    <button id="btn-settings" class="menu-btn">设置</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="location-info">
+                    <span id="current-location">位置</span>
+                    <span id="current-time">时间</span>
+                </div>
+                <div class="header-buttons">
+                    <button id="btn-inventory" class="icon-btn" title="背包">🎒</button>
+                    <button id="btn-status" class="icon-btn" title="状态">📊</button>
+                    <button id="btn-map" class="icon-btn" title="地图">🗺️</button>
+                    <button id="btn-save" class="icon-btn" title="存档">💾</button>
+                    <button id="btn-menu" class="icon-btn" title="菜单">☰</button>
+                </div>
+            </div>
+
+            <div class="game-main">
+                <div class="narrative-panel">
+                    <div id="narrative-content" class="narrative-content"></div>
+                </div>
+
+                <div class="choice-panel">
+                    <div id="choices-container" class="choices-container"></div>
+                </div>
+            </div>
+
+            <div class="game-footer">
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">❤️</span>
+                        <div class="stat-bar">
+                            <div id="health-bar" class="stat-fill health"></div>
+                        </div>
+                        <span id="health-value" class="stat-value">100/100</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">⚡</span>
+                        <div class="stat-bar">
+                            <div id="stamina-bar" class="stat-fill stamina"></div>
+                        </div>
+                        <span id="stamina-value" class="stat-value">100/100</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="inventory-modal" class="modal">
+            <div class="modal-content inventory-content">
+                <div class="modal-header">
+                    <h2>背包</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="inventory-tabs">
+                    <button class="tab-btn active" data-tab="all">全部</button>
+                    <button class="tab-btn" data-tab="consumable">消耗品</button>
+                    <button class="tab-btn" data-tab="equipment">装备</button>
+                    <button class="tab-btn" data-tab="key">关键物品</button>
+                    <button class="tab-btn" data-tab="material">材料</button>
+                </div>
+                <div class="inventory-grid" id="inventory-grid"></div>
+                <div class="item-detail" id="item-detail">
+                    <div class="item-detail-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="status-modal" class="modal">
+            <div class="modal-content status-content">
+                <div class="modal-header">
+                    <h2>角色状态</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="status-body">
+                    <div class="character-info">
+                        <div class="character-avatar" id="character-avatar"></div>
+                        <div class="character-basic">
+                            <h3 id="character-name">主角</h3>
+                            <p id="character-title">称号</p>
+                        </div>
+                    </div>
+                    <div class="attributes-panel">
+                        <h4>属性</h4>
+                        <div id="attributes-list" class="attributes-list"></div>
+                    </div>
+                    <div class="status-effects">
+                        <h4>状态效果</h4>
+                        <div id="effects-list" class="effects-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map-modal" class="modal">
+            <div class="modal-content map-content">
+                <div class="modal-header">
+                    <h2>地图</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="map-body">
+                    <div class="map-container" id="map-container"></div>
+                    <div class="location-detail" id="location-detail"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="save-modal" class="modal">
+            <div class="modal-content save-content">
+                <div class="modal-header">
+                    <h2>存档管理</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="save-tabs">
+                    <button class="tab-btn active" data-action="save">保存</button>
+                    <button class="tab-btn" data-action="load">读取</button>
+                </div>
+                <div class="save-slots" id="save-slots"></div>
+            </div>
+        </div>
+
+        <div id="creative-screen" class="screen">
+            <div class="creative-header">
+                <h2>创造模式</h2>
+                <button id="btn-exit-creative" class="exit-btn">退出</button>
+            </div>
+            <div class="creative-main">
+                <div class="creative-sidebar">
+                    <div class="api-config">
+                        <h3>API配置</h3>
+                        <input type="password" id="api-key-input" placeholder="输入DeepSeek API Key">
+                        <select id="api-provider">
+                            <option value="deepseek">DeepSeek</option>
+                            <option value="openai">OpenAI</option>
+                        </select>
+                        <button id="btn-connect-api">连接</button>
+                    </div>
+                    <div class="creative-tools">
+                        <h3>创作工具</h3>
+                        <button class="tool-btn" data-tool="character">添加角色</button>
+                        <button class="tool-btn" data-tool="scene">添加场景</button>
+                        <button class="tool-btn" data-tool="item">添加物品</button>
+                        <button class="tool-btn" data-tool="branch">添加分支</button>
+                        <button class="tool-btn" data-tool="quest">添加任务</button>
+                    </div>
+                    <div class="creative-history">
+                        <h3>修改历史</h3>
+                        <div id="modification-history"></div>
+                    </div>
+                </div>
+                <div class="creative-chat">
+                    <div class="chat-messages" id="creative-messages"></div>
+                    <div class="chat-input">
+                        <textarea id="creative-input" placeholder="描述你想要创建或修改的内容..."></textarea>
+                        <button id="btn-send-creative">发送</button>
+                    </div>
+                </div>
+                <div class="creative-preview">
+                    <h3>预览</h3>
+                    <div id="creative-preview-content"></div>
+                    <div class="preview-actions">
+                        <button id="btn-apply-changes">应用修改</button>
+                        <button id="btn-discard-changes">放弃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="settings-modal" class="modal">
+            <div class="modal-content settings-content">
+                <div class="modal-header">
+                    <h2>设置</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="settings-body">
+                    <div class="setting-item">
+                        <label>文字速度</label>
+                        <input type="range" id="text-speed" min="1" max="10" value="5">
+                    </div>
+                    <div class="setting-item">
+                        <label>自动播放</label>
+                        <input type="checkbox" id="auto-play">
+                    </div>
+                    <div class="setting-item">
+                        <label>音效</label>
+                        <input type="range" id="sfx-volume" min="0" max="100" value="80">
+                    </div>
+                    <div class="setting-item">
+                        <label>背景音乐</label>
+                        <input type="range" id="bgm-volume" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/engine/config.js"></script>
+    <script src="static/js/engine/utils.js"></script>
+    <script src="static/js/engine/state.js"></script>
+    <script src="static/js/engine/story.js"></script>
+    <script src="static/js/engine/condition.js"></script>
+    <script src="static/js/engine/inventory.js"></script>
+    <script src="static/js/engine/exploration.js"></script>
+    <script src="static/js/ui/screens.js"></script>
+    <script src="static/js/ui/narrative.js"></script>
+    <script src="static/js/ui/choices.js"></script>
+    <script src="static/js/ui/modals.js"></script>
+    <script src="static/js/ui/stats.js"></script>
+    <script src="static/js/creative/chat.js"></script>
+    <script src="static/js/creative/editor.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+</html>
