@@ -1,0 +1,69 @@
+{
+  "chapter_number": 46,
+  "title": "暴怒的萧炎",
+  "fragment_summary": {
+    "core_event": "萧炎在后山修炼时遇到萧玉的挑衅，两人爆发冲突，萧炎被萧玉打伤后愤怒反击，将她压倒在地",
+    "detailed_description": "萧炎成人仪式后生活节奏放缓，筑基灵液效果减弱后转为放松修炼。某日后山修炼时被萧玉找到，萧玉因其弟萧宁被萧炎打伤而前来寻仇。萧玉以三星斗者实力对萧炎发起攻击，萧炎初时闪避，后利用吸功法制造平衡差，将萧玉压倒在地。萧炎因受伤愤怒而威胁要强奸萧玉，两人陷入僵持对峙。",
+    "emotional_tone": "紧张/冲突/愤怒/挑衅",
+    "plot_importance": "支线剧情"
+  },
+  "new_discoveries": {
+    "new_characters": [],
+    "new_locations": [],
+    "new_settings": [
+      {
+        "type": "力量体系",
+        "content": "第八段斗之气到斗者之间仍有明显实力差距，三星斗者远超第八段斗之气"
+      },
+      {
+        "type": "技能设定",
+        "content": "吸功法可以制造吸力和推力，用于破坏敌人平衡"
+      }
+    ],
+    "new_items": []
+  },
+  "character_dynamics": [
+    {
+      "character": "萧炎",
+      "behavior": "后山修炼时遭遇萧玉挑衅，初时闪避反击，后使用吸功法将其压倒",
+      "state_change": "从放松修炼状态转为愤怒对抗状态，脸上有淤青，身上有伤",
+      "memorable_lines": ["你弟弟是人，老子就不是人了?!", "妈的，胸大无脑就是用来说你这种白痴女人的。", "少爷今天要把你强奸了！"]
+    },
+    {
+      "character": "萧玉",
+      "behavior": "为弟报仇主动攻击萧炎，使用长腿攻势，后被萧炎反击压倒",
+      "state_change": "从愤怒攻击到羞怒被压，高傲态度受挫",
+      "memorable_lines": ["知道我来找你做什么吗?", "不管如何，今天绝不会轻易放过你这小混蛋。", "只要你敢试，我就敢把你那东西给剪了！"]
+    }
+  ],
+  "plot_analysis": {
+    "causality_chain": "萧宁被打伤→萧玉为弟寻仇→萧玉攻击萧炎→萧炎反击并压制萧玉→两人僵持对峙",
+    "foreshadowing": [],
+    "conflict_type": "人vs人（家族内部矛盾）",
+    "suspense": ["萧炎会如何处置被压制的萧玉？两人是否会受到药老或其他家族成员的干扰？"]
+  },
+  "gamification_potential": {
+    "can_be_choice_point": true,
+    "choice_suggestions": "玩家可选择战斗策略：①全力反击压制 ②持续闪避消耗 ③尝试沟通化解 ④寻求帮助脱身",
+    "related_attributes": ["体力", "战斗技巧", "斗之气等级", "吸功法掌握度"],
+    "obtainable_items": [],
+    "explorable_elements": ["后山修炼场地", "与萧玉的关系走向"]
+  },
+  "update_suggestions": {
+    "character_info_updates": {
+      "萧炎": {
+        "current_level": "第八段斗之气",
+        "injuries": "脸上有淤青，身上有伤",
+        "relationship_with_Xiao_Yu": "敌对关系升级"
+      },
+      "萧玉": {
+        "strength_level": "三星斗者",
+        "fighting_style": "擅长腿法攻击",
+        "personality_traits": ["护短", "冲动", "高傲", "执着"]
+      }
+    },
+    "world_setting_updates": {},
+    "plot_stage_changed": false,
+    "new_plot_stage": ""
+  }
+}
