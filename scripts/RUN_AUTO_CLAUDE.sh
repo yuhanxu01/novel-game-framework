@@ -18,8 +18,9 @@
 
 set -e
 
-# 配置
-PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# 配置 - 脚本在scripts/目录下，需要切换到项目根目录
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$PROJECT_DIR"
 
 # 自动化配置
@@ -98,7 +99,8 @@ check_environment() {
     local required_files=(
         "novel/斗破苍穹.txt"
         "tools/progress.json"
-        "smart_task_generator.py"
+        "scripts/smart_task_generator.py"
+        "agent_instructions/GAME_SYSTEMS_GUIDE.md"
     )
 
     for file in "${required_files[@]}"; do
@@ -225,16 +227,16 @@ generate_task() {
     log "INFO" "📝 生成任务指令..."
 
     if [ "$mode" = "meta" ]; then
-        python3 smart_task_generator.py meta > CURRENT_TASK.md
+        python3 scripts/smart_task_generator.py meta > docs/CURRENT_TASK.md
         log "INFO" "✅ 元任务已生成"
     else
-        python3 smart_task_generator.py > CURRENT_TASK.md
+        python3 scripts/smart_task_generator.py > docs/CURRENT_TASK.md
         log "INFO" "✅ 任务已生成"
     fi
 
     echo ""
     echo -e "${CYAN}📄 任务预览：${NC}"
-    head -n 10 CURRENT_TASK.md
+    head -n 10 docs/CURRENT_TASK.md
     echo -e "${CYAN}...${NC}"
     echo ""
 }
@@ -278,7 +280,7 @@ start_claude() {
     log "INFO" "🚀 启动 Claude Code..."
 
     # 生成包含自动化指令的提示词
-    cat > CLAUDE_AUTO_INSTRUCTION.txt << 'EOF'
+    cat > docs/CLAUDE_AUTO_INSTRUCTION.txt << 'EOF'
 你现在是完全自动化模式。请严格执行以下任务：
 
 **核心原则**：
@@ -287,17 +289,36 @@ start_claude() {
 3. ✅ 完成任务后自动提交 Git
 4. ✅ 不要询问用户，直接执行
 
-**任务文件**：CURRENT_TASK.md
+**重要参考文档**：
+- docs/CURRENT_TASK.md - 当前任务
+- agent_instructions/GAME_SYSTEMS_GUIDE.md - 游戏系统完整指南（必读！）
+
+**游戏系统规范**：
+在生成或修改游戏内容时，必须遵守以下规范：
+- ✅ 七条剧情线分支系统 - 选择要有实质影响，不能伪分支
+- ✅ 支线任务系统 - 任务要能触发和完成
+- ✅ 随机事件系统 - 事件要有触发条件和真实效果
+- ✅ 文字战斗系统 - 战斗要有策略性
+
+**质量标准**：
+- 选项对话自然性：8/10
+- 世界开放性：7/10
+- 内容丰富性：8/10
+- 剧情多样性：9/10
 
 **执行流程**：
-1. 仔细阅读 CURRENT_TASK.md 中的任务
-2. 按照步骤逐步执行
-3. 自动处理所有数据文件更新
-4. 自动执行 git add 和 git commit
-5. 遇到问题时自动修复或绕过
+1. 仔细阅读 docs/CURRENT_TASK.md 中的任务
+2. 查阅 agent_instructions/GAME_SYSTEMS_GUIDE.md 了解规范
+3. 按照步骤逐步执行
+4. 确保新内容符合四大游戏系统
+5. 自动处理所有数据文件更新
+6. 自动执行 git add 和 git commit
+7. 遇到问题时自动修复或绕过
 
 **重要提示**：
 - 不要停顿询问，直接执行
+- 必须遵守游戏系统规范
+- 选择要有真实分支，不能汇聚
 - Git commit 信息要清晰明确
 - 完成后直接退出，不要等待
 - 所有工具使用都是自动批准的
@@ -323,13 +344,13 @@ EOF
         timeout $MAX_RUN_TIME claude -p \
             --permission-mode bypassPermissions \
             --dangerously-skip-permissions \
-            < CLAUDE_AUTO_INSTRUCTION.txt >> "$LOG_DIR/claude_output.log" 2>&1 &
+            < docs/CLAUDE_AUTO_INSTRUCTION.txt >> "$LOG_DIR/claude_output.log" 2>&1 &
     else
         # macOS 没有 timeout，使用后台运行 + 手动超时控制
         claude -p \
             --permission-mode bypassPermissions \
             --dangerously-skip-permissions \
-            < CLAUDE_AUTO_INSTRUCTION.txt >> "$LOG_DIR/claude_output.log" 2>&1 &
+            < docs/CLAUDE_AUTO_INSTRUCTION.txt >> "$LOG_DIR/claude_output.log" 2>&1 &
     fi
 
     local claude_pid=$!
@@ -358,7 +379,7 @@ EOF
     echo ""
 
     # 清理
-    rm -f CLAUDE_AUTO_INSTRUCTION.txt
+    rm -f docs/CLAUDE_AUTO_INSTRUCTION.txt
 }
 
 # 检查是否触发额度限制

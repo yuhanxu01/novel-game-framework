@@ -1,0 +1,733 @@
+{
+  "random_events": [
+    {
+      "event_id": "event_001_street_encounter",
+      "name": "街头偶遇",
+      "type": "social",
+      "trigger_location": "location_wutan_street",
+      "trigger_chance": 0.25,
+      "trigger_condition": {
+        "chapter_range": ["chapter_024", "chapter_030"],
+        "time_of_day": ["morning", "afternoon"]
+      },
+      "description": "在乌坦城的街道上，你偶然遇到了薰儿在逛街",
+      "dialogue": {
+        "speaker": "char_xuner",
+        "content": "萧炎哥哥！好巧啊，你也在这里？"
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_001_a",
+          "text": "【陪伴】陪薰儿一起逛街",
+          "time_cost": 2,
+          "effects": {
+            "relationship_xuner": 5,
+            "charisma": 1
+          },
+          "outcome": "你陪薰儿逛了一下午，她很开心。你们在小吃摊买了糖葫芦，薰儿笑得很甜。"
+        },
+        {
+          "choice_id": "choice_event_001_b",
+          "text": "【修炼】婉拒，继续去修炼",
+          "effects": {
+            "determination": 2,
+            "relationship_xuner": -2
+          },
+          "outcome": "薰儿有些失望，但还是理解地点了点头。你继续前往后山修炼。"
+        },
+        {
+          "choice_id": "choice_event_001_c",
+          "text": "【商业】询问米特尔拍卖行的消息",
+          "condition": {
+            "intelligence": 65
+          },
+          "effects": {
+            "intelligence": 2,
+            "relationship_xuner": 1
+          },
+          "outcome": "薰儿告诉你最近拍卖行有一批珍贵药材到货，可能对你有用。",
+          "unlock_quest": "quest_auction_rare_materials"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_002_cultivation_breakthrough",
+      "name": "修炼顿悟",
+      "type": "cultivation",
+      "trigger_location": "location_back_mountain",
+      "trigger_chance": 0.15,
+      "trigger_condition": {
+        "action": "cultivation",
+        "cultivation_range": [5, 8]
+      },
+      "description": "在修炼过程中，你突然有了新的领悟",
+      "choices": [
+        {
+          "choice_id": "choice_event_002_a",
+          "text": "【顿悟】把握机会，全力突破",
+          "condition": {
+            "determination": 8
+          },
+          "effects": {
+            "cultivation_progress": 10,
+            "strength": 3
+          },
+          "outcome": "你把握住这次顿悟的机会，修为大增！",
+          "success_rate": 0.7
+        },
+        {
+          "choice_id": "choice_event_002_b",
+          "text": "【稳健】稳扎稳打，慢慢消化",
+          "effects": {
+            "cultivation_progress": 5,
+            "foundation": 2
+          },
+          "outcome": "你选择稳健地消化这次领悟，根基更加扎实。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_003_jiale_provocation",
+      "name": "加列家挑衅",
+      "type": "conflict",
+      "trigger_location": ["location_wutan_street", "location_market"],
+      "trigger_chance": 0.2,
+      "trigger_condition": {
+        "chapter_range": ["chapter_023", "chapter_030"],
+        "flag": "auction_conflict"
+      },
+      "description": "你在街上遇到加列家的人，他们似乎来者不善",
+      "dialogue": {
+        "speaker": "npc_jiale_member",
+        "content": "哟，这不是萧家的废物少爷吗？听说你最近很嚣张啊！"
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_003_a",
+          "text": "【战斗】直接动手",
+          "condition": {
+            "cultivation": 6
+          },
+          "battle": {
+            "enemy": "enemy_jiale_members",
+            "difficulty": "medium"
+          },
+          "win_effects": {
+            "reputation": 5,
+            "relationship_jiale": -10,
+            "experience": 100
+          },
+          "lose_effects": {
+            "reputation": -5,
+            "health": -30
+          }
+        },
+        {
+          "choice_id": "choice_event_003_b",
+          "text": "【智取】用言语化解",
+          "condition": {
+            "intelligence": 70
+          },
+          "effects": {
+            "charisma": 3,
+            "intelligence": 2
+          },
+          "outcome": "你用智慧化解了冲突，围观的人都称赞你的气度。"
+        },
+        {
+          "choice_id": "choice_event_003_c",
+          "text": "【忍耐】忍气吞声",
+          "effects": {
+            "determination": 1,
+            "reputation": -3
+          },
+          "outcome": "你忍下这口气，心中暗暗发誓，总有一天要让他们付出代价。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_004_mysterious_merchant",
+      "name": "神秘商人",
+      "type": "merchant",
+      "trigger_location": "location_market",
+      "trigger_chance": 0.1,
+      "trigger_condition": {
+        "chapter_range": ["chapter_024", "chapter_029"]
+      },
+      "description": "在市集上，一个神秘的商人向你兜售物品",
+      "dialogue": {
+        "speaker": "npc_mysterious_merchant",
+        "content": "小兄弟，我这里有些好东西，要不要看看？"
+      },
+      "shop_items": [
+        {
+          "item": "item_rare_herb",
+          "name": "稀有药草",
+          "price": 5000,
+          "stock": 1,
+          "description": "罕见的药材，可用于炼制高级丹药"
+        },
+        {
+          "item": "item_skill_scroll",
+          "name": "斗技卷轴",
+          "price": 10000,
+          "stock": 1,
+          "description": "记载着一门玄阶中级斗技"
+        },
+        {
+          "item": "item_mysterious_map",
+          "name": "神秘地图",
+          "price": 3000,
+          "stock": 1,
+          "description": "标注着一个隐秘地点的地图",
+          "unlock": "hidden_location"
+        }
+      ],
+      "choices": [
+        {
+          "choice_id": "choice_event_004_a",
+          "text": "【购买】花钱购买",
+          "outcome": "打开商店界面"
+        },
+        {
+          "choice_id": "choice_event_004_b",
+          "text": "【讨价还价】试图压价",
+          "condition": {
+            "charisma": 65
+          },
+          "effects": {
+            "discount": 0.7
+          },
+          "outcome": "商人被你说服，给你打了七折。"
+        },
+        {
+          "choice_id": "choice_event_004_c",
+          "text": "【拒绝】不感兴趣",
+          "outcome": "你摇摇头，商人遗憾地离开了。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_005_yaolao_story",
+      "name": "药老往事",
+      "type": "story",
+      "trigger_location": "location_anywhere",
+      "trigger_chance": 0.15,
+      "trigger_condition": {
+        "relationship_yaolao": 15,
+        "time_of_day": "night"
+      },
+      "description": "夜深人静时，药老难得地向你讲述他的过往",
+      "dialogue": {
+        "speaker": "char_yaolao",
+        "content": "小家伙，今晚月色不错...让老夫给你讲讲当年的事吧。"
+      },
+      "story_content": "药老讲述了他当年在中州纵横的故事，以及他如何陷入危机...",
+      "choices": [
+        {
+          "choice_id": "choice_event_005_a",
+          "text": "【认真倾听】专心听药老讲故事",
+          "effects": {
+            "relationship_yaolao": 8,
+            "intelligence": 2,
+            "lore_knowledge": 1
+          },
+          "outcome": "你从药老的故事中学到了很多，也更了解了他的过去。",
+          "unlock_quest": "quest_yaolao_revenge"
+        },
+        {
+          "choice_id": "choice_event_005_b",
+          "text": "【安慰】老师，过去的就让它过去吧",
+          "effects": {
+            "relationship_yaolao": 10,
+            "charisma": 3
+          },
+          "outcome": "药老欣慰地笑了，拍了拍你的肩膀。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_006_natural_treasure",
+      "name": "天材地宝",
+      "type": "treasure",
+      "trigger_location": "location_back_mountain",
+      "trigger_chance": 0.08,
+      "trigger_condition": {
+        "chapter_range": ["chapter_026", "chapter_029"],
+        "exploration": true
+      },
+      "description": "在后山深处，你发现了一株散发着灵气的奇异植物",
+      "dialogue": {
+        "speaker": "char_yaolao",
+        "content": "这是...冰灵焰果！小家伙，你运气不错！"
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_006_a",
+          "text": "【采摘】直接采摘",
+          "battle": {
+            "enemy": "enemy_spirit_beast",
+            "description": "但灵兽守护着这株植物！"
+          },
+          "win_effects": {
+            "items": ["item_ice_flame_fruit"],
+            "experience": 200
+          }
+        },
+        {
+          "choice_id": "choice_event_006_b",
+          "text": "【智取】用药材引开灵兽",
+          "condition": {
+            "intelligence": 70,
+            "item": "item_bait_herb"
+          },
+          "effects": {
+            "items": ["item_ice_flame_fruit"],
+            "intelligence": 3
+          },
+          "outcome": "你成功用药材引开了灵兽，安全地采摘了冰灵焰果。"
+        },
+        {
+          "choice_id": "choice_event_006_c",
+          "text": "【放弃】太危险了，算了",
+          "effects": {
+            "determination": -1
+          },
+          "outcome": "你觉得太危险，放弃了这次机会。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_007_xuner_secret",
+      "name": "薰儿的秘密",
+      "type": "romance",
+      "trigger_location": "location_xiao_residence",
+      "trigger_chance": 0.12,
+      "trigger_condition": {
+        "relationship_xuner": 25,
+        "chapter": "chapter_029",
+        "time_of_day": "evening"
+      },
+      "description": "傍晚，你看见薰儿独自站在花园里，似乎有心事",
+      "dialogue": {
+        "speaker": "char_xuner",
+        "content": "萧炎哥哥...其实，薰儿有些话想对你说..."
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_007_a",
+          "text": "【关心】薰儿，怎么了？有什么我能帮的吗？",
+          "effects": {
+            "relationship_xuner": 10
+          },
+          "outcome": "薰儿犹豫了一下，最终还是没有说出口，但你看得出她很感动。",
+          "flag": "xuner_secret_hint"
+        },
+        {
+          "choice_id": "choice_event_007_b",
+          "text": "【表白】薰儿，我...我喜欢你",
+          "condition": {
+            "relationship_xuner": 30,
+            "charisma": 70
+          },
+          "effects": {
+            "relationship_xuner": 20,
+            "unlock_route": "route_004_love"
+          },
+          "outcome": "薰儿脸红了，她轻声说：'薰儿也是...一直都是。'",
+          "special_scene": "confession_success"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_008_family_crisis",
+      "name": "家族危机",
+      "type": "crisis",
+      "trigger_location": "location_xiao_residence",
+      "trigger_chance": 0.1,
+      "trigger_condition": {
+        "chapter_range": ["chapter_027", "chapter_030"],
+        "family_contribution": 5
+      },
+      "description": "家族突然传来紧急消息——加列家联合奥巴家，准备向萧家施压",
+      "dialogue": {
+        "speaker": "char_xiaozhan",
+        "content": "炎儿，事情有些棘手...加列毕那家伙不甘心，联合了奥巴帕。"
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_008_a",
+          "text": "【武力】我去挑战他们的年轻一代",
+          "condition": {
+            "cultivation": 7,
+            "strength": 60
+          },
+          "battle": {
+            "enemy": "enemy_jiale_aoba_elite",
+            "difficulty": "hard"
+          },
+          "win_effects": {
+            "reputation": 20,
+            "family_power": 10,
+            "relationship_xiaozhan": 15
+          },
+          "outcome": "你以一己之力击败了对方的精英，震慑两家。"
+        },
+        {
+          "choice_id": "choice_event_008_b",
+          "text": "【智谋】父亲，我有个计策",
+          "condition": {
+            "intelligence": 75
+          },
+          "effects": {
+            "family_power": 15,
+            "relationship_xiaozhan": 20,
+            "intelligence": 3
+          },
+          "outcome": "你提出的计策让父亲眼前一亮，成功化解了危机。",
+          "unlock_quest": "quest_family_counterattack"
+        },
+        {
+          "choice_id": "choice_event_008_c",
+          "text": "【求助】寻求米特尔家族帮助",
+          "condition": {
+            "relationship_yafei": 20,
+            "wealth": 50000
+          },
+          "effects": {
+            "wealth": -50000,
+            "family_power": 8,
+            "relationship_yafei": 10
+          },
+          "outcome": "米特尔家族出面调停，危机暂时化解。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_009_training_accident",
+      "name": "修炼意外",
+      "type": "danger",
+      "trigger_location": "location_back_mountain",
+      "trigger_chance": 0.1,
+      "trigger_condition": {
+        "action": "cultivation",
+        "cultivation_progress": ">80%"
+      },
+      "description": "修炼过程中，斗气突然失控，体内经脉剧痛！",
+      "dialogue": {
+        "speaker": "char_yaolao",
+        "content": "小家伙，快稳住心神！不要让斗气乱窜！"
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_009_a",
+          "text": "【强行突破】趁机冲击下一段！",
+          "condition": {
+            "determination": 12
+          },
+          "success_rate": 0.6,
+          "success_effects": {
+            "cultivation": 1,
+            "strength": 5
+          },
+          "failure_effects": {
+            "health": -50,
+            "cultivation_progress": -20
+          }
+        },
+        {
+          "choice_id": "choice_event_009_b",
+          "text": "【稳定】按照药老指示，慢慢稳定",
+          "effects": {
+            "health": -10,
+            "foundation": 2
+          },
+          "outcome": "在药老的指导下，你稳定了斗气，有惊无险。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_010_market_theft",
+      "name": "集市窃贼",
+      "type": "event",
+      "trigger_location": "location_market",
+      "trigger_chance": 0.18,
+      "trigger_condition": {
+        "wealth": 5000
+      },
+      "description": "在集市上，你发现一个小贼偷了别人的钱袋",
+      "choices": [
+        {
+          "choice_id": "choice_event_010_a",
+          "text": "【正义】追上去抓住小贼",
+          "condition": {
+            "strength": 50
+          },
+          "effects": {
+            "reputation": 5,
+            "charisma": 2,
+            "gold": 500
+          },
+          "outcome": "你抓住了小贼，失主感激地给了你报酬。"
+        },
+        {
+          "choice_id": "choice_event_010_b",
+          "text": "【冷漠】不关我的事",
+          "effects": {
+            "charisma": -1
+          },
+          "outcome": "你选择不介入，继续你的事情。"
+        },
+        {
+          "choice_id": "choice_event_010_c",
+          "text": "【观察】暗中观察小贼的去向",
+          "condition": {
+            "intelligence": 65
+          },
+          "effects": {
+            "intelligence": 2
+          },
+          "outcome": "你跟踪小贼，发现了一个盗贼团伙的据点。",
+          "unlock_quest": "quest_thieves_den"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_011_auction_opportunity",
+      "name": "拍卖会情报",
+      "type": "information",
+      "trigger_location": "location_auction_house",
+      "trigger_chance": 0.2,
+      "trigger_condition": {
+        "item": "item_vip_card",
+        "chapter_range": ["chapter_024", "chapter_030"]
+      },
+      "description": "雅妃向你透露，下次拍卖会将有重要物品",
+      "dialogue": {
+        "speaker": "char_yafei",
+        "content": "这位贵客，下次拍卖会有一件您可能感兴趣的东西..."
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_011_a",
+          "text": "【询问】什么东西？",
+          "effects": {
+            "intelligence": 1
+          },
+          "outcome": "雅妃神秘一笑：'一枚异火的线索。'",
+          "flag": "strange_fire_hint",
+          "unlock_quest": "quest_strange_fire"
+        },
+        {
+          "choice_id": "choice_event_011_b",
+          "text": "【投资】我想参与拍卖行的股份",
+          "condition": {
+            "wealth": 100000,
+            "relationship_yafei": 25
+          },
+          "effects": {
+            "wealth": -100000,
+            "business_share": 10
+          },
+          "outcome": "雅妃同意让你持股10%，你成为了合伙人。",
+          "unlock_route": "route_002_wisdom"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_012_elder_teaching",
+      "name": "长老指点",
+      "type": "teaching",
+      "trigger_location": "location_xiao_residence",
+      "trigger_chance": 0.12,
+      "trigger_condition": {
+        "family_contribution": 8,
+        "cultivation": 7
+      },
+      "description": "一位萧家长老主动找到你，想要指点你的修炼",
+      "dialogue": {
+        "speaker": "npc_xiao_elder",
+        "content": "炎儿，你的进步让老夫刮目相看。来，让我看看你的斗气运转。"
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_012_a",
+          "text": "【虚心】请长老指教",
+          "effects": {
+            "cultivation_progress": 10,
+            "strength": 3,
+            "family_contribution": 3
+          },
+          "outcome": "长老传授了你一些实战经验，你受益匪浅。"
+        },
+        {
+          "choice_id": "choice_event_012_b",
+          "text": "【展示】展示自己的独特修炼方法",
+          "condition": {
+            "intelligence": 70
+          },
+          "effects": {
+            "reputation": 8,
+            "charisma": 3
+          },
+          "outcome": "长老被你的方法震惊了，他说你是个天才。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_013_rain_meditation",
+      "name": "雨中顿悟",
+      "type": "cultivation",
+      "trigger_location": "location_anywhere",
+      "trigger_chance": 0.1,
+      "trigger_condition": {
+        "weather": "rain",
+        "chapter_range": ["chapter_026", "chapter_029"]
+      },
+      "description": "雨天，你站在雨中，突然对天地之力有了新的感悟",
+      "choices": [
+        {
+          "choice_id": "choice_event_013_a",
+          "text": "【领悟】感悟雨中的天地之力",
+          "condition": {
+            "intelligence": 70
+          },
+          "effects": {
+            "cultivation_progress": 15,
+            "special_attribute": "water_affinity",
+            "intelligence": 3
+          },
+          "outcome": "你领悟了水属性的奥秘，修为大进！"
+        },
+        {
+          "choice_id": "choice_event_013_b",
+          "text": "【避雨】还是先避雨吧",
+          "effects": {
+            "health": -5
+          },
+          "outcome": "你淋了雨，感觉有点不舒服。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_014_betting_challenge",
+      "name": "赌约挑战",
+      "type": "challenge",
+      "trigger_location": "location_training_ground",
+      "trigger_chance": 0.15,
+      "trigger_condition": {
+        "chapter_range": ["chapter_029", "chapter_030"],
+        "reputation": 15
+      },
+      "description": "训练场上，有人向你发起赌约挑战",
+      "dialogue": {
+        "speaker": "npc_challenger",
+        "content": "萧炎，敢不敢和我打个赌？谁输了就...！"
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_014_a",
+          "text": "【接受】好，我接受你的挑战！",
+          "battle": {
+            "enemy": "enemy_challenger",
+            "difficulty": "medium",
+            "wager": 5000
+          },
+          "win_effects": {
+            "gold": 5000,
+            "reputation": 10,
+            "items": ["item_rare_equipment"]
+          },
+          "lose_effects": {
+            "gold": -5000,
+            "reputation": -5
+          }
+        },
+        {
+          "choice_id": "choice_event_014_b",
+          "text": "【拒绝】我不喜欢赌博",
+          "effects": {
+            "reputation": -3
+          },
+          "outcome": "对方嘲讽了你几句，但你不为所动。"
+        }
+      ]
+    },
+
+    {
+      "event_id": "event_015_night_visitor",
+      "name": "夜访神秘人",
+      "type": "mystery",
+      "trigger_location": "location_xiao_residence",
+      "trigger_chance": 0.08,
+      "trigger_condition": {
+        "chapter": "chapter_029",
+        "time_of_day": "night"
+      },
+      "description": "深夜，你的房间来了一位蒙面访客",
+      "dialogue": {
+        "speaker": "npc_mysterious_visitor",
+        "content": "萧炎...我有一个秘密要告诉你，关于你的身世..."
+      },
+      "choices": [
+        {
+          "choice_id": "choice_event_015_a",
+          "text": "【警惕】你是谁？为什么知道我的房间？",
+          "effects": {
+            "intelligence": 2
+          },
+          "outcome": "对方说：'时机到了，你自然会知道。'然后消失了。",
+          "flag": "mysterious_visitor"
+        },
+        {
+          "choice_id": "choice_event_015_b",
+          "text": "【攻击】不管你是谁，擅闯者死！",
+          "condition": {
+            "strength": 60
+          },
+          "battle": {
+            "enemy": "enemy_mysterious_visitor",
+            "difficulty": "very_hard",
+            "can_flee": true
+          },
+          "outcome": "对方实力深不可测，你根本无法伤他分毫。"
+        },
+        {
+          "choice_id": "choice_event_015_c",
+          "text": "【倾听】请说",
+          "effects": {
+            "lore_knowledge": 5
+          },
+          "outcome": "对方透露了一些关于你母亲的秘密...",
+          "flag": "mother_secret",
+          "unlock_quest": "quest_mother_mystery"
+        }
+      ]
+    }
+  ],
+
+  "event_system_settings": {
+    "max_events_per_day": 3,
+    "event_cooldown": 1,
+    "weather_affects_events": true,
+    "time_affects_events": true,
+    "relationship_affects_events": true,
+    "reputation_affects_events": true
+  },
+
+  "weather_types": ["sunny", "cloudy", "rain", "storm", "snow"],
+  "time_periods": ["dawn", "morning", "noon", "afternoon", "evening", "night", "midnight"]
+}

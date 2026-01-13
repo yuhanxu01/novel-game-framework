@@ -1,0 +1,466 @@
+{
+  "side_quests": [
+    {
+      "quest_id": "quest_001_medicine_gathering",
+      "name": "药材采集",
+      "type": "collection",
+      "giver": "char_yaolao",
+      "description": "药老需要一些特殊药材来炼制丹药，他让你去后山采集",
+      "unlock_condition": {
+        "chapter": "chapter_024",
+        "relationship_yaolao": 5
+      },
+      "objectives": [
+        {
+          "id": "obj_001_01",
+          "type": "collect",
+          "description": "采集3株紫晶草",
+          "target": "item_zijingcao",
+          "current": 0,
+          "required": 3
+        },
+        {
+          "id": "obj_001_02",
+          "type": "collect",
+          "description": "采集2个火莲子",
+          "target": "item_huolianzi",
+          "current": 0,
+          "required": 2
+        }
+      ],
+      "time_limit": 5,
+      "difficulty": "easy",
+      "rewards": {
+        "experience": 100,
+        "gold": 500,
+        "items": ["item_huiqidan"],
+        "relationship_yaolao": 5,
+        "alchemy_skill": 1
+      },
+      "failure_consequences": {
+        "relationship_yaolao": -3
+      },
+      "quest_chain": "quest_002_advanced_alchemy"
+    },
+
+    {
+      "quest_id": "quest_002_advanced_alchemy",
+      "name": "高级炼药术",
+      "type": "learning",
+      "giver": "char_yaolao",
+      "description": "药老决定传授你更高级的炼药术",
+      "unlock_condition": {
+        "quest_completed": "quest_001_medicine_gathering",
+        "alchemy_skill": 3
+      },
+      "objectives": [
+        {
+          "id": "obj_002_01",
+          "type": "craft",
+          "description": "成功炼制3瓶筑基灵液",
+          "target": "item_zhujiyeling",
+          "current": 0,
+          "required": 3
+        },
+        {
+          "id": "obj_002_02",
+          "type": "study",
+          "description": "阅读《炼药基础》",
+          "target": "book_alchemy_basic",
+          "completed": false
+        }
+      ],
+      "time_limit": null,
+      "difficulty": "medium",
+      "rewards": {
+        "experience": 300,
+        "alchemy_skill": 3,
+        "relationship_yaolao": 10,
+        "title": "初级炼药师"
+      }
+    },
+
+    {
+      "quest_id": "quest_003_family_patrol",
+      "name": "家族巡逻",
+      "type": "patrol",
+      "giver": "char_xiaozhan",
+      "description": "最近加列家有异动，父亲让你巡逻家族周边，确保安全",
+      "unlock_condition": {
+        "chapter": "chapter_025",
+        "relationship_xiaozhan": 10
+      },
+      "objectives": [
+        {
+          "id": "obj_003_01",
+          "type": "visit",
+          "description": "巡查东城门",
+          "target": "location_east_gate",
+          "completed": false
+        },
+        {
+          "id": "obj_003_02",
+          "type": "visit",
+          "description": "巡查西城门",
+          "target": "location_west_gate",
+          "completed": false
+        },
+        {
+          "id": "obj_003_03",
+          "type": "battle",
+          "description": "击退可疑人员",
+          "target": "enemy_suspicious_person",
+          "completed": false
+        }
+      ],
+      "time_limit": 3,
+      "difficulty": "medium",
+      "rewards": {
+        "experience": 200,
+        "gold": 1000,
+        "relationship_xiaozhan": 8,
+        "family_contribution": 5
+      },
+      "random_events": [
+        {
+          "event_id": "event_patrol_001",
+          "chance": 0.3,
+          "description": "巡逻时遇到加列家的人挑衅"
+        }
+      ]
+    },
+
+    {
+      "quest_id": "quest_004_auction_investigation",
+      "name": "拍卖行情报",
+      "type": "investigation",
+      "giver": "char_yafei",
+      "description": "雅妃请你帮忙调查一个可疑的竞拍者",
+      "unlock_condition": {
+        "chapter": "chapter_024",
+        "item": "item_vip_card"
+      },
+      "objectives": [
+        {
+          "id": "obj_004_01",
+          "type": "talk",
+          "description": "询问拍卖行工作人员",
+          "target": "npc_auction_staff",
+          "completed": false
+        },
+        {
+          "id": "obj_004_02",
+          "type": "investigate",
+          "description": "在拍卖行周围调查",
+          "target": "location_auction_house",
+          "completed": false
+        },
+        {
+          "id": "obj_004_03",
+          "type": "report",
+          "description": "向雅妃汇报调查结果",
+          "target": "char_yafei",
+          "completed": false
+        }
+      ],
+      "time_limit": 7,
+      "difficulty": "easy",
+      "rewards": {
+        "experience": 150,
+        "gold": 2000,
+        "relationship_yafei": 10,
+        "items": ["item_information_scroll"]
+      }
+    },
+
+    {
+      "quest_id": "quest_005_xuner_gift",
+      "name": "薰儿的礼物",
+      "type": "crafting",
+      "giver": "self",
+      "description": "你想为薰儿准备一份特别的礼物",
+      "unlock_condition": {
+        "chapter": "chapter_026",
+        "relationship_xuner": 15
+      },
+      "objectives": [
+        {
+          "id": "obj_005_01",
+          "type": "collect",
+          "description": "收集3个月光石",
+          "target": "item_moonstone",
+          "current": 0,
+          "required": 3
+        },
+        {
+          "id": "obj_005_02",
+          "type": "craft",
+          "description": "制作月光项链",
+          "target": "item_moonlight_necklace",
+          "completed": false
+        },
+        {
+          "id": "obj_005_03",
+          "type": "give",
+          "description": "将项链送给薰儿",
+          "target": "char_xuner",
+          "completed": false
+        }
+      ],
+      "time_limit": null,
+      "difficulty": "medium",
+      "rewards": {
+        "relationship_xuner": 20,
+        "special_scene": "xuner_confession",
+        "unlock_route": "route_004_love"
+      }
+    },
+
+    {
+      "quest_id": "quest_006_defeat_xiaoning",
+      "name": "教训萧宁",
+      "type": "combat",
+      "giver": "self",
+      "description": "萧宁多次挑衅，是时候让他见识你的真正实力了",
+      "unlock_condition": {
+        "chapter": "chapter_030",
+        "cultivation": 7
+      },
+      "objectives": [
+        {
+          "id": "obj_006_01",
+          "type": "battle",
+          "description": "在训练场挑战萧宁",
+          "target": "char_xiaoning",
+          "completed": false
+        },
+        {
+          "id": "obj_006_02",
+          "type": "choose",
+          "description": "决定是否留情",
+          "choices": [
+            {
+              "id": "mercy",
+              "text": "点到为止",
+              "effects": { "charisma": 5, "relationship_xiaoning": 5 }
+            },
+            {
+              "id": "ruthless",
+              "text": "痛打一顿",
+              "effects": { "determination": 5, "relationship_xiaoning": -10, "reputation": 5 }
+            }
+          ]
+        }
+      ],
+      "time_limit": null,
+      "difficulty": "medium",
+      "rewards": {
+        "experience": 250,
+        "reputation": 10,
+        "title": "族中强者"
+      }
+    },
+
+    {
+      "quest_id": "quest_007_secret_technique",
+      "name": "家族秘技",
+      "type": "learning",
+      "giver": "char_xiaozhan",
+      "description": "父亲决定传授你萧家的秘技——焚决残篇",
+      "unlock_condition": {
+        "chapter": "chapter_027",
+        "cultivation": 7,
+        "relationship_xiaozhan": 20,
+        "family_contribution": 10
+      },
+      "objectives": [
+        {
+          "id": "obj_007_01",
+          "type": "study",
+          "description": "研读焚决残篇",
+          "target": "skill_fenjue_fragment",
+          "completed": false
+        },
+        {
+          "id": "obj_007_02",
+          "type": "training",
+          "description": "修炼焚决100次",
+          "current": 0,
+          "required": 100
+        },
+        {
+          "id": "obj_007_03",
+          "type": "master",
+          "description": "领悟焚决第一层",
+          "target": "skill_fenjue_level1",
+          "completed": false
+        }
+      ],
+      "time_limit": null,
+      "difficulty": "hard",
+      "rewards": {
+        "skill": "skill_fenjue_level1",
+        "cultivation": 1,
+        "strength": 10,
+        "relationship_xiaozhan": 15,
+        "unlock_route": "route_007_family"
+      }
+    },
+
+    {
+      "quest_id": "quest_008_business_deal",
+      "name": "商业交易",
+      "type": "business",
+      "giver": "char_yafei",
+      "description": "雅妃邀请你参与一笔大生意",
+      "unlock_condition": {
+        "chapter": "chapter_024",
+        "wealth": 10000,
+        "relationship_yafei": 15
+      },
+      "objectives": [
+        {
+          "id": "obj_008_01",
+          "type": "invest",
+          "description": "投资20000金币",
+          "amount": 20000
+        },
+        {
+          "id": "obj_008_02",
+          "type": "wait",
+          "description": "等待3天",
+          "days": 3
+        },
+        {
+          "id": "obj_008_03",
+          "type": "negotiate",
+          "description": "参与商业谈判",
+          "require_skill": "intelligence >= 70"
+        }
+      ],
+      "time_limit": 10,
+      "difficulty": "medium",
+      "rewards": {
+        "wealth": 50000,
+        "relationship_yafei": 15,
+        "reputation": 15,
+        "unlock_route": "route_002_wisdom"
+      },
+      "failure_consequences": {
+        "wealth": -10000,
+        "relationship_yafei": -10
+      }
+    },
+
+    {
+      "quest_id": "quest_009_mysterious_cave",
+      "name": "神秘山洞",
+      "type": "exploration",
+      "giver": "random_discovery",
+      "description": "后山修炼时，你发现了一个神秘的山洞",
+      "unlock_condition": {
+        "chapter": "chapter_026",
+        "random_chance": 0.2
+      },
+      "objectives": [
+        {
+          "id": "obj_009_01",
+          "type": "explore",
+          "description": "探索山洞深处",
+          "target": "location_mysterious_cave",
+          "completed": false
+        },
+        {
+          "id": "obj_009_02",
+          "type": "solve_puzzle",
+          "description": "破解石门机关",
+          "puzzle_type": "intelligence_check",
+          "difficulty": 75
+        },
+        {
+          "id": "obj_009_03",
+          "type": "battle",
+          "description": "击败守护兽",
+          "target": "enemy_guardian_beast",
+          "completed": false
+        }
+      ],
+      "time_limit": null,
+      "difficulty": "hard",
+      "rewards": {
+        "experience": 500,
+        "items": ["item_ancient_scroll", "item_spirit_stone"],
+        "skill": "skill_ancient_technique",
+        "reputation": 20
+      },
+      "hidden": true
+    },
+
+    {
+      "quest_id": "quest_010_rival_challenge",
+      "name": "宿敌挑战",
+      "type": "combat",
+      "giver": "char_jialebi",
+      "description": "加列毕派他的儿子加列奥来挑战你",
+      "unlock_condition": {
+        "chapter": "chapter_029",
+        "reputation": 20
+      },
+      "objectives": [
+        {
+          "id": "obj_010_01",
+          "type": "accept_challenge",
+          "description": "接受挑战或拒绝",
+          "choices": [
+            {
+              "id": "accept",
+              "text": "接受挑战",
+              "next": "battle_jiale_ao"
+            },
+            {
+              "id": "decline",
+              "text": "拒绝挑战",
+              "effects": { "reputation": -10, "determination": -5 }
+            }
+          ]
+        },
+        {
+          "id": "obj_010_02",
+          "type": "battle",
+          "description": "击败加列奥",
+          "target": "char_jiale_ao",
+          "completed": false
+        }
+      ],
+      "time_limit": null,
+      "difficulty": "hard",
+      "rewards": {
+        "experience": 400,
+        "reputation": 25,
+        "relationship_jiale": -20,
+        "items": ["item_rare_weapon"],
+        "title": "加玛新星"
+      }
+    }
+  ],
+
+  "quest_categories": {
+    "collection": "采集任务",
+    "combat": "战斗任务",
+    "investigation": "调查任务",
+    "learning": "学习任务",
+    "crafting": "制作任务",
+    "business": "商业任务",
+    "exploration": "探索任务",
+    "patrol": "巡逻任务"
+  },
+
+  "quest_system_settings": {
+    "max_active_quests": 5,
+    "quest_log_display": true,
+    "auto_track": true,
+    "quest_markers": true,
+    "daily_quest_refresh": true,
+    "repeatable_quests": ["quest_001_medicine_gathering", "quest_003_family_patrol"]
+  }
+}
