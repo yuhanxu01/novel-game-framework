@@ -1365,6 +1365,1122 @@
             }
           }
         ]
+      },
+      {
+        "chapter_id": "chapter_031",
+        "chapter_name": "第三十一章：一星斗者",
+        "description": "薰儿展示出一星斗者的惊人实力，萧炎随后登场测试。",
+        "scenes": [
+          {
+            "scene_id": "scene_031_001",
+            "scene_name": "石碑前的震撼",
+            "location": "萧家训练场",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_031_001",
+                  "type": "narration",
+                  "content": "石碑前，薰儿伸出皓腕，由于斗之力的输入，黑石碑强芒乍放！",
+                  "next": "node_031_002"
+                },
+                {
+                  "node_id": "node_031_002",
+                  "type": "dialogue",
+                  "speaker": "测验员",
+                  "content": "薰儿小姐，一星斗者！",
+                  "next": "node_031_003"
+                },
+                {
+                  "node_id": "node_031_003",
+                  "type": "narration",
+                  "content": "全场死寂，十五岁的斗者，这在萧家历史上也是极其罕见的。薰儿下台时，对着你俏皮地眨了眨眼。",
+                  "next": "node_031_004"
+                },
+                {
+                  "node_id": "node_031_004",
+                  "type": "dialogue",
+                  "speaker": "char_xuner",
+                  "content": "萧炎哥哥，该你了...",
+                  "next": "node_031_005"
+                },
+                {
+                  "node_id": "node_031_005",
+                  "type": "choice",
+                  "description": "轮到你了。曾经的天才与当下的'废物'，这一步决定了太多人的看法。",
+                  "choices": [
+                    {
+                      "id": "choice_031_001",
+                      "text": "【自信】大步向前，找回属于自己的尊严",
+                      "effects": {
+                        "determination": 5,
+                        "charisma": 2
+                      },
+                      "next": "node_032_001"
+                    },
+                    {
+                      "id": "choice_031_002",
+                      "text": "【淡然】宠辱不惊，让事实说话",
+                      "effects": {
+                        "intelligence": 3
+                      },
+                      "next": "node_032_001"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_032",
+        "chapter_name": "第三十二章：挑战",
+        "description": "萧炎展现七段实力，引发全场地震及萧克的挑战。",
+        "scenes": [
+          {
+            "scene_id": "scene_032_001",
+            "scene_name": "七段之光",
+            "location": "萧家训练场",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_032_001",
+                  "type": "narration",
+                  "content": "你的手抵在石碑上。片刻后，强光陡然爆发，五个大字让全场心跳停止：斗之力，七段！",
+                  "next": "node_032_002"
+                },
+                {
+                  "node_id": "node_032_002",
+                  "type": "dialogue",
+                  "speaker": "char_xiaozhan",
+                  "content": "（激动得捏碎杯子）炎儿...你真的做到了！",
+                  "next": "node_032_003"
+                },
+                {
+                  "node_id": "node_032_003",
+                  "type": "narration",
+                  "content": "测验员嗓音颤抖地宣布结果。然而，人群中传来了质疑声，萧克越众而出。",
+                  "next": "node_032_004"
+                },
+                {
+                  "node_id": "node_032_004",
+                  "type": "dialogue",
+                  "speaker": "萧克",
+                  "content": "我不信！一定是假的！萧炎，我要挑战你！",
+                  "next": "node_032_005"
+                },
+                {
+                  "node_id": "node_032_005",
+                  "type": "choice",
+                  "description": "面对萧克的质疑，你打算怎么做？",
+                  "choices": [
+                    {
+                      "id": "choice_032_001",
+                      "text": "【果断】直接应战，用实力打肿他的脸",
+                      "effects": {
+                        "determination": 3,
+                        "fame": 10
+                      },
+                      "next": "node_033_001"
+                    },
+                    {
+                      "id": "choice_032_002",
+                      "text": "【冷讽】我很像软柿子么？来吧。",
+                      "effects": {
+                        "charisma": 2
+                      },
+                      "next": "node_033_001"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_033",
+        "chapter_name": "第三十三章：证实",
+        "description": "萧炎一招击败萧克，彻底证实实力。",
+        "scenes": [
+          {
+            "scene_id": "scene_033_001",
+            "scene_name": "实力的碾压",
+            "location": "训练场中心",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_033_001",
+                  "type": "narration",
+                  "content": "萧克施展出'劈山掌'，风声猎猎。你身形微侧，轻描淡写地躲过攻击，反手一记'碎石掌'印在他的肩膀。",
+                  "next": "node_033_002"
+                },
+                {
+                  "node_id": "node_033_002",
+                  "type": "narration",
+                  "content": "砰！萧克脸色瞬间惨白，踉跄倒地。全场死寂，这一战，再无质疑。",
+                  "next": "node_033_003"
+                },
+                {
+                  "node_id": "node_033_003",
+                  "type": "dialogue",
+                  "speaker": "萧克",
+                  "content": "（苦笑拱手）萧炎表弟，你赢了...当初你说的没错，莫欺少年穷。",
+                  "next": "chapter_034"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_034",
+        "chapter_name": "第三十四章：翻身",
+        "description": "萧炎彻底翻身，众人态度大变，萧媚示好遭拒。",
+        "scenes": [
+          {
+            "scene_id": "scene_034_001",
+            "scene_name": "态度转换",
+            "location": "训练场边缘",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_034_001",
+                  "type": "narration",
+                  "content": "测试结束，你走向薰儿。曾经那些嘲讽你的眼神，现在都变得敬畏。萧媚竟然也主动凑了上来。",
+                  "next": "node_034_002"
+                },
+                {
+                  "node_id": "node_034_002",
+                  "type": "dialogue",
+                  "speaker": "char_xiaomei",
+                  "content": "萧炎表哥，明天斗技堂有教导课程，你一起去吗？",
+                  "next": "node_034_003"
+                },
+                {
+                  "node_id": "node_034_003",
+                  "type": "choice",
+                  "description": "面对萧媚的变脸式示好，你如何回应？",
+                  "choices": [
+                    {
+                      "id": "choice_034_001",
+                      "text": "【淡然】拒绝，她太现实了",
+                      "effects": {
+                        "relationship_xiaomei": -5,
+                        "intelligence": 2
+                      },
+                      "next": "node_034_004"
+                    },
+                    {
+                      "id": "choice_034_002",
+                      "text": "【回护】由薰儿代为回绝",
+                      "effects": {
+                        "relationship_xuner": 5,
+                        "relationship_xiaomei": -10
+                      },
+                      "next": "node_034_005"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "node_034_005",
+                  "type": "dialogue",
+                  "speaker": "char_xuner",
+                  "content": "不好意思，明天萧炎哥哥要陪我。对吧，哥哥？",
+                  "next": "node_034_006"
+                },
+                {
+                  "node_id": "node_034_006",
+                  "type": "narration",
+                  "content": "萧媚尴尬退场。而远处的萧宁，嫉妒得快要发疯了。",
+                  "next": "chapter_035"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_035",
+        "chapter_name": "第三十五章：罪恶感",
+        "description": "小道上的旖旎与内心斗争。",
+        "scenes": [
+          {
+            "scene_id": "scene_035_001",
+            "scene_name": "旖旎小道",
+            "location": "萧家后山小道",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_035_001",
+                  "type": "narration",
+                  "content": "薰儿挽着你的手，走在铺满碎石的小路上。手臂上传来的温润触感，让你的思绪有些杂乱。",
+                  "next": "node_035_002"
+                },
+                {
+                  "node_id": "node_035_002",
+                  "type": "choice",
+                  "description": "面对这份突如其来的亲昵和内心的'邪念'，你会？",
+                  "choices": [
+                    {
+                      "id": "choice_035_001",
+                      "text": "【自责】心中暗骂自己，怎么能对妹妹有妄想",
+                      "effects": {
+                        "guilt": 10
+                      },
+                      "next": "node_035_003"
+                    },
+                    {
+                      "id": "choice_035_002",
+                      "text": "【享受】感受这一刻的温馨",
+                      "effects": {
+                        "relationship_xuner": 5
+                      },
+                      "next": "node_035_003"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "node_035_003",
+                  "type": "dialogue",
+                  "speaker": "char_xuner",
+                  "content": "（脸红）萧炎哥哥，明天...也要陪着我哦。",
+                  "next": "node_035_004"
+                },
+                {
+                  "node_id": "node_035_004",
+                  "type": "narration",
+                  "content": "落荒而逃的你回到房间，脑中仍挥之不去她的娇羞。纳兰嫣然...我会变强，为了这份守护！",
+                  "next": "end_chapter"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_036",
+        "chapter_name": "第三十六章：滑稽的突破",
+        "description": "成人仪式前夕，萧炎在此刻竟以意想不到的方式突破。",
+        "scenes": [
+          {
+            "scene_id": "scene_036_001",
+            "scene_name": "梦中的突破",
+            "location": "萧炎卧室",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_036_001",
+                  "type": "narration",
+                  "content": "仪式前两天的夜晚，你在睡梦中竟梦游般跳入木盆。等第二天清醒，你惊讶地发现，那层屏障竟然不见了。",
+                  "next": "node_036_002"
+                },
+                {
+                  "node_id": "node_036_002",
+                  "type": "dialogue",
+                  "speaker": "char_yaolao",
+                  "content": "呵呵，看来有些东西是水到渠成。恭喜你，小家伙，已经是第八段了。",
+                  "next": "node_036_003"
+                },
+                {
+                  "node_id": "node_036_003",
+                  "type": "choice",
+                  "description": "面对这种'滑稽'的突破方式，你的感想是？",
+                  "choices": [
+                    {
+                      "id": "choice_036_001",
+                      "text": "【哭笑不得】这突破方式也太随便了吧！",
+                      "effects": {
+                        "intelligence": 2
+                      },
+                      "next": "node_036_004"
+                    },
+                    {
+                      "id": "choice_036_002",
+                      "text": "【坚定】不管怎样，变强就行！成人仪式，我准备好了。",
+                      "effects": {
+                        "determination": 5
+                      },
+                      "next": "node_036_004"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "node_036_004",
+                  "type": "narration",
+                  "content": "第八段斗之气在体内澎湃。你握紧拳头，成人仪式，就让你作为回归的第一步吧！",
+                  "next": "chapter_037",
+                  "effects": {
+                    "cultivation": 8
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_037",
+        "chapter_name": "第三十七章：萧玉",
+        "description": "迦南学院的暴力堂姐归来。",
+        "scenes": [
+          {
+            "scene_id": "scene_037_001",
+            "scene_name": "长腿堂姐",
+            "location": "成人仪式广场",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_037_001",
+                  "type": "narration",
+                  "content": "人群中，一个身材高挑、长腿惊人的女子引起了你的注意。那是你的堂姐萧玉，刚从迦南学院回来。",
+                  "next": "node_037_002"
+                },
+                {
+                  "node_id": "node_037_002",
+                  "type": "dialogue",
+                  "speaker": "萧玉",
+                  "content": "萧炎，听说你翻身了？呵，别又是耍什么手段吧。迦南学院出来的我，可不吃这一套。",
+                  "next": "node_037_003"
+                },
+                {
+                  "node_id": "node_037_003",
+                  "type": "choice",
+                  "description": "面对这位一直对你抱有成见的刁蛮堂姐，你选择？",
+                  "choices": [
+                    {
+                      "id": "choice_037_001",
+                      "text": "【反击】你的腿还是这么长，就是脾气没变好。",
+                      "effects": {
+                        "charisma": 3,
+                        "relationship_xiaonv": -10
+                      },
+                      "next": "node_037_004"
+                    },
+                    {
+                      "id": "choice_037_002",
+                      "text": "【无视】关你屁事。",
+                      "effects": {
+                        "intelligence": 2
+                      },
+                      "next": "node_037_004"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "node_037_004",
+                  "type": "narration",
+                  "content": "萧玉气得脸色通红，娇躯微颤。由于萧战的到来，冲突才暂时平息。",
+                  "next": "chapter_038"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_038",
+        "chapter_name": "第三十八章：这小家伙，不简单呐",
+        "description": "初见雅妃，精明女人的评价。",
+        "scenes": [
+          {
+            "scene_id": "scene_038_001",
+            "scene_name": "雅妃的关注",
+            "location": "贵宾席边缘",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_038_001",
+                  "type": "narration",
+                  "content": "萧战向你介绍了一位惊艳全场的女子——特米尔拍卖行的雅妃。",
+                  "next": "node_038_002"
+                },
+                {
+                  "node_id": "node_038_002",
+                  "type": "dialogue",
+                  "speaker": "char_yafei",
+                  "content": "萧炎小弟弟，听说你最近创造了不少奇迹呢。这双眼睛，真不像个孩子该有的成熟。",
+                  "next": "node_038_003"
+                },
+                {
+                  "node_id": "node_038_003",
+                  "type": "choice",
+                  "description": "面对雅妃审视的目光，你要如何回应？",
+                  "choices": [
+                    {
+                      "id": "choice_038_001",
+                      "text": "【腼腆】雅妃小姐过誉了。",
+                      "effects": {
+                        "charisma": 5,
+                        "relationship_yafei": 5
+                      },
+                      "next": "node_038_004"
+                    },
+                    {
+                      "id": "choice_038_002",
+                      "text": "【成熟】这世界会教人成长的。",
+                      "effects": {
+                        "intelligence": 5,
+                        "relationship_yafei": 10
+                      },
+                      "next": "node_038_004"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "node_038_004",
+                  "type": "narration",
+                  "content": "雅妃掩唇轻笑，眼神中掠过一抹精光。她心中暗道：这小家伙，不简单呐。",
+                  "next": "chapter_039"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_039",
+        "chapter_name": "第三十九章：仪式复测",
+        "description": "成人正式仪式的时刻，万众瞩目。",
+        "scenes": [
+          {
+            "scene_id": "scene_039_001",
+            "scene_name": "繁琐的仪式",
+            "location": "高台之上",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_039_001",
+                  "type": "narration",
+                  "content": "在经历了一系列繁杂的传统仪式后，终于迎来了最关键的环节——复测。这次是由二长老亲自监控。",
+                  "next": "node_039_002"
+                },
+                {
+                  "node_id": "node_039_002",
+                  "type": "narration",
+                  "content": "你缓缓将手放上黑石碑，全场屏息。萧玉在台下瞪大眼睛，她倒要看看你是否真的有七段。",
+                  "next": "node_039_003"
+                },
+                {
+                  "node_id": "node_039_003",
+                  "type": "narration",
+                  "content": "嗡！金色的字符在石碑上凝聚，由于实力的突破，字符再次变换：斗之力，八段！",
+                  "next": "node_040_001",
+                  "effects": {
+                    "fame": 20
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_040",
+        "chapter_name": "第四十章：震撼",
+        "description": "一年五段，惊世骇俗！",
+        "scenes": [
+          {
+            "scene_id": "scene_040_001",
+            "scene_name": "死寂后的爆发",
+            "location": "高台之上",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_040_001",
+                  "type": "narration",
+                  "content": "八段！不再是七段！这意味着你在一年内连跳五级！看台上传来茶杯破碎的声音。",
+                  "next": "node_040_002"
+                },
+                {
+                  "node_id": "node_040_002",
+                  "type": "dialogue",
+                  "speaker": "各家代表",
+                  "content": "这...这怎么可能！萧家...难不成真要出个斗皇强者？",
+                  "next": "node_040_003"
+                },
+                {
+                  "node_id": "node_040_003",
+                  "type": "narration",
+                  "content": "萧战在高台大悦，而萧玉则陷入了思维崩溃。你缓缓走下台，那股来自灵魂深处的淡定，让原本对你敌视的人感到了深深的压力。",
+                  "next": "end_chapter"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_041",
+        "chapter_name": "第四十一章：增气散",
+        "description": "萧宁心怀嫉妒，服用丹药挑战萧炎。",
+        "scenes": [
+          {
+            "scene_id": "scene_041_001",
+            "scene_name": "萧宁的挑战",
+            "location": "成人仪式高台",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_041_001",
+                  "type": "narration",
+                  "content": "测试结束后是挑战环节。本以为无人敢上，萧宁却在萧玉的默许下，吞下一枚绿色丹药，跃上台来。",
+                  "next": "node_041_002"
+                },
+                {
+                  "node_id": "node_041_002",
+                  "type": "dialogue",
+                  "speaker": "萧宁",
+                  "content": "萧炎，别以为等级高就了不起。实战，才是检验实力的唯一标准！我要挑战你！",
+                  "next": "node_041_003"
+                },
+                {
+                  "node_id": "node_041_003",
+                  "type": "choice",
+                  "description": "看着气息诡异暴涨的萧宁，你的回应是？",
+                  "choices": [
+                    {
+                      "id": "choice_041_001",
+                      "text": "【平淡】如你所愿。",
+                      "effects": {
+                        "charisma": 2
+                      },
+                      "next": "node_042_001"
+                    },
+                    {
+                      "id": "choice_041_002",
+                      "text": "【警觉】服用了丹药么？真是不知廉耻。",
+                      "effects": {
+                        "intelligence": 5
+                      },
+                      "next": "node_042_001"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_042",
+        "chapter_name": "第四十二章：你输了",
+        "description": "萧炎展示玄阶斗技，震撼全场。",
+        "scenes": [
+          {
+            "scene_id": "scene_042_001",
+            "scene_name": "玄阶斗技之威",
+            "location": "战斗高台",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_042_001",
+                  "type": "narration",
+                  "content": "战斗开始，萧宁如疯虎般扑来。你摊开手掌，掌心凹陷，一股强横的吸力陡然爆发：吸掌！",
+                  "next": "node_042_002"
+                },
+                {
+                  "node_id": "node_042_002",
+                  "type": "narration",
+                  "content": "萧宁一个重心不稳被拉了过来。紧接着，你反手一掌：吹火掌！狂猛的推力直接将他轰退数步。",
+                  "next": "node_042_003"
+                },
+                {
+                  "node_id": "node_042_003",
+                  "type": "dialogue",
+                  "speaker": "char_xiaoyan",
+                  "content": "你，输了。",
+                  "next": "chapter_043"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_043",
+        "chapter_name": "第四十三章：强横的萧炎",
+        "description": "面对偷袭，展现恐怖实力。",
+        "scenes": [
+          {
+            "scene_id": "scene_043_001",
+            "scene_name": "最后的疯狂",
+            "location": "高台边缘",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_043_001",
+                  "type": "narration",
+                  "content": "萧宁并未认输，反而面带狰狞，借着增气散最后的药力发动了狠辣的偷袭：'小混蛋，去死！'",
+                  "next": "node_043_002"
+                },
+                {
+                  "node_id": "node_043_002",
+                  "type": "narration",
+                  "content": "你眼神一冷，不再留手。体内的斗之气在此刻顺着奇异的脉络疯狂运转。八极崩！",
+                  "next": "node_043_003"
+                },
+                {
+                  "node_id": "node_043_003",
+                  "type": "narration",
+                  "content": "轰！双拳对撞，骨裂声清晰可闻。萧宁整个人如炮弹般飞出高台，重重摔在地上，昏死过去。",
+                  "next": "chapter_044",
+                  "effects": {
+                    "strength": 5
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_044",
+        "chapter_name": "第四十四章：陪你试试",
+        "description": "萧玉的刁难与薰儿的回护。",
+        "scenes": [
+          {
+            "scene_id": "scene_044_001",
+            "scene_name": "薰儿的温柔",
+            "location": "高台之上",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_044_001",
+                  "type": "narration",
+                  "content": "看到弟弟重伤，萧玉怒不可遏跳上高台。就在你已经脱力、准备强行应对时，一道绿影优雅护在你身前。",
+                  "next": "node_044_002"
+                },
+                {
+                  "node_id": "node_044_002",
+                  "type": "dialogue",
+                  "speaker": "char_xuner",
+                  "content": "萧玉表姐，萧炎哥哥已经累了，若真要打，我陪你试试？",
+                  "next": "node_044_003"
+                },
+                {
+                  "node_id": "node_044_003",
+                  "type": "narration",
+                  "content": "萧玉看着眼前这位看似温婉、实则深不可测的少女，最终只能恨恨咬牙退场。",
+                  "next": "node_044_004"
+                },
+                {
+                  "node_id": "node_044_004",
+                  "type": "choice",
+                  "description": "薰儿如此回护你，你的想法是？",
+                  "choices": [
+                    {
+                      "id": "choice_044_001",
+                      "text": "【感动】谢谢你，薰儿。",
+                      "effects": {
+                        "relationship_xuner": 10
+                      },
+                      "next": "chapter_045"
+                    },
+                    {
+                      "id": "choice_044_002",
+                      "text": "【坚定】下次，我会更强，不再让你站在我面前。",
+                      "effects": {
+                        "determination": 10
+                      },
+                      "next": "chapter_045"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_045",
+        "chapter_name": "第四十五章：落幕",
+        "description": "仪式结束，内心的坚持。",
+        "scenes": [
+          {
+            "scene_id": "scene_045_001",
+            "scene_name": "夕阳下的谈话",
+            "location": "后山小径",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_045_001",
+                  "type": "narration",
+                  "content": "成人仪式落下帷幕。薰儿突然提出可以给你弄到更高级的功法，这足以让你少走十年弯路。",
+                  "next": "node_045_002"
+                },
+                {
+                  "node_id": "node_045_002",
+                  "type": "choice",
+                  "description": "面对这份足以改变命运的馈赠，你会？",
+                  "choices": [
+                    {
+                      "id": "choice_045_001",
+                      "text": "【拒绝】路，要自己走。功法，我自己能找。",
+                      "effects": {
+                        "determination": 10,
+                        "intelligence": 5
+                      },
+                      "next": "node_045_003"
+                    },
+                    {
+                      "id": "choice_045_002",
+                      "text": "【婉拒】现在这样，我也能变强。",
+                      "effects": {
+                        "relationship_xuner": 2
+                      },
+                      "next": "node_045_003"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "node_045_003",
+                  "type": "narration",
+                  "content": "拒绝了薰儿后，你轻轻摩挲着手上的古老戒指。你明白，自己选择了一条最难，却也最精彩的路。纳兰嫣然，还有两年！",
+                  "next": "end_chapter"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_046",
+        "chapter_name": "第四十六章：暴怒的萧炎",
+        "description": "萧玉寻仇，后山的激烈对峙。",
+        "scenes": [
+          {
+            "scene_id": "scene_046_001",
+            "scene_name": "后山寻仇",
+            "location": "萧家后山",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_046_001",
+                  "type": "narration",
+                  "content": "你在后山修炼时，萧玉突然杀到。她因弟弟萧宁被打伤而怒火中烧，三星斗者的气息压得你喘不过气。",
+                  "next": "node_046_002"
+                },
+                {
+                  "node_id": "node_046_002",
+                  "type": "dialogue",
+                  "speaker": "萧玉",
+                  "content": "小混蛋，今天就算萧战叔叔在也救不了你！",
+                  "next": "node_046_003"
+                },
+                {
+                  "node_id": "node_046_003",
+                  "type": "choice",
+                  "description": "面对三星斗者的含怒一击，你决定？",
+                  "choices": [
+                    {
+                      "id": "choice_046_001",
+                      "text": "【反击】利用吸掌制造破绽，出奇制胜",
+                      "effects": {
+                        "intelligence": 5,
+                        "fame": 5
+                      },
+                      "next": "node_047_001"
+                    },
+                    {
+                      "id": "choice_046_002",
+                      "text": "【忍让】尽量躲避，解释清楚",
+                      "effects": {
+                        "charisma": 2
+                      },
+                      "next": "node_047_001"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_047",
+        "chapter_name": "第四十七章：亵渎",
+        "description": "占点便宜，报复这一顿打。",
+        "scenes": [
+          {
+            "scene_id": "scene_047_001",
+            "scene_name": "亵渎时刻",
+            "location": "乱石堆旁",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_047_001",
+                  "type": "narration",
+                  "content": "你利用吸掌和推力成功将萧玉压倒。看着她那双傲人的长腿，你心一横，狠狠地摸了一把。",
+                  "next": "node_047_002"
+                },
+                {
+                  "node_id": "node_047_002",
+                  "type": "dialogue",
+                  "speaker": "萧玉",
+                  "content": "（尖叫）萧炎！我要杀了你！",
+                  "next": "node_047_003"
+                },
+                {
+                  "node_id": "node_047_003",
+                  "type": "narration",
+                  "content": "你趁她愣神之际落荒而逃。刚好遇到下山的薰儿，她俏脸似笑非笑地看着你。",
+                  "next": "node_047_004"
+                },
+                {
+                  "node_id": "node_047_004",
+                  "type": "dialogue",
+                  "speaker": "char_xuner",
+                  "content": "看来萧炎哥哥刚才...做了什么不得了的事呢。明天可要进斗气阁了，别太分心哦。",
+                  "next": "chapter_048"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_048",
+        "chapter_name": "第四十八章：斗气阁",
+        "description": "萧家秘地，选择最重要的根基。",
+        "scenes": [
+          {
+            "scene_id": "scene_048_001",
+            "scene_name": "属性测试",
+            "location": "斗气阁门前",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_048_001",
+                  "type": "narration",
+                  "content": "斗气阁，萧家的根基所在。在众人的注视下，你触摸感应水晶。瞬间，炽热的红色代表了你的火属性。",
+                  "next": "node_048_002"
+                },
+                {
+                  "node_id": "node_048_002",
+                  "type": "narration",
+                  "content": "随后薰儿上台，那光芒之盛差点让水晶碎裂。萧战低声告诉你：'去火道第43号房间'。",
+                  "next": "chapter_049"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_049",
+        "chapter_name": "第四十九章：选择功法",
+        "description": "黄阶高级功法，还是更好的选择？",
+        "scenes": [
+          {
+            "scene_id": "scene_049_001",
+            "scene_name": "炼火焚",
+            "location": "火道深处",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_049_001",
+                  "type": "narration",
+                  "content": "第43号房间的光幕异常坚固。你深吸一口气，八极崩！在那恐怖的震劲下，光幕轰然破碎。",
+                  "next": "node_049_002"
+                },
+                {
+                  "node_id": "node_049_002",
+                  "type": "narration",
+                  "content": "你拿到了黄阶高级功法《炼火焚》。薰儿见状，竟然拿出了一卷玄阶高级的《弄炎决》想要送给你。",
+                  "next": "node_049_003"
+                },
+                {
+                  "node_id": "node_049_003",
+                  "type": "choice",
+                  "description": "面对这份重礼，你的坚持是？",
+                  "choices": [
+                    {
+                      "id": "choice_049_001",
+                      "text": "【拒绝】我能弄到更好的。这份情，我会用实力还。",
+                      "effects": {
+                        "determination": 10,
+                        "relationship_xuner": 5
+                      },
+                      "next": "chapter_050"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_050",
+        "chapter_name": "第五十章：帮？",
+        "description": "虽有积怨，但不失底线。",
+        "scenes": [
+          {
+            "scene_id": "scene_050_001",
+            "scene_name": "无助的萧媚",
+            "location": "风道走廊",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_050_001",
+                  "type": "narration",
+                  "content": "路过风道，你看到萧媚正焦急得落泪。因为实力不足，她始终无法打破那一层象征前途的光幕。",
+                  "next": "node_050_002"
+                },
+                {
+                  "node_id": "node_050_002",
+                  "type": "choice",
+                  "description": "她曾如此势利待你，你会伸出援手吗？",
+                  "choices": [
+                    {
+                      "id": "choice_050_001",
+                      "text": "【伸手】仅仅因为这一句表哥。我变强，不是为了报复弱者。",
+                      "effects": {
+                        "charisma": 10,
+                        "relationship_xiaomei": 10
+                      },
+                      "next": "node_050_003"
+                    },
+                    {
+                      "id": "choice_050_002",
+                      "text": "【嘲讽】早知今日，何必当初？",
+                      "effects": {
+                        "intelligence": 2,
+                        "relationship_xiaomei": -10
+                      },
+                      "next": "node_050_003"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "node_050_003",
+                  "type": "narration",
+                  "content": "（如果你选择帮）你走上前，随手一脚踢碎了光幕，在众人的震撼中冷淡离去，只留下萧媚复杂的眼神。",
+                  "next": "chapter_051"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_051",
+        "chapter_name": "第五十一章：安心",
+        "description": "背后的保障，全心全意的突破。",
+        "scenes": [
+          {
+            "scene_id": "scene_051_001",
+            "scene_name": "药老的承诺",
+            "location": "萧家演武场后",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_051_001",
+                  "type": "narration",
+                  "content": "走出斗气阁，萧战满心欢喜。你却在心中暗自焦虑药老的功法是否靠谱。",
+                  "next": "node_051_002"
+                },
+                {
+                  "node_id": "node_051_002",
+                  "type": "dialogue",
+                  "speaker": "char_yaolao",
+                  "content": "呵呵，瞧你那没出息的样。玄阶高级算什么？放心，我给你的东西，日后必不比那妮子差。",
+                  "next": "node_051_003"
+                },
+                {
+                  "node_id": "node_051_003",
+                  "type": "narration",
+                  "content": "有了这句话，你心中最后一丝顾虑也烟消云散。接下来，就是全速冲击斗者！",
+                  "next": "chapter_052"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_052",
+        "chapter_name": "第五十二章：燕返击",
+        "description": "与薰儿的切磋。",
+        "scenes": [
+          {
+            "scene_id": "scene_052_001",
+            "scene_name": "高强度切磋",
+            "location": "萧家后山森林",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_052_001",
+                  "type": "narration",
+                  "content": "森林中，你与薰儿掌风交错。薰儿施展出奇妙的《燕返击》，借力打力，让你吃了不少苦头。",
+                  "next": "node_052_002"
+                },
+                {
+                  "node_id": "node_052_002",
+                  "type": "narration",
+                  "content": "战斗后，你脱力倒在草地上，进入了一种奇妙的冥想状态。",
+                  "next": "chapter_053"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_053",
+        "chapter_name": "第五十三章：第九段",
+        "description": "最后的阶梯，金钱的烦恼。",
+        "scenes": [
+          {
+            "scene_id": "scene_053_001",
+            "scene_name": "水到渠成",
+            "location": "后山森林",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "node_053_001",
+                  "type": "narration",
+                  "content": "在沉睡中，天地斗之气源源不断涌入体内。当你醒来时，已经是斗之气第九段！距离斗者，仅一步之遥。",
+                  "next": "node_053_002",
+                  "effects": {
+                    "cultivation": 9
+                  }
+                },
+                {
+                  "node_id": "node_053_002",
+                  "type": "dialogue",
+                  "speaker": "char_yaolao",
+                  "content": "想要快速晋升，聚气散必不可少。开单子吧：墨叶莲、二级魔核...总共五万金币。",
+                  "next": "node_053_003"
+                },
+                {
+                  "node_id": "node_053_003",
+                  "type": "choice",
+                  "description": "看着空空如也的钱包（仅剩一万），你的对策是？",
+                  "choices": [
+                    {
+                      "id": "choice_053_001",
+                      "text": "【赚钱】炼制筑基灵液去卖，我可是炼药师！",
+                      "effects": {
+                        "intelligence": 5
+                      },
+                      "next": "end_chapter"
+                    },
+                    {
+                      "id": "choice_053_002",
+                      "text": "【无奈】老师，能不能便宜点？",
+                      "effects": {
+                        "charisma": 2
+                      },
+                      "next": "end_chapter"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
       }
     ]
   }
