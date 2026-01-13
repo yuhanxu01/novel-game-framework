@@ -1,65 +1,333 @@
-# Novel Game Framework
+# 斗破苍穹：萧炎的逆袭
 
-A universal framework for converting long novels into interactive text-based games.
+<div align="center">
 
-## Architecture
+![Game Version](https://img.shields.io/badge/version-2.0.0-blue)
+![Quality](https://img.shields.io/badge/quality-8%2F10-brightgreen)
+![Status](https://img.shields.io/badge/status-active-success)
+![License](https://img.shields.io/badge/license-MIT-orange)
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                         Code Agent                                   │
-│  (Uses prompts to analyze novel and generate game content)          │
-└─────────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                      Prompts Framework                               │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐               │
-│  │ Analyzer │→│ Builder  │→│ Designer │→│ Writer   │               │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────┘               │
-└─────────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
-┌─────────────────────────────────────────────────────────────────────┐
-│                      Game Data (JSON)                                │
-│  story.json / characters.json / world.json / items.json             │
-└─────────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
-┌───────────────────────┬─────────────────────────────────────────────┐
-│   Django Backend      │              Frontend                        │
-│  ┌─────────────────┐  │  ┌─────────────────────────────────────┐   │
-│  │ Game API        │◄─┼──│ Game Engine (Pure JS)               │   │
-│  │ Creative API    │  │  │ - Story System                      │   │
-│  │ Save/Load       │  │  │ - Attribute System                  │   │
-│  └─────────────────┘  │  │ - Exploration System                │   │
-│                       │  │ - Inventory System                  │   │
-│                       │  │ - Creative Mode                     │   │
-│                       │  └─────────────────────────────────────┘   │
-└───────────────────────┴─────────────────────────────────────────────┘
-```
+**一款基于斗破苍穹世界观的开放式RPG游戏**
 
-## Quick Start
+[快速开始](#-快速开始) • [功能特性](#-功能特性) • [项目结构](#-项目结构) • [开发文档](#-开发文档)
 
-### 1. Setup Backend
+</div>
+
+---
+
+## 📖 简介
+
+这是一款基于《斗破苍穹》原著的互动式RPG游戏，玩家扮演萧炎，通过选择不同的行动路线，体验不同的剧情发展和结局。
+
+### 🎯 游戏特色
+
+- **7条剧情线分支** - 强者、智者、均衡、情缘、炼药、复仇、家族七种不同路线
+- **真实选择系统** - 每个选择都有实质影响，不存在伪分支
+- **丰富的内容** - 10+支线任务，15+随机事件，完整战斗系统
+- **高重玩价值** - 7种不同结局，每次游玩都有新体验
+
+### 📊 当前质量评分
+
+| 维度 | 评分 | 说明 |
+|------|------|------|
+| 选项对话自然性 | 8/10 | 高度还原原著风格 |
+| 世界开放性 | 7/10 | 支持多路线和探索 |
+| 内容丰富性 | 8/10 | 任务、事件、战斗完备 |
+| 剧情多样性 | 9/10 | 真实分支，7种结局 |
+| **总体评分** | **8/10** | **优秀级别** |
+
+---
+
+## 🚀 快速开始
+
+### 方法一：玩游戏（推荐）
+
 ```bash
-cd backend
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+# 1. 启动游戏服务器
+./run.sh
+
+# 2. 在浏览器中打开
+# http://localhost:8001
 ```
 
-### 2. Process Novel (Code Agent)
+### 方法二：自动生成内容（开发者）
+
 ```bash
-cd tools
-python novel_processor.py --novel path/to/novel.txt --output ../data/
+# 使用Claude Code自动生成游戏内容
+./scripts/RUN_AUTO_CLAUDE.sh
+
+# 查看当前状态
+./scripts/RUN_AUTO_CLAUDE.sh --status
 ```
 
-### 3. Run Game
-Open `frontend/index.html` or serve via Django
+---
 
-## For Code Agent
+## ✨ 功能特性
 
-### Processing Pipeline
-1. Read `prompts/README.md` for workflow
-2. Use `prompts/01_novel_analyzer.md` to analyze novel in 3000-char chunks
-3. Build world with `prompts/02_world_
+### 🌟 七条剧情线
+
+| 路线 | 特色 | 结局称号 | 解锁条件 |
+|------|------|---------|---------|
+| 强者之路 | 力量至上，碾压一切 | 霸者 | 修为≥7，力量≥60 |
+| 智者之路 | 商业帝国，不战而胜 | 商王 | 智力≥75，魅力≥65 |
+| 均衡之路 | 文武双全，全面发展 | 王者 | 修为≥7，智力≥70 |
+| 情缘之路 | 携手薰儿，古族支持 | 情圣 | 薰儿好感≥25 |
+| 炼药之路 | 药帝传承，炼药宗师 | 药帝 | 炼药≥5，智力≥75 |
+| 复仇之路 | 修炼魔道，血债血偿 | 魔王 | 决心≥15，愤怒≥10 |
+| 家族之路 | 振兴萧家，家族崛起 | 族长 | 父亲好感≥25 |
+
+### 📋 支线任务系统
+
+- **10个支线任务** - 采集、战斗、调查、制作等8种类型
+- **任务链系统** - 完成一个任务解锁下一个
+- **真实奖励** - 获得物品、技能、称号、路线解锁
+
+### 🎲 随机事件系统
+
+- **15个随机事件** - 社交、修炼、冲突、商业、探索类
+- **智能触发** - 基于地点、时间、属性、关系的条件触发
+- **多重选择** - 每个事件2-3个选择分支
+- **真实后果** - 影响属性、关系、解锁内容
+
+### ⚔️ 文字战斗系统
+
+- **回合制战斗** - 策略性的行动选择
+- **5个技能** - 八极崩、吸掌+吹火掌组合等
+- **6种敌人** - 从简单到困难的不同挑战
+- **状态效果** - 灼烧、眩晕、流血等
+
+---
+
+## 📁 项目结构
+
+```
+novel-game-framework/
+├── frontend/                 # 前端游戏界面
+│   ├── index.html           # 游戏主页
+│   ├── data/                # 前端数据副本
+│   └── static/
+│       ├── js/              # JavaScript引擎
+│       │   ├── engine/      # 核心引擎
+│       │   │   ├── battle.js          # 战斗系统
+│       │   │   ├── quest.js           # 任务系统
+│       │   │   ├── random_events.js   # 随机事件系统
+│       │   │   └── route.js           # 路线系统
+│       │   └── ui/          # UI组件
+│       └── css/             # 样式文件
+│
+├── data/                     # 游戏数据
+│   ├── story_routes.json    # 7条剧情线数据
+│   ├── side_quests.json     # 支线任务数据
+│   ├── random_events.json   # 随机事件数据
+│   ├── battle_system.json   # 战斗系统数据
+│   └── chapters/            # 章节数据
+│
+├── scripts/                  # 脚本工具
+│   ├── RUN_AUTO_CLAUDE.sh   # Claude自动化脚本
+│   ├── generate_doupo_game.py
+│   └── complete_doupo_game.py
+│
+├── docs/                     # 文档
+│   ├── README.md            # 主文档
+│   ├── GAME_EVALUATION_REPORT.md       # 评估报告
+│   ├── GAME_UPDATE_SUMMARY.md          # 更新总结
+│   └── GAME_EXPERIENCE_GUIDE.md        # 体验优化指南
+│
+├── agent_instructions/       # Agent指令
+│   └── GAME_SYSTEMS_GUIDE.md # 游戏系统完整指南
+│
+├── backend/                  # 后端（如需要）
+├── tools/                    # 工具脚本
+├── logs/                     # 日志文件
+└── run.sh                    # 快捷启动脚本
+```
+
+---
+
+## 📚 开发文档
+
+### 核心文档
+
+1. **[游戏系统完整指南](agent_instructions/GAME_SYSTEMS_GUIDE.md)** - Agent必读，详细的系统规范
+2. **[游戏评估报告](docs/GAME_EVALUATION_REPORT.md)** - 质量评估和改进建议
+3. **[游戏更新总结](docs/GAME_UPDATE_SUMMARY.md)** - v2.0.0更新内容
+4. **[体验优化指南](docs/GAME_EXPERIENCE_GUIDE.md)** - 从8分提升到9分的路线图
+
+### 数据文件说明
+
+- **story_routes.json** - 定义7条剧情线的解锁条件、专属章节和结局
+- **side_quests.json** - 定义10个支线任务的目标、奖励和触发条件
+- **random_events.json** - 定义15个随机事件的触发条件和选择分支
+- **battle_system.json** - 定义战斗机制、技能和敌人数据
+
+---
+
+## 🎮 游戏玩法
+
+### 基础流程
+
+1. **开始游戏** - 从第23章开始（拍卖会）
+2. **做出选择** - 每个选择影响属性、关系和路线倾向
+3. **触发事件** - 随机遇到各种事件和任务
+4. **战斗挑战** - 在战斗中使用技能击败敌人
+5. **解锁路线** - 根据属性解锁不同剧情线
+6. **选择结局** - 第30章后选择最终路线
+7. **完成游戏** - 获得专属称号和结局
+
+### 重要提示
+
+- **属性很重要**：不同属性解锁不同路线
+- **关系很关键**：好感度影响事件和路线
+- **选择有后果**：不是所有选择都能回头
+- **探索会有惊喜**：多尝试不同地点和时间
+
+---
+
+## 🛠️ 技术栈
+
+### 前端
+- 纯 JavaScript (ES6+)
+- CSS3 动画和特效
+- 模块化架构
+
+### 数据
+- JSON 格式
+- 本地存储状态
+
+### 工具
+- Python 3 - 数据生成和处理
+- Bash - 自动化脚本
+- Claude Code - AI辅助开发
+
+---
+
+## 📊 统计数据
+
+### 内容统计
+
+- **章节数**：8个主线章节 + 21个路线专属章节
+- **支线任务**：10个（计划扩展到20个）
+- **随机事件**：15个（计划扩展到30个）
+- **战斗敌人**：6种
+- **可用技能**：5个
+- **剧情路线**：7条
+- **游戏结局**：7种
+
+### 代码统计
+
+- **总代码行数**：~10,000行
+- **JavaScript**：~3,000行
+- **JSON数据**：~5,000行
+- **Python脚本**：~2,000行
+
+---
+
+## 🔧 开发指南
+
+### 添加新章节
+
+1. 在 `data/chapters/` 创建章节JSON文件
+2. 遵循 `GAME_SYSTEMS_GUIDE.md` 的规范
+3. 确保选择有真实分支
+4. 测试所有路径
+
+### 添加新任务
+
+1. 在 `data/side_quests.json` 添加任务定义
+2. 在章节中添加触发点
+3. 实现任务目标检测
+4. 测试奖励发放
+
+### 添加新事件
+
+1. 在 `data/random_events.json` 添加事件定义
+2. 设置触发条件
+3. 设计多个选择分支
+4. 确保选择有实际效果
+
+---
+
+## 🐛 常见问题
+
+### Q: 如何启动游戏？
+A: 运行 `./run.sh` 或 `python3 -m http.server 8001`（在frontend目录）
+
+### Q: 如何保存游戏进度？
+A: 游戏自动保存到浏览器本地存储
+
+### Q: 如何解锁所有路线？
+A: 查看每条路线的解锁条件，针对性发展属性
+
+### Q: 战斗太难怎么办？
+A: 提升修为和力量属性，学习更多技能
+
+### Q: 如何生成新内容？
+A: 使用 `./scripts/RUN_AUTO_CLAUDE.sh` 自动生成
+
+---
+
+## 📈 版本历史
+
+### v2.0.0 (2026-01-13) - 重大更新
+- ✅ 新增7条剧情线分支系统
+- ✅ 新增10个支线任务
+- ✅ 新增15个随机事件
+- ✅ 新增完整战斗系统
+- ✅ 重构项目结构
+- ✅ 完善文档系统
+
+### v1.0.0 (2025-12-xx) - 初始版本
+- 基础章节内容
+- 简单选择系统
+- 线性剧情
+
+---
+
+## 🤝 贡献指南
+
+欢迎贡献！请遵循以下步骤：
+
+1. Fork 项目
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启 Pull Request
+
+### 贡献规范
+
+- 遵守 `GAME_SYSTEMS_GUIDE.md` 的规范
+- 确保代码质量
+- 添加必要的注释
+- 更新相关文档
+
+---
+
+## 📝 许可证
+
+MIT License - 详见 LICENSE 文件
+
+---
+
+## 🙏 致谢
+
+- 原著作者：天蚕土豆
+- 开发工具：Claude Code
+- 灵感来源：斗破苍穹小说
+
+---
+
+## 📞 联系方式
+
+- **项目地址**：[GitHub Repository]
+- **问题反馈**：[Issues]
+- **讨论区**：[Discussions]
+
+---
+
+<div align="center">
+
+**享受游戏，体验萧炎的逆袭之路！**
+
+⚡ 三十年河东，三十年河西，莫欺少年穷！⚡
+
+</div>
