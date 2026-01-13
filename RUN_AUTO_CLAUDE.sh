@@ -353,7 +353,8 @@ EOF
 # 检查是否触发额度限制
 check_quota_limit() {
     if [ -f "$LOG_DIR/claude_output.log" ]; then
-        if grep -qi "rate limit\|quota\|429\|额度" "$LOG_DIR/claude_output.log"; then
+        # 更准确的检测：只检测真正的额度限制错误
+        if grep -qi "rate limit exceeded\|quota exceeded\|429\|usage limit\| hourly.*limit" "$LOG_DIR/claude_output.log"; then
             log "WARN" "⚠️  检测到额度限制"
             update_stats "quota"
             return 1
@@ -477,8 +478,8 @@ main() {
             fi
         fi
 
-        # 检查额度限制
-        if check_quota_limit; then
+        # 检查额度限制（函数返回1表示检测到额度限制）
+        if ! check_quota_limit; then
             if [ "$auto_continue" = true ]; then
                 wait_quota_recovery
             else
