@@ -391,73 +391,135 @@
       {
         "chapter_id": "chapter_001",
         "chapter_name": "第一章：陨落的天才",
-        "description": "曾被誉为天才的少年萧炎，在测试中仅展示出斗之气三段，沦为全族的笑柄。",
+        "description": "曾被誉为天才的少年萧炎，在测验场上面对着冰冷的石碑与无情的嘲讽。",
         "scenes": [
           {
             "scene_id": "scene_001_001",
-            "scene_name": "魔石碑测试",
+            "scene_name": "魔石碑下的宣判",
             "content": {
               "nodes": [
                 {
-                  "节点ID": "node_01_01",
-                  "节点类型": "旁白",
-                  "内容": "“斗之气，三段！”\n望着魔石碑之上闪亮得甚至有些刺眼的五个大字，少年面无表情，唇角带着一抹自嘲。",
-                  "下一节点": "node_01_02"
+                  "node_id": "ch1_n1",
+                  "type": "narration",
+                  "content": "“斗之气，三段！”\n望着魔石碑之上闪亮得甚至有些刺眼的五个大字，你面无表情，唇角带着一抹自嘲。",
+                  "next": "ch1_n2"
                 },
                 {
-                  "节点ID": "node_01_02",
-                  "节点类型": "旁白",
-                  "内容": "周围，传来一阵阵整齐的嘲笑和讥讽。曾经的天才，如今的废物。",
-                  "下一节点": "node_01_03"
+                  "node_id": "ch1_n2",
+                  "type": "narration",
+                  "content": "你紧握的双掌，因为大力，而导致略微尖锐的指甲深深地刺进了掌心之中，带来一阵阵钻心的疼痛...",
+                  "next": "ch1_n3"
                 },
                 {
-                  "节点ID": "node_01_03",
-                  "节点类型": "选择",
-                  "选择描述": "面对族人的嘲弄，你会如何应对？",
-                  "选项": [
+                  "node_id": "ch1_n3",
+                  "type": "dialogue",
+                  "speaker": "测验员",
+                  "content": "萧炎，斗之气，三段！级别：低级！",
+                  "next": "ch1_n4"
+                },
+                {
+                  "node_id": "ch1_n4",
+                  "type": "narration",
+                  "content": "中年男子漠然的声音，如同重锤一般敲击在你的胸口。广场上人群中，那股原本被压抑的骚动，终于爆发了出来。",
+                  "next": "ch1_n5"
+                },
+                {
+                  "node_id": "ch1_n5",
+                  "type": "choice",
+                  "description": "“果然是个废物，这都三年了，还在原地踏步。”讥讽声在耳畔回荡，你打算：",
+                  "choices": [
                     {
-                      "选项ID": "opt_01_01",
-                      "选项文本": "【隐忍】面无表情地走下台",
-                      "效果": {
-                        "determination": 2
+                      "id": "ch1_c1_1",
+                      "text": "【默然而立】漆黑的眸子木然地扫过人群",
+                      "effects": {
+                        "determination": 5,
+                        "intelligence": 2
                       },
-                      "导向": "node_01_04"
+                      "next": "ch1_n6_silent"
                     },
                     {
-                      "选项ID": "opt_01_02",
-                      "选项文本": "【愤怒】紧握拳头，暗暗立誓",
-                      "效果": {
-                        "determination": 5
+                      "id": "ch1_c1_2",
+                      "text": "【自嘲一笑】“呵呵，天才么...”",
+                      "effects": {
+                        "charisma": 5,
+                        "determination": 2
                       },
-                      "导向": "node_01_04"
+                      "next": "ch1_n6_laugh"
                     }
                   ]
                 },
                 {
-                  "节点ID": "node_01_04",
-                  "节点类型": "对话",
-                  "角色": "char_xuner",
-                  "内容": "萧炎哥哥，以前的你，可是很有自信的哦。",
-                  "下一节点": "node_01_05"
+                  "node_id": "ch1_n6_silent",
+                  "type": "narration",
+                  "content": "你没有说话，只是将头埋得更低了一些。那些曾经仰望你的人，此刻正用最刻薄的语言讨还着三年前的‘债务’。",
+                  "next": "ch1_n7"
                 },
                 {
-                  "节点ID": "node_01_05",
-                  "节点类型": "对话",
-                  "角色": "char_xiaoyan",
-                  "内容": "自信？那也是需要实力来支撑的，现在的我，还有什么资格拥有那东西？",
-                  "下一节点": "node_01_06"
+                  "node_id": "ch1_n6_laugh",
+                  "type": "narration",
+                  "content": "你苦涩一笑。三年前，你是家族百年难遇的天才；而现在，你只是个连斗之气旋都凝聚不了的废物。",
+                  "next": "ch1_n7"
                 },
                 {
-                  "节点ID": "node_01_06",
-                  "节点类型": "对话",
-                  "角色": "char_xuner",
-                  "内容": "我相信，总有一天，那个意气风发的萧炎哥哥会回来的。",
-                  "下一节点": "node_01_07"
+                  "node_id": "ch1_n7",
+                  "type": "narration",
+                  "content": "接下来的一位测试者，是萧媚。她莲步微移，带着淡淡的妩媚，引来全场的注目。",
+                  "next": "ch1_n8"
                 },
                 {
-                  "节点ID": "node_01_07",
-                  "节点类型": "旁白",
-                  "内容": "薰儿温柔的目光中透着不容置疑的信任，让你原本冰凉的心稍稍回暖。"
+                  "node_id": "ch1_n8",
+                  "type": "dialogue",
+                  "speaker": "测验员",
+                  "content": "萧媚，斗之气，七段！级别：高级！",
+                  "next": "ch1_n9"
+                },
+                {
+                  "node_id": "ch1_n9",
+                  "type": "narration",
+                  "content": "萧媚脸上的得意之色毫不掩饰。她曾经看向你时那崇拜的眼光，如今已化为路人般的淡漠与疏远。",
+                  "next": "ch1_n10"
+                },
+                {
+                  "node_id": "ch1_n10",
+                  "type": "narration",
+                  "content": "正当你想要离开这喧嚣的广场时，一道清雅的身影挡在了你的面前。是萧薰儿。",
+                  "next": "ch1_n11"
+                },
+                {
+                  "node_id": "ch1_n11",
+                  "type": "dialogue",
+                  "speaker": "char_xuner",
+                  "content": "萧炎哥哥，以前你曾经与薰儿说过，要能放下，才能拿起，提放自如，是自在人！",
+                  "next": "ch1_n12"
+                },
+                {
+                  "node_id": "ch1_n12",
+                  "type": "choice",
+                  "description": "萧薰儿那略显稚嫩却暖人心肺的嗓音，让你：",
+                  "choices": [
+                    {
+                      "id": "ch1_c2_1",
+                      "text": "【苦涩回应】“我也只会说而已，你看我现在的模样...”",
+                      "effects": {
+                        "relationship_xuner": 5
+                      },
+                      "next": "ch1_n13"
+                    },
+                    {
+                      "id": "ch1_c2_2",
+                      "text": "【强颜欢笑】“薰儿，谢谢你。”",
+                      "effects": {
+                        "charisma": 3,
+                        "relationship_xuner": 8
+                      },
+                      "next": "ch1_n13"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ch1_n13",
+                  "type": "narration",
+                  "content": "薰儿目光柔和而坚定。她轻声说道：‘当年的萧炎哥哥，确实很吸引人...薰儿相信，你会回来的。’"
                 }
               ]
             }
@@ -466,61 +528,74 @@
       },
       {
         "chapter_id": "chapter_002",
-        "chapter_name": "第二章：纳兰嫣然",
-        "description": "云岚宗娇女纳兰嫣然上门，气氛紧张诡异。",
+        "chapter_name": "第二章：不速之客的‘礼物’",
+        "description": "云岚宗使者葛叶与纳兰嫣然突然造访，其带来的‘礼物’却藏着让萧家难堪的真相。",
         "scenes": [
           {
             "scene_id": "scene_002_001",
-            "scene_name": "大厅会见",
+            "scene_name": "萧家大厅的压抑",
             "content": {
               "nodes": [
                 {
-                  "节点ID": "node_02_01",
-                  "节点类型": "旁白",
-                  "内容": "萧家大厅内，三位长老正陪着几位尊贵的客人。其中一名少女，容貌娇美，正是云岚宗的纳兰嫣然。",
-                  "下一节点": "node_02_02"
+                  "node_id": "ch2_n1",
+                  "type": "narration",
+                  "content": "萧家大厅内，气氛显得有些诡异。三位位高权重的长老，正满脸笑容地陪着那几位不速之客。",
+                  "next": "ch2_n2"
                 },
                 {
-                  "节点ID": "node_02_02",
-                  "节点类型": "对话",
-                  "角色": "char_xiaozhan",
-                  "内容": "葛叶先生，不知此行，所为何事？",
-                  "下一节点": "node_02_03"
+                  "node_id": "ch2_n2",
+                  "type": "narration",
+                  "content": "在那贵宾席上，一名老者，正轻抚着胡须，身上那套月白色的长袍，胸口处赫然绘着一朵银色浅云。那是...云岚宗！",
+                  "next": "ch2_n3"
                 },
                 {
-                  "节点ID": "node_02_03",
-                  "节点类型": "对话",
-                  "角色": "char_geye",
-                  "内容": "呵呵，萧族长。实不相瞒，此番前来，是为嫣然小姐的婚事。",
-                  "下一节点": "node_02_04"
+                  "node_id": "ch2_n3",
+                  "type": "narration",
+                  "content": "老者身旁，一位娇美少女正低头把玩着裙角。那精致的容貌与眉宇间的傲气，正是你曾经的‘未婚妻’——纳兰嫣然。",
+                  "next": "ch2_n4"
                 },
                 {
-                  "节点ID": "node_02_04",
-                  "节点类型": "选择",
-                  "选择描述": "察觉到不妙的气氛，你打算？",
-                  "选项": [
+                  "node_id": "ch2_n4",
+                  "type": "choice",
+                  "description": "在大厅角落，你察觉到葛叶长老看向父亲时的眼神中带着一丝躲闪。你决定：",
+                  "choices": [
                     {
-                      "选项ID": "opt_02_01",
-                      "选项文本": "保持冷静，静观其变",
-                      "效果": {
-                        "intelligence": 2
+                      "id": "ch2_c1_1",
+                      "text": "【走入大厅】面色平静地向长老们问好",
+                      "effects": {
+                        "charisma": 2,
+                        "intelligence": 5
                       },
-                      "导向": "node_02_05"
+                      "next": "ch2_n5"
                     },
                     {
-                      "选项ID": "opt_02_02",
-                      "选项文本": "紧盯着纳兰嫣然",
-                      "效果": {
+                      "id": "ch2_c1_2",
+                      "text": "【默然而立】站在人群后，评估形势",
+                      "effects": {
+                        "intelligence": 3,
                         "determination": 2
                       },
-                      "导向": "node_02_05"
+                      "next": "ch2_n5"
                     }
                   ]
                 },
                 {
-                  "节点ID": "node_02_05",
-                  "节点类型": "旁白",
-                  "内容": "纳兰嫣然虽然低着头，但眉宇间的傲气却掩盖不住。她似乎已经迫不及待要开口了。"
+                  "node_id": "ch2_n5",
+                  "type": "dialogue",
+                  "speaker": "char_geye",
+                  "content": "呵呵，萧族长客气了。老夫此番前来，除了拜会，还为萧炎小少爷准备了一份薄礼。",
+                  "next": "ch2_n6"
+                },
+                {
+                  "node_id": "ch2_n6",
+                  "type": "narration",
+                  "content": "说着，葛叶手掌轻轻拂过桌面，一个通体翠绿的玉盒出现在众人视线之中。",
+                  "next": "ch2_n7"
+                },
+                {
+                  "node_id": "ch2_n7",
+                  "type": "narration",
+                  "content": "虽然隔着玉盒，但那股淡淡的丹香味依然让在场的所有人精神为之一振。那是...聚气散！"
                 }
               ]
             }
@@ -529,56 +604,76 @@
       },
       {
         "chapter_id": "chapter_003",
-        "chapter_name": "第三章：退婚之辱",
-        "description": "纳兰嫣然正式提出退婚，并以聚气散作为补偿，这对萧家是莫大的羞辱。",
+        "chapter_name": "第三章：退婚流的开端",
+        "description": "纳兰嫣然正式提出退婚，萧家尊严在这一刻被践踏在云岚宗的权势之下。",
         "scenes": [
           {
             "scene_id": "scene_003_001",
-            "scene_name": "羞辱现场",
+            "scene_name": "羞辱之始",
             "content": {
               "nodes": [
                 {
-                  "节点ID": "node_03_01",
-                  "节点类型": "对话",
-                  "角色": "char_geye",
-                  "内容": "云岚宗愿意拿出一枚‘聚气散’，以及三名名额入云岚宗，作为补偿。只求萧家能解除这份婚约。",
-                  "下一节点": "node_03_02"
+                  "node_id": "ch3_n1",
+                  "type": "dialogue",
+                  "speaker": "char_geye",
+                  "content": "实不相瞒，纳兰桀老爷子虽然同意这门亲事，但云岚宗宗主却认为，嫣然小姐目前的修炼需要专注...",
+                  "next": "ch3_n2"
                 },
                 {
-                  "节点ID": "node_03_02",
-                  "节点类型": "旁白",
-                  "内容": "大厅内，气氛瞬间凝固。萧战族长的脸色由于过度愤怒而变得通红，甚至有斗气外泄的迹象。",
-                  "下一节点": "node_03_03"
+                  "node_id": "ch3_n2",
+                  "type": "narration",
+                  "content": "大厅内瞬间死寂。萧战手中的茶杯，缓缓出现了一道清晰的裂痕。",
+                  "next": "ch3_n3"
                 },
                 {
-                  "节点ID": "node_03_03",
-                  "节点类型": "选择",
-                  "选择描述": "纳兰嫣然的行为践踏了家族尊严，你决定：",
-                  "选项": [
+                  "node_id": "ch3_n3",
+                  "type": "dialogue",
+                  "speaker": "char_xiaozhan",
+                  "content": "葛叶长老的意思是...纳兰桀那老家伙，想要悔婚？",
+                  "next": "ch3_n4"
+                },
+                {
+                  "node_id": "ch3_n4",
+                  "type": "narration",
+                  "content": "“不是纳兰爷爷的意思，是我的意思。”纳兰嫣然终于抬起头，那对明亮的眸子里透着倔强与清冷。",
+                  "next": "ch3_n5"
+                },
+                {
+                  "node_id": "ch3_n5",
+                  "type": "choice",
+                  "description": "她站起身，直视着你：‘萧炎，你应该明白，我们之间的差距...如果不满，这一枚聚气散便权当补偿。’",
+                  "choices": [
                     {
-                      "选项ID": "opt_03_01",
-                      "选项文本": "【愤怒】怒斥对方欺人太甚",
-                      "效果": {
+                      "id": "ch3_c1_1",
+                      "text": "【反唇相讥】“在你眼里，尊严就值这一枚药？”",
+                      "effects": {
                         "determination": 10,
                         "reputation": 5
                       },
-                      "导向": "node_03_04"
+                      "next": "ch3_n6"
                     },
                     {
-                      "选项ID": "opt_03_02",
-                      "选项文本": "【冷讽】讥笑云岚宗的‘大方’",
-                      "效果": {
+                      "id": "ch3_c1_2",
+                      "text": "【冷眼旁观】嘲讽地看着那枚绿色的丹药",
+                      "effects": {
                         "intelligence": 5,
                         "determination": 5
                       },
-                      "导向": "node_03_04"
+                      "next": "ch3_n6"
                     }
                   ]
                 },
                 {
-                  "节点ID": "node_03_04",
-                  "节点类型": "旁白",
-                  "内容": "你的声音清脆有力，在大厅内回荡。三位长老虽然眼热聚气散，但在这种大义面前，也不敢公然支持退婚。"
+                  "node_id": "ch3_n6",
+                  "type": "narration",
+                  "content": "萧战猛地站起身，一股雄浑的斗气自其体内爆发出，木桌瞬间崩裂成漫天木屑。",
+                  "next": "ch3_n7"
+                },
+                {
+                  "node_id": "ch3_n7",
+                  "type": "dialogue",
+                  "speaker": "char_xiaozhan",
+                  "content": "好一个云岚宗！好一个纳兰家！当我萧家，真的无人照应不成！？"
                 }
               ]
             }
@@ -587,61 +682,74 @@
       },
       {
         "chapter_id": "chapter_004",
-        "chapter_name": "第四章：三十年河东",
-        "description": "萧炎写下休书，并立下三年之约。",
+        "chapter_name": "第四章：三十年河东，莫欺少年穷",
+        "description": "萧炎当众写下休书，并立下震撼全场的三年之约，以此赢回家族的尊严。",
         "scenes": [
           {
             "scene_id": "scene_004_001",
-            "scene_name": "契约达成",
+            "scene_name": "休书与誓言",
             "content": {
               "nodes": [
                 {
-                  "节点ID": "node_04_01",
-                  "节点类型": "对话",
-                  "角色": "char_xiaoyan",
-                  "内容": "纳兰嫣然，你不需要在这里展示你的高傲。今日，不是你纳兰嫣然要退婚，而是我萧炎——休了你！",
-                  "下一节点": "node_04_02"
+                  "node_id": "ch4_n1",
+                  "type": "narration",
+                  "content": "大厅内，你在一片死寂中缓步上前。父亲那略微颤抖的背影，让你鼻尖微微一酸。",
+                  "next": "ch4_n2"
                 },
                 {
-                  "节点ID": "node_04_02",
-                  "节点类型": "旁白",
-                  "内容": "萧炎挥毫泼墨，一份休书瞬间落成。他将其狠狠掷在纳兰嫣然面前。",
-                  "下一节点": "node_04_03"
+                  "node_id": "ch4_n2",
+                  "type": "narration",
+                  "content": "你抓起桌上的毛笔，在一张白纸上龙飞凤舞地落下一个硕大的笔锋——‘休’！",
+                  "next": "ch4_n3"
                 },
                 {
-                  "节点ID": "node_04_03",
-                  "节点类型": "对话",
-                  "角色": "char_xiaoyan",
-                  "内容": "三十年河东，三十年河西，莫欺少年穷！三年之后，我会上云岚宗，找回今日的尊严！",
-                  "下一节点": "node_04_04"
+                  "node_id": "ch4_n3",
+                  "type": "dialogue",
+                  "speaker": "char_xiaoyan",
+                  "content": "纳兰小姐，你不需要在这里展示你的高傲。今日，不是你纳兰嫣然要退婚，而是我萧炎——休了你！",
+                  "next": "ch4_n4"
                 },
                 {
-                  "节点ID": "node_04_04",
-                  "节点类型": "选择",
-                  "选择描述": "面对你的决裂，纳兰嫣然恼羞成怒，你最后的话是？",
-                  "选项": [
+                  "node_id": "ch4_n4",
+                  "type": "narration",
+                  "content": "你将其狠狠掷在纳兰嫣然面前。她看着纸上那刺眼的血指印（你刚咬破手指），美眸中满是惊愕。",
+                  "next": "ch4_n5"
+                },
+                {
+                  "node_id": "ch4_n5",
+                  "type": "dialogue",
+                  "speaker": "char_xiaoyan",
+                  "content": "三十年河东，三十年河西，莫欺少年穷！三年之后，我会上云岚宗，找回今日之辱！",
+                  "next": "ch4_n6"
+                },
+                {
+                  "node_id": "ch4_n6",
+                  "type": "choice",
+                  "description": "面对你的决裂，纳兰嫣然咬着银牙：‘好...三年后，我在云岚宗等你！’你最后的态度是：",
+                  "choices": [
                     {
-                      "选项ID": "opt_04_01",
-                      "选项文本": "“滚吧，萧家不欢迎你！”",
-                      "效果": {
-                        "determination": 5
+                      "id": "ch4_c1_1",
+                      "text": "【决然】“滚吧，萧家不欢迎你！”",
+                      "effects": {
+                        "determination": 10
                       },
-                      "导向": "node_04_05"
+                      "next": "ch4_n7"
                     },
                     {
-                      "选项ID": "opt_04_02",
-                      "选项文本": "“三年后，云岚宗见。”",
-                      "效果": {
-                        "reputation": 5
+                      "id": "ch4_c1_2",
+                      "text": "【平淡】转身看向父亲，不再理会她",
+                      "effects": {
+                        "intelligence": 5,
+                        "determination": 5
                       },
-                      "导向": "node_04_05"
+                      "next": "ch4_n7"
                     }
                   ]
                 },
                 {
-                  "节点ID": "node_04_05",
-                  "节点类型": "旁白",
-                  "内容": "云岚宗一行人灰溜溜地离开。萧战欣慰地看着你，但也为三年后的约定感到忧心忡忡。"
+                  "node_id": "ch4_n7",
+                  "type": "narration",
+                  "content": "看着云岚宗一行人狼狈离开，萧战眼眶微红，他终于在儿子身上，看到了那消失了三年的傲骨。"
                 }
               ]
             }
@@ -650,60 +758,97 @@
       },
       {
         "chapter_id": "chapter_005",
-        "chapter_name": "第五章：戒指里的老头",
-        "description": "药老苏醒，改变萧炎一生的时刻到了。",
+        "chapter_name": "第五章：药老的苏醒",
+        "description": "深夜后山，吞噬了萧炎三年斗之气的罪魁祸首——药老，终于显露真身。",
         "scenes": [
           {
             "scene_id": "scene_005_001",
-            "scene_name": "后山奇遇",
+            "scene_name": "黑暗中的指引",
             "content": {
               "nodes": [
                 {
-                  "节点ID": "node_05_01",
-                  "节点类型": "旁白",
-                  "内容": "深夜，后山。你正在疯狂修炼，却发现斗之气再次消失在戒指中。",
-                  "下一节点": "node_05_02"
+                  "node_id": "ch5_n1",
+                  "type": "narration",
+                  "content": "深夜，后山。冷月挂在树梢，你正在疯狂修炼，试图找回流失的斗气。",
+                  "next": "ch5_n2"
                 },
                 {
-                  "节点ID": "node_05_02",
-                  "节点类型": "旁白",
-                  "内容": "“呵呵，小家伙，看你挺努力的，老头子我都有些不好意思吸了。”一个苍老的声音突然响起。",
-                  "下一节点": "node_05_03"
+                  "node_id": "ch5_n2",
+                  "type": "narration",
+                  "content": "就在此时，一个苍老而戏谑的声音突然在空旷的山顶响起：‘呵呵，小家伙，看你挺努力的，老头子我都有些不好意思吸了。’",
+                  "next": "ch5_n3"
                 },
                 {
-                  "节点ID": "node_05_03",
-                  "节点类型": "选择",
-                  "选择描述": "面对突然出现的灵魂体，你的反应是？",
-                  "选项": [
+                  "node_id": "ch5_n3",
+                  "type": "narration",
+                  "content": "你猛地回头，只见胸口的漆黑戒指中飘出一缕青烟，化作一个虚幻的老者，正笑眯眯地看着你。",
+                  "next": "ch5_n4"
+                },
+                {
+                  "node_id": "ch5_n4",
+                  "type": "choice",
+                  "description": "得知这三年受苦的真相，你浑身斗气在那一刻由于极度的愤怒而有些沸腾：",
+                  "choices": [
                     {
-                      "选项ID": "opt_05_01",
-                      "选项文本": "【惊恐】你是人是鬼？",
-                      "效果": {
-                        "intelligence": 1
-                      },
-                      "导向": "node_05_04"
-                    },
-                    {
-                      "选项ID": "opt_05_02",
-                      "选项文本": "【愤怒】是你吸走了我的斗气？",
-                      "效果": {
+                      "id": "ch5_c1_1",
+                      "text": "【愤怒】“老家伙，去死吧！”（拔剑劈向残魂）",
+                      "effects": {
                         "determination": 5
                       },
-                      "导向": "node_05_04"
+                      "next": "ch5_n5"
+                    },
+                    {
+                      "id": "ch5_c1_2",
+                      "text": "【冷静】“你是谁？为什么要这样对我？”",
+                      "effects": {
+                        "intelligence": 5
+                      },
+                      "next": "ch5_n5"
                     }
                   ]
                 },
                 {
-                  "节点ID": "node_05_04",
-                  "节点类型": "对话",
-                  "角色": "char_yaolao",
-                  "内容": "老夫药尘。小家伙，这三年辛苦你了。拜我为师，我能让你成为最强大的炼药师。",
-                  "下一节点": "node_05_05"
+                  "node_id": "ch5_n5",
+                  "type": "dialogue",
+                  "speaker": "char_yaolao",
+                  "content": "老夫药尘。小家伙，这三年虽然由于我的存在让你无法进阶，但也极大地磨炼了你的心性。现在的你，才有资格承载我的传承。",
+                  "next": "ch5_n6"
                 },
                 {
-                  "节点ID": "node_05_05",
-                  "节点类型": "旁白",
-                  "内容": "这一刻，你意识到，逆天改命的机会就在眼前。"
+                  "node_id": "ch5_n6",
+                  "type": "dialogue",
+                  "speaker": "char_yaolao",
+                  "content": "拜我为师，我让你在三年之后，站在云岚宗之巅，傲视纳兰。你，可愿意？",
+                  "next": "ch5_n7"
+                },
+                {
+                  "node_id": "ch5_n7",
+                  "type": "choice",
+                  "description": "面对这改变命运的契机，你会：",
+                  "choices": [
+                    {
+                      "id": "ch5_c2_1",
+                      "text": "【渴望】深吸一口气，纳头便拜",
+                      "effects": {
+                        "relationship_yaolao": 10
+                      },
+                      "next": "ch5_n8"
+                    },
+                    {
+                      "id": "ch5_c2_2",
+                      "text": "【审视】“你能给我什么？”",
+                      "effects": {
+                        "intelligence": 5,
+                        "relationship_yaolao": 5
+                      },
+                      "next": "ch5_n8"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ch5_n8",
+                  "type": "narration",
+                  "content": "药尘微微点头：‘好。从今天起，你将开启另一段截然不同的人生。’"
                 }
               ]
             }
@@ -712,48 +857,209 @@
       },
       {
         "chapter_id": "chapter_006",
-        "chapter_name": "第六章：筑基灵液",
-        "description": "药老展示炼药神技，萧炎开始通过灵液加速修炼。",
+        "chapter_name": "第六章：炼药师与筑基灵液",
+        "description": "药老展示炼药神技，萧炎初次了解炼药师的奥秘与筑基灵液的奇效。",
         "scenes": [
           {
             "scene_id": "scene_006_001",
-            "scene_name": "首次炼药",
+            "scene_name": "药老的秘术",
             "content": {
               "nodes": [
                 {
-                  "节点ID": "node_06_01",
-                  "节点类型": "对话",
-                  "角色": "char_yaolao",
-                  "内容": "小家伙，这绿色的液体叫筑基灵液，能让你在斗之气阶段修炼速度翻倍。",
-                  "下一节点": "node_06_02"
+                  "node_id": "ch6_n1",
+                  "type": "narration",
+                  "content": "‘炼药师，这可是斗气大陆上最高贵的职业。’药老虚幻的身影在药鼎旁显得格外庄严。",
+                  "next": "ch6_n2"
                 },
                 {
-                  "节点ID": "node_06_02",
-                  "节点类型": "选择",
-                  "选择描述": "看着这散发着灵气的液体，你的想法是？",
-                  "选项": [
+                  "node_id": "ch6_n2",
+                  "type": "narration",
+                  "content": "他挥手间，一团苍白的火焰（骨灵冷火）在掌心跳跃。那是你从未见过的寒冷与炙热并存的诡异力量。",
+                  "next": "ch6_n3"
+                },
+                {
+                  "node_id": "ch6_n3",
+                  "type": "dialogue",
+                  "speaker": "char_yaolao",
+                  "content": "看好了，小家伙。这筑基灵液，虽然只是二品，但却能让你由于天赋‘废物’而落后的进度，彻底追回来。",
+                  "next": "ch6_n4"
+                },
+                {
+                  "node_id": "ch6_n4",
+                  "type": "choice",
+                  "description": "药老列出了一份清单：紫叶兰草、洗骨花、以及一级木系魔核。你打算：",
+                  "choices": [
                     {
-                      "选项ID": "opt_06_01",
-                      "选项文本": "这也太牛了，老师！",
-                      "效果": {
-                        "relationship_yaolao": 5
-                      },
-                      "导向": "node_06_03"
-                    },
-                    {
-                      "选项ID": "opt_06_02",
-                      "选项文本": "这药材成本多少？我们可以卖吗？",
-                      "效果": {
+                      "id": "ch6_c1_1",
+                      "text": "【好奇】“这些东西在哪能弄到？”",
+                      "effects": {
                         "intelligence": 5
                       },
-                      "导向": "node_06_03"
+                      "next": "ch6_n5"
+                    },
+                    {
+                      "id": "ch6_c1_2",
+                      "text": "【坚定】“哪怕偷，我也要弄齐它们。”",
+                      "effects": {
+                        "determination": 5
+                      },
+                      "next": "ch6_n5"
                     }
                   ]
                 },
                 {
-                  "节点ID": "node_06_03",
-                  "节点类型": "旁白",
-                  "内容": "药老敲了敲你的头：‘没出息，这是给你用的。不过，确实需要去买些药材了。’"
+                  "node_id": "ch6_n5",
+                  "type": "narration",
+                  "content": "你看着那跳动的火焰，心中对力量的渴望再次被点燃。炼药师，或许这才是你反击云岚宗的真正王牌。"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_007",
+        "chapter_name": "第七章：魔核与贫穷的苦涩",
+        "description": "萧炎在筹集药材的过程中，感受到了金钱与地位带来的沉重压力。",
+        "scenes": [
+          {
+            "scene_id": "scene_007_001",
+            "scene_name": "薰儿的温柔",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "ch7_n1",
+                  "type": "narration",
+                  "content": "后山的密林中，你看着药老列出的那长长的清单，心中满是苦涩。药材虽常见，但累加起来的金币，却远非一个挂名的‘天才’能支付得起的。",
+                  "next": "ch7_n2"
+                },
+                {
+                  "node_id": "ch7_n2",
+                  "type": "narration",
+                  "content": "就在此时，一个淡雅的身影如穿花蝴蝶般来到你身边。薰儿递过来一个精致的丝绸钱袋，声音清脆如铃。",
+                  "next": "ch7_n3"
+                },
+                {
+                  "node_id": "ch7_n3",
+                  "type": "dialogue",
+                  "speaker": "char_xuner",
+                  "content": "萧炎哥哥，薰儿这里有些积蓄，不如你先拿去暂用？",
+                  "next": "ch7_n4"
+                },
+                {
+                  "node_id": "ch7_n4",
+                  "type": "choice",
+                  "description": "面对少女纯净的关心，你的自尊与现实正在激烈交战：",
+                  "choices": [
+                    {
+                      "id": "ch7_c1_1",
+                      "text": "【接纳】“谢谢你，薰儿。这笔钱，我日后定会十倍奉还。”",
+                      "effects": {
+                        "relationship_xuner": 10,
+                        "wealth": 1000
+                      },
+                      "next": "ch7_n5"
+                    },
+                    {
+                      "id": "ch7_c1_2",
+                      "text": "【婉拒】“薰儿，我可以自己想办法的。”",
+                      "effects": {
+                        "determination": 10,
+                        "relationship_xuner": 5
+                      },
+                      "next": "ch7_n5"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ch7_n5",
+                  "type": "narration",
+                  "content": "薰儿嫣然一笑，并未多说什么。她这种不着痕迹的体贴，反而让你感到更加暖心。"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_008",
+        "chapter_name": "第8章：坊市风云",
+        "description": "购买药材：萧炎前往家族的坊市采购，却发现加列家的人在恶意压价掠夺资源。",
+        "scenes": [
+          {
+            "scene_id": "scene_008_001",
+            "scene_name": "坊市风云",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "n8_1",
+                  "type": "narration",
+                  "content": "购买药材：萧炎前往家族的坊市采购，却发现加列家的人在恶意压价掠夺资源。\n冲突升级：萧家护卫与加列家由于地盘问题发生争执。\n暗中施压：萧炎利用药老传授的威压技巧（虽然很弱）暗中影响对方。",
+                  "next": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_009",
+        "chapter_name": "第九章：第一次炼制！",
+        "description": "萧炎在药老的指导下，经历了无数次失败，终于炼制出第一瓶筑基灵液。",
+        "scenes": [
+          {
+            "scene_id": "scene_009_001",
+            "scene_name": "火候与精准",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "ch9_n1",
+                  "type": "narration",
+                  "content": "药鼎内，森白的火焰疯狂舞动。你满头大汗，所有的精神力都集中在那跳跃的火苗之上。",
+                  "next": "ch9_n2"
+                },
+                {
+                  "node_id": "ch9_n2",
+                  "type": "dialogue",
+                  "speaker": "char_yaolao",
+                  "content": "稳住！灵魂力量再收缩一点，不要吓到了那株紫叶兰草！",
+                  "next": "ch9_n3"
+                },
+                {
+                  "node_id": "ch9_n3",
+                  "type": "narration",
+                  "content": "伴随着一声轻微的‘噗’响，鼎内又是一团黑灰。这是你今天的第八次失败了。",
+                  "next": "ch9_n4"
+                },
+                {
+                  "node_id": "ch9_n4",
+                  "type": "choice",
+                  "description": "面对接二连三的失败与消耗的斗气，你会选择：",
+                  "choices": [
+                    {
+                      "id": "ch9_c1_1",
+                      "text": "【坚毅】总结错误，立刻开始第九次",
+                      "effects": {
+                        "determination": 10,
+                        "alchemy_skill": 5
+                      },
+                      "next": "ch9_n5"
+                    },
+                    {
+                      "id": "ch9_c1_2",
+                      "text": "【请教】虚心询问药老刚才的火候细节",
+                      "effects": {
+                        "intelligence": 5,
+                        "relationship_yaolao": 5
+                      },
+                      "next": "ch9_n5"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ch9_n5",
+                  "type": "narration",
+                  "content": "当第一滴翡翠般的灵液在鼎底凝聚时，那一股清新的药香味，让你觉得所有的辛苦都值了。"
                 }
               ]
             }
@@ -762,54 +1068,335 @@
       },
       {
         "chapter_id": "chapter_010",
-        "chapter_name": "第十章：米特尔拍卖行",
-        "description": "萧炎变装前往拍卖行，结识妖娆妩媚的雅妃。",
+        "chapter_name": "第十章：米特尔拍卖行与雅妃",
+        "description": "萧炎变装前往米特尔拍卖行，初遇妖娆妩媚的首席拍卖师雅妃。",
         "scenes": [
           {
             "scene_id": "scene_010_001",
-            "scene_name": "神秘黑袍人",
+            "scene_name": "神秘的黑袍人",
             "content": {
               "nodes": [
                 {
-                  "节点ID": "node_10_01",
-                  "节点类型": "旁白",
-                  "内容": "你裹着厚重的黑袍，走进了乌坦城最豪华的米特尔拍卖行。",
-                  "下一节点": "node_10_02"
+                  "node_id": "ch10_n1",
+                  "type": "narration",
+                  "content": "你身着宽大的黑色斗篷，尽量让身体隐没在阴影中。米特尔拍卖行的红地毯极其奢华，你每走一步都显得小心翼翼。",
+                  "next": "ch10_n2"
                 },
                 {
-                  "节点ID": "node_10_02",
-                  "节点类型": "对话",
-                  "角色": "char_yafei",
-                  "内容": "这位大人，不知有什么可以效劳的？",
-                  "下一节点": "node_10_03"
+                  "node_id": "ch10_n2",
+                  "type": "narration",
+                  "content": "就在此时，一股淡淡的幽香袭来。一名身着红色旗袍的女子，迈着优雅的步伐向你走来。",
+                  "next": "ch10_n3"
                 },
                 {
-                  "节点ID": "node_10_03",
-                  "节点类型": "选择",
-                  "选择描述": "面对女人的试探，你压低嗓音，冷淡地说道：",
-                  "选项": [
+                  "node_id": "ch10_n3",
+                  "type": "narration",
+                  "content": "那旗袍的开叉处，隐约露出一截雪白圆润的大腿。她那巧笑焉然的模样，让周围的守卫都有些失神。她就是乌坦城的‘吸金女妖’——雅妃。",
+                  "next": "ch10_n4"
+                },
+                {
+                  "node_id": "ch10_n4",
+                  "type": "dialogue",
+                  "speaker": "char_yafei",
+                  "content": "这位大人，不知有什么可以效劳的？米特尔拍卖行，永远欢迎尊贵的客官。",
+                  "next": "ch10_n5"
+                },
+                {
+                  "node_id": "ch10_n5",
+                  "type": "choice",
+                  "description": "面对雅妃那似乎能看穿人心的桃花眼，你压低了嗓音（由药老代劳）：",
+                  "choices": [
                     {
-                      "选项ID": "opt_10_01",
-                      "选项文本": "“卖药。”（言简意赅）",
-                      "效果": {
-                        "intelligence": 2
+                      "id": "ch10_c1_1",
+                      "text": "【冷淡】“卖药。”",
+                      "effects": {
+                        "intelligence": 5,
+                        "charisma": 2
                       },
-                      "导向": "node_10_04"
+                      "next": "ch10_n6"
                     },
                     {
-                      "选项ID": "opt_10_02",
-                      "选项文本": "“叫你们的高级鉴定师来。”（故作高深）",
-                      "效果": {
-                        "charisma": 3
+                      "id": "ch10_c1_2",
+                      "text": "【傲慢】“让你们的首席鉴定师出来。”",
+                      "effects": {
+                        "reputation": 5,
+                        "charisma": 5
                       },
-                      "导向": "node_10_04"
+                      "next": "ch10_n6"
                     }
                   ]
                 },
                 {
-                  "节点ID": "node_10_04",
-                  "节点类型": "旁白",
-                  "内容": "雅妃美眸微闪，她还是第一次见到语气如此古怪的客人，甚至由于你压低了声音，她完全听不出你的年龄。"
+                  "node_id": "ch10_n6",
+                  "type": "narration",
+                  "content": "雅妃微微一愣，随即掩嘴轻笑，那股妩媚的风情让空气都仿佛变得粘稠起来。她知道，眼前的黑袍人，绝非寻找常之辈。"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_011",
+        "chapter_name": "第十一章：坊市中的冲突",
+        "description": "萧炎在家族坊市中采购药材，却遭遇加列家的人故意挑衅，火药味十足。",
+        "scenes": [
+          {
+            "scene_id": "scene_011_001",
+            "scene_name": "阴影下的较量",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "ch11_n1",
+                  "type": "narration",
+                  "content": "萧家坊市，虽不如往日繁华，却依然充满了人间烟火气。你漫步在琳琅满目的药架间，药老的声音在你脑中不断指点。",
+                  "next": "ch11_n2"
+                },
+                {
+                  "node_id": "ch11_n2",
+                  "type": "narration",
+                  "content": "‘这些洗骨花年份太浅，去前面的那个摊子看看。’药老的声音慵懒而挑剔。",
+                  "next": "ch11_n3"
+                },
+                {
+                  "node_id": "ch11_n3",
+                  "type": "narration",
+                  "content": "就在此时，一群身着加列家服饰的人蛮横地拨开人群，那领头之人，正是加列奥的小跟班。他们故意撞向正在看药的你。",
+                  "next": "ch11_n4"
+                },
+                {
+                  "node_id": "ch11_n4",
+                  "type": "choice",
+                  "description": "对方一边冷笑一边故意打翻了你手中的药材盒：‘哟，这不是萧家的三少爷吗？怎么在这捡这种次品？’你打算：",
+                  "choices": [
+                    {
+                      "id": "ch11_c1_1",
+                      "text": "【隐忍】冷冷地盯着对方，捡起药材（增加定力）",
+                      "effects": {
+                        "determination": 5
+                      },
+                      "next": "ch11_n5"
+                    },
+                    {
+                      "id": "ch11_c1_2",
+                      "text": "【反击】利用斗之气瞬间震开对方（增加名声，但可能提前暴露实力）",
+                      "effects": {
+                        "reputation": 5,
+                        "determination": 2
+                      },
+                      "next": "ch11_n5"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ch11_n5",
+                  "type": "narration",
+                  "content": "那些人的嚣张让你握紧了拳头。你深知，在没有绝对实力前，这些跳梁小丑的挑衅不过是成长的磨刀石。"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_012",
+        "chapter_name": "第十二章：灵魂的悸动与天赋",
+        "description": "药老对萧炎进行灵魂强度测试，揭示其成为炼药师的真正资本。",
+        "scenes": [
+          {
+            "scene_id": "scene_012_001",
+            "scene_name": "无形的触角",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "ch12_n1",
+                  "type": "narration",
+                  "content": "深夜的阁楼，药老的神色比往常严肃了许多。他伸手按在你的眉心，一丝凉意瞬间透入。‘闭上眼，去感受周围的波动。’",
+                  "next": "ch12_n2"
+                },
+                {
+                  "node_id": "ch12_n2",
+                  "type": "narration",
+                  "content": "原本黑暗的视野中，竟渐渐浮现出无数细小的彩色光点。药老惊诧的声音传来：‘居然天生感知力就如此敏锐？这小家伙的灵魂，有趣！’",
+                  "next": "ch12_n3"
+                },
+                {
+                  "node_id": "ch12_n3",
+                  "type": "dialogue",
+                  "speaker": "char_yaolao",
+                  "content": "小家伙，你可知道，强大的灵魂才是炼药师的命根子。你的起点，比当年的我还要高出不少。",
+                  "next": "ch12_n4"
+                },
+                {
+                  "node_id": "ch12_n4",
+                  "type": "choice",
+                  "description": "面对这突如其来的‘顶级评价’，你的第一反应是：",
+                  "choices": [
+                    {
+                      "id": "ch12_c1_1",
+                      "text": "【谦逊】“那只是老师教导有方。”",
+                      "effects": {
+                        "relationship_yaolao": 10,
+                        "intelligence": 5
+                      },
+                      "next": "ch12_n5"
+                    },
+                    {
+                      "id": "ch12_c1_2",
+                      "text": "【狂热】“那我是不是能炼制更高阶的丹药了？”",
+                      "effects": {
+                        "determination": 5,
+                        "alchemy_skill": 2
+                      },
+                      "next": "ch12_n5"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ch12_n5",
+                  "type": "narration",
+                  "content": "药老哈哈一笑：‘路要一步步走。不过，现在的你，确实可以尝试触碰那层隔阂了。’"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_013",
+        "chapter_name": "第十三章：玄阶斗技——吸掌！",
+        "description": "药老正式传授萧炎第一门攻击斗技，展现其独特的战斗风格。",
+        "scenes": [
+          {
+            "scene_id": "scene_013_001",
+            "scene_name": "牵引之力",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "ch13_n1",
+                  "type": "narration",
+                  "content": "后山的树皮被你轰得稀烂。药老摇头：‘太直接了。在绝对的力量面前，刚猛是不够的。’",
+                  "next": "ch13_n2"
+                },
+                {
+                  "node_id": "ch13_n2",
+                  "type": "narration",
+                  "content": "他身形一动，手掌隔空一抓，数丈外的一块巨石竞朝他掌心飞速移来。‘这叫吸掌，玄阶低级。用得好，能让对手在战斗中失去平衡。’",
+                  "next": "ch13_n3"
+                },
+                {
+                  "node_id": "ch13_n3",
+                  "type": "choice",
+                  "description": "学习这种诡异的斗技，你需要极其精准的斗气输出。此时你打算：",
+                  "choices": [
+                    {
+                      "id": "ch13_c1_1",
+                      "text": "【苦练】反复尝试那股瞬间的爆发力",
+                      "effects": {
+                        "determination": 10,
+                        "strength": 5
+                      },
+                      "next": "ch13_n4"
+                    },
+                    {
+                      "id": "ch13_c1_2",
+                      "text": "【体悟】静坐思考斗气与外界空间的联系",
+                      "effects": {
+                        "intelligence": 10
+                      },
+                      "next": "ch13_n4"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ch13_n4",
+                  "type": "narration",
+                  "content": "虽然手掌被空气的摩擦震得生疼，但感受到那股能随心所欲牵扯物体的力量，你眼中写满了兴奋。"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_014",
+        "chapter_name": "第14章：三大家族博弈",
+        "description": "三家会谈：萧家、加列家、奥巴家就商铺利润份额进行谈判。",
+        "scenes": [
+          {
+            "scene_id": "scene_014_001",
+            "scene_name": "三大家族博弈",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "n14_1",
+                  "type": "narration",
+                  "content": "三家会谈：萧家、加列家、奥巴家就商铺利润份额进行谈判。\n萧炎的介入：以‘协助账目审核’的借口介入，实则观察敌方实力。",
+                  "next": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_015",
+        "chapter_name": "第十五章：实力的跃迁",
+        "description": "有了筑基灵液的辅助，萧炎的实力进入了高速成长期，不仅恢复了巅峰，甚至隐隐有所突破。",
+        "scenes": [
+          {
+            "scene_id": "scene_015_001",
+            "scene_name": "经脉的悸动",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "ch15_n1",
+                  "type": "narration",
+                  "content": "木盆中，翡翠色的灵液随着你的呼吸不断波动，一丝丝温润而强大的能量顺着毛孔钻入经脉。",
+                  "next": "ch15_n2"
+                },
+                {
+                  "node_id": "ch15_n2",
+                  "type": "narration",
+                  "content": "那曾经枯竭了三年的气旋遗迹处，此刻正被雄浑的斗之气充盈。你感到浑身的经脉都在由于这种快速的扩张而隐隐作痛。",
+                  "next": "ch15_n3"
+                },
+                {
+                  "node_id": "ch15_n3",
+                  "type": "dialogue",
+                  "speaker": "char_yaolao",
+                  "content": "忍住！这种痛楚是由于你之前的经脉过于萎缩。扩充之后，你的吸纳速度将是常人的数倍！",
+                  "next": "ch15_n4"
+                },
+                {
+                  "node_id": "ch15_n4",
+                  "type": "choice",
+                  "description": "斗之气在冲击那层壁垒，你的意识逐渐模糊，唯一的念头是：",
+                  "choices": [
+                    {
+                      "id": "ch15_c1_1",
+                      "text": "【冲刺】一口气冲破第四段！",
+                      "effects": {
+                        "cultivation": 2,
+                        "determination": 5
+                      },
+                      "next": "ch15_n5"
+                    },
+                    {
+                      "id": "ch15_c1_2",
+                      "text": "【稳健】缓缓引导能量，夯实基础",
+                      "effects": {
+                        "intelligence": 5,
+                        "determination": 2
+                      },
+                      "next": "ch15_n5"
+                    }
+                  ]
+                },
+                {
+                  "node_id": "ch15_n5",
+                  "type": "narration",
+                  "content": "当最后一口能量被吞噬，你缓缓睁开眼，漆黑的瞳孔中掠过一抹如刀锋般的锐利。‘萧炎，回来了。’"
                 }
               ]
             }
@@ -818,55 +1405,153 @@
       },
       {
         "chapter_id": "chapter_016",
-        "chapter_name": "第十六章：八极崩",
-        "description": "萧炎开始练习药老传授的高级斗技，身体承受着巨大的负荷。",
+        "chapter_name": "第16章：苦修与挑战",
+        "description": "八极崩练习：药老传授极具爆发力的斗技‘八极崩’。萧炎在后山由于练习过度导致经脉受损，但随后由于灵液而恢复更强。",
         "scenes": [
           {
             "scene_id": "scene_016_001",
-            "scene_name": "后山苦修",
+            "scene_name": "苦修与挑战",
             "content": {
               "nodes": [
                 {
-                  "节点ID": "node_16_01",
-                  "节点类型": "旁白",
-                  "内容": "“嘭！”的一声巨响，你一拳轰在两人合抱的树干上，树皮崩裂，但你也感到手臂一阵酸麻。",
-                  "下一节点": "node_16_02"
+                  "node_id": "n16_1",
+                  "type": "narration",
+                  "content": "八极崩练习：药老传授极具爆发力的斗技‘八极崩’。萧炎在后山由于练习过度导致经脉受损，但随后由于灵液而恢复更强。\n萧宁的嫉妒：由于萧炎与薰儿越走越近，萧宁数次在演武场发起挑衅。\n七段实力：成人仪式前夕，萧炎正式对外展示出斗之气七段的实力，震惊全族。",
+                  "next": "n16_choice"
                 },
                 {
-                  "节点ID": "node_16_02",
-                  "节点类型": "对话",
-                  "角色": "char_yaolao",
-                  "内容": "八极崩讲究的是内劲的爆发。你的力道还不够集中。",
-                  "下一节点": "node_16_03"
-                },
-                {
-                  "节点ID": "node_16_03",
-                  "节点类型": "选择",
-                  "选择描述": "虽然经脉隐隐作痛，但你决定？",
-                  "选项": [
+                  "node_id": "n16_choice",
+                  "type": "choice",
+                  "description": "萧宁在众人面前嘲笑你只会躲在女人后面时，你打算：",
+                  "choices": [
                     {
-                      "选项ID": "opt_16_01",
-                      "选项文本": "【拼命】再来一百次！",
-                      "效果": {
-                        "determination": 10,
-                        "health": -10
-                      },
-                      "导向": "node_16_04"
+                      "id": "c16_0",
+                      "text": "【正面硬刚】提出在成人仪式上见分晓（增加勇气，锁定战斗剧情）",
+                      "effects": {},
+                      "next": null
                     },
                     {
-                      "选项ID": "opt_16_02",
-                      "选项文本": "【技巧】思考发力的角度",
-                      "效果": {
-                        "intelligence": 5
-                      },
-                      "导向": "node_16_04"
+                      "id": "c16_1",
+                      "text": "【无视】继续和薰儿聊天（增加定力，增加薰儿好感，大幅激怒萧宁）",
+                      "effects": {},
+                      "next": null
+                    },
+                    {
+                      "id": "c16_2",
+                      "text": "【借力使力】让薰儿出面（软饭流？增加智力，但减少名声）",
+                      "effects": {},
+                      "next": null
                     }
                   ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_017",
+        "chapter_name": "第17章：萧玉的回归",
+        "description": "萧玉返乡：正在迦南学院就读的萧家天才少女萧玉归来。",
+        "scenes": [
+          {
+            "scene_id": "scene_017_001",
+            "scene_name": "萧玉的回归",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "n17_1",
+                  "type": "narration",
+                  "content": "萧玉返乡：正在迦南学院就读的萧家天才少女萧玉归来。\n浴室乌龙：原著经典‘摸大腿’桥段（可根据用户倾向修改为误会冲突）。\n萧炎的尴尬：被当成‘小流氓’遭到萧玉的追打。",
+                  "next": "n17_choice"
                 },
                 {
-                  "节点ID": "node_16_04",
-                  "节点类型": "旁白",
-                  "内容": "夕阳下，你枯燥地重复着挥拳。这种坚韧，连药老都微微点头。"
+                  "node_id": "n17_choice",
+                  "type": "choice",
+                  "description": "面对萧玉的纠缠，你如何脱身？",
+                  "choices": [
+                    {
+                      "id": "c17_0",
+                      "text": "【武力震慑】接住她的掌击并展示实力（震惊萧玉）",
+                      "effects": {},
+                      "next": null
+                    },
+                    {
+                      "id": "c17_1",
+                      "text": "【言语调侃】利用那个意外开玩笑（增加调皮属性，萧玉羞涩）",
+                      "effects": {},
+                      "next": null
+                    },
+                    {
+                      "id": "c17_2",
+                      "text": "【诚恳道歉】（增加稳重属性）",
+                      "effects": {},
+                      "next": null
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_018",
+        "chapter_name": "第18章：各方云集",
+        "description": "拍卖会造势：乌坦城由于玄阶功法的传闻而陷入狂热。",
+        "scenes": [
+          {
+            "scene_id": "scene_018_001",
+            "scene_name": "各方云集",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "n18_1",
+                  "type": "narration",
+                  "content": "拍卖会造势：乌坦城由于玄阶功法的传闻而陷入狂热。\n薰儿的背景：隐晦提及薰儿背后的强大势力正在附近接应她。\n萧炎的危机感：意识到纳兰嫣然可能也在云岚宗加速突破。",
+                  "next": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_019",
+        "chapter_name": "第19章：吹火掌",
+        "description": "吸掌与吹火掌的配合：药老传授第二门配套斗技。",
+        "scenes": [
+          {
+            "scene_id": "scene_019_001",
+            "scene_name": "吹火掌",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "n19_1",
+                  "type": "narration",
+                  "content": "吸掌与吹火掌的配合：药老传授第二门配套斗技。\n组合技开发：萧炎自行领悟‘吸力牵引，热风狂舞’的组合战法。",
+                  "next": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_020",
+        "chapter_name": "第20章：测验前的宁静",
+        "description": "后山赏月：与薰儿的深情对白，许下保护她的诺言。",
+        "scenes": [
+          {
+            "scene_id": "scene_020_001",
+            "scene_name": "测验前的宁静",
+            "content": {
+              "nodes": [
+                {
+                  "node_id": "n20_1",
+                  "type": "narration",
+                  "content": "后山赏月：与薰儿的深情对白，许下保护她的诺言。\n药老的提醒：‘这一届成人仪式，将是你名震乌坦城的第一步’。",
+                  "next": null
                 }
               ]
             }
@@ -875,56 +1560,59 @@
       },
       {
         "chapter_id": "chapter_021",
-        "chapter_name": "第二十一章：萧宁的纠缠",
-        "description": "在前往测验场的路上，萧宁由于嫉妒再次挡住了你的去路。",
+        "chapter_name": "第21章：萧宁的挑衅",
+        "description": "演武场对峙：萧宁由于看不惯萧炎与薰儿亲密，在众人面前发起挑衅。",
         "scenes": [
           {
             "scene_id": "scene_021_001",
-            "scene_name": "家族冲突",
+            "scene_name": "萧宁的挑衅",
             "content": {
               "nodes": [
                 {
-                  "节点ID": "node_21_01",
-                  "节点类型": "对话",
-                  "角色": "char_xiaoning",
-                  "内容": "萧炎，离薰儿远点！这种级别的女神，不是你这种走运的‘前天才’能染指的。",
-                  "下一节点": "node_21_02"
+                  "node_id": "n21_1",
+                  "type": "narration",
+                  "content": "演武场对峙：萧宁由于看不惯萧炎与薰儿亲密，在众人面前发起挑衅。\n突破感应：萧炎在愤怒中感应到第七段斗之气的壁垒开始松动。\n萧战介入：族长及时赶到，阻止了私斗，并宣布成人大典的正式规则。",
+                  "next": "n21_choice"
                 },
                 {
-                  "节点ID": "node_21_02",
-                  "节点类型": "对话",
-                  "角色": "char_xuner",
-                  "内容": "萧宁表哥，请自重。",
-                  "下一节点": "node_21_03"
-                },
-                {
-                  "节点ID": "node_21_03",
-                  "节点类型": "选择",
-                  "选择描述": "萧宁挑衅的眼神令人作呕，你打算：",
-                  "选项": [
+                  "node_id": "n21_choice",
+                  "type": "choice",
+                  "description": "面对萧宁的咄咄逼人，你打算：",
+                  "choices": [
                     {
-                      "选项ID": "opt_21_01",
-                      "选项文本": "【不屑】“好狗不挡道。”",
-                      "效果": {
-                        "charisma": 5,
-                        "relationship_xiaoning": -10
-                      },
-                      "导向": "node_21_04"
+                      "id": "c21_0",
+                      "text": "【无视】直接带薰儿离开（增加定力）",
+                      "effects": {},
+                      "next": null
                     },
                     {
-                      "选项ID": "opt_21_02",
-                      "选项文本": "【挑衅】“我就在这里，有本事你动手。”",
-                      "效果": {
-                        "determination": 5
-                      },
-                      "导向": "node_21_04"
+                      "id": "c21_1",
+                      "text": "【反击】用气势压制对方（增加勇气，提前展示部分实力）",
+                      "effects": {},
+                      "next": null
                     }
                   ]
-                },
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "chapter_id": "chapter_022",
+        "chapter_name": "第22章：成人仪式预演",
+        "description": "家族内部审查：三位长老对萧炎进行最后一次羞辱性的资质确认。",
+        "scenes": [
+          {
+            "scene_id": "scene_022_001",
+            "scene_name": "成人仪式预演",
+            "content": {
+              "nodes": [
                 {
-                  "节点ID": "node_21_04",
-                  "节点类型": "旁白",
-                  "内容": "萧宁脸色铁青，但碍于薰儿在场，终究没敢当众动手，只是留下了一句‘测验场上见’的狠话。"
+                  "node_id": "n22_1",
+                  "type": "narration",
+                  "content": "家族内部审查：三位长老对萧炎进行最后一次羞辱性的资质确认。\n萧炎的反击：直接在测验柱上留下深深的掌印。\n雅妃的布局：米特尔拍卖行由于萧炎的‘筑基灵液’而准备针对加列家进行陷阱。",
+                  "next": null
                 }
               ]
             }
@@ -1265,120 +1953,56 @@
       },
       {
         "chapter_id": "chapter_025",
-        "chapter_name": "第二十五章：三年之约",
-        "description": "萧炎购买药材准备闭关，父亲赠送筑基灵液，萧炎立下三年之约",
+        "chapter_name": "第二十五章：钱由我出",
+        "description": "萧炎购买8个月药材准备闭关，萧战赠送筑基灵液（萧炎自己拍卖的），萧炎承诺三年后去云岚宗，薰儿暗中为萧战支付10万金币",
         "scenes": [
           {
             "scene_id": "scene_025_001",
-            "scene_name": "购买药材",
-            "location": "药材店",
+            "scene_name": "父亲的关怀",
             "content": {
               "nodes": [
                 {
-                  "node_id": "node_025_001",
+                  "node_id": "n25_1",
                   "type": "narration",
-                  "content": "接下来的几天，你低调地购买了大量药材——足够支撑八个月的闭关修炼。",
-                  "next": "node_025_002",
-                  "effects": {
-                    "wealth": -8000
-                  }
+                  "content": "拍卖会结束后，你正准备闭关。父亲萧战敲开了你的房门。",
+                  "next": "n25_2"
                 },
                 {
-                  "node_id": "node_025_002",
-                  "type": "dialogue",
-                  "speaker": "char_yaolao",
-                  "content": "有筑基灵液辅助，加上这些药材，一年内突破到第七段不成问题。",
-                  "next": "node_025_003"
-                },
-                {
-                  "node_id": "node_025_003",
-                  "type": "narration",
-                  "content": "回到家中，父亲萧战叫住了你。他拿出一个玉瓶——里面正是筑基灵液！",
-                  "next": "node_025_004"
-                },
-                {
-                  "node_id": "node_025_004",
+                  "node_id": "n25_2",
                   "type": "dialogue",
                   "speaker": "char_xiaozhan",
-                  "content": "炎儿，这是父亲托人买的筑基灵液。你好好修炼，萧家的未来...就靠你了。",
-                  "next": "node_025_005"
+                  "content": "炎儿，这是筑基灵液。哪怕拼尽老底，父亲也希望能让你在成人典礼前有所突破。",
+                  "next": "n25_3"
                 },
                 {
-                  "node_id": "node_025_005",
-                  "type": "narration",
-                  "content": "（你心中苦笑——这正是你自己拍卖出去的那瓶！）",
-                  "next": "node_025_006"
-                },
-                {
-                  "node_id": "node_025_006",
+                  "node_id": "n25_3",
                   "type": "choice",
-                  "description": "面对父亲的期望，你该如何回应？",
+                  "description": "看着父亲递过来的玉瓶（正是你亲手炼制的那瓶），你打算：",
                   "choices": [
                     {
-                      "id": "choice_025_001",
-                      "text": "【坚定】父亲，我一定不会让您失望！",
+                      "id": "c25_1",
+                      "text": "【隐瞒并承诺】“我会变强的，一定。”",
                       "effects": {
-                        "determination": 5,
+                        "determination": 10,
                         "relationship_xiaozhan": 5
                       },
-                      "next": "node_025_007a"
+                      "next": "n25_4"
                     },
                     {
-                      "id": "choice_025_002",
-                      "text": "【承诺】三年后，我会去云岚宗，讨回尊严！",
+                      "id": "c25_2",
+                      "text": "【婉拒】“我有老师在，这还是留给族中吧。”（非原著线）",
                       "effects": {
-                        "determination": 8,
-                        "relationship_xiaozhan": 3
+                        "charisma": 5,
+                        "family_contribution": 10
                       },
-                      "next": "node_025_007b"
-                    },
-                    {
-                      "id": "choice_025_003",
-                      "text": "【温情】父亲，您辛苦了。孩儿会努力的。",
-                      "effects": {
-                        "charisma": 2,
-                        "relationship_xiaozhan": 8
-                      },
-                      "next": "node_025_007c"
+                      "next": "n25_4"
                     }
                   ]
                 },
                 {
-                  "node_id": "node_025_007a",
-                  "type": "dialogue",
-                  "speaker": "char_xiaozhan",
-                  "content": "好！为父相信你！",
-                  "next": "node_025_008"
-                },
-                {
-                  "node_id": "node_025_007b",
-                  "type": "dialogue",
-                  "speaker": "char_xiaozhan",
-                  "content": "三年之约...纳兰嫣然那丫头，她会后悔的！",
-                  "next": "node_025_008"
-                },
-                {
-                  "node_id": "node_025_007c",
-                  "type": "dialogue",
-                  "speaker": "char_xiaozhan",
-                  "content": "（拍拍你的肩膀）炎儿长大了。去吧，好好修炼。",
-                  "next": "node_025_008"
-                },
-                {
-                  "node_id": "node_025_008",
+                  "node_id": "n25_4",
                   "type": "narration",
-                  "content": "你回到房间，却不知道，薰儿正在暗中为父亲支付这笔十万金币的巨款...",
-                  "next": "node_025_009"
-                },
-                {
-                  "node_id": "node_025_009",
-                  "type": "dialogue",
-                  "speaker": "char_xuner",
-                  "content": "（薰儿轻声自语）萧炎哥哥，薰儿会一直守护你的...",
-                  "next": "chapter_026",
-                  "effects": {
-                    "relationship_xuner": 10
-                  }
+                  "content": "除了这瓶灵液，你还察觉到薰儿在背后的默默支持。萧战提到的那笔神秘入账，显然与她有关。"
                 }
               ]
             }
@@ -1387,119 +2011,48 @@
       },
       {
         "chapter_id": "chapter_026",
-        "chapter_name": "第二十六章：闭关修炼",
-        "description": "萧炎进入苦修期，三个月突破到第六段斗之气，掌握八极崩",
+        "chapter_name": "第二十六章：闭关苦修",
         "scenes": [
           {
             "scene_id": "scene_026_001",
-            "scene_name": "山中修炼",
-            "location": "后山树林",
+            "scene_name": "八极崩练习",
             "content": {
               "nodes": [
                 {
-                  "node_id": "node_026_001",
+                  "node_id": "n26_1",
                   "type": "narration",
-                  "content": "三个月的闭关苦修。每天天未亮就起床，在药老的指导下修炼斗之气，然后是挨打训练，锻炼身体硬度。今天，你终于突破到第六段！",
-                  "next": "node_026_002",
-                  "effects": {
-                    "cultivation": 6,
-                    "strength": 10
-                  }
+                  "content": "三个月的苦修枯燥而艰辛。你每一天都在透支体外，试图掌握药老口中那个‘八重内劲’的八极崩。",
+                  "next": "n26_2"
                 },
                 {
-                  "node_id": "node_026_002",
-                  "type": "dialogue",
-                  "speaker": "char_yaolao",
-                  "content": "不错，三个月从五段到六段，比我预计的快。现在，该试试八极崩了。",
-                  "next": "node_026_003"
-                },
-                {
-                  "node_id": "node_026_003",
-                  "type": "narration",
-                  "content": "你站在一棵半米粗的大树前，深吸一口气。体内的斗之气疯狂涌入手肘。",
-                  "next": "node_026_004"
-                },
-                {
-                  "node_id": "node_026_004",
-                  "type": "dialogue",
-                  "speaker": "char_xiaoyan",
-                  "content": "八极崩！",
-                  "next": "node_026_005"
-                },
-                {
-                  "node_id": "node_026_005",
-                  "type": "narration",
-                  "content": "砰！手肘轰在树干上，木屑四溅，蜘蛛网般的裂纹扩散。大树摇晃几下，轰然倒下！成功了！",
-                  "next": "node_026_006",
-                  "effects": {
-                    "items": [
-                      "item_bajibeng"
-                    ],
-                    "strength": 5
-                  }
-                },
-                {
-                  "node_id": "node_026_006",
-                  "type": "dialogue",
-                  "speaker": "char_yaolao",
-                  "content": "玄阶高级的八极崩，你只用六段斗之气就能发挥出八段的威力。好好练，将来这会是你的杀手锏。",
-                  "next": "node_026_007"
-                },
-                {
-                  "node_id": "node_026_007",
+                  "node_id": "n26_2",
                   "type": "choice",
-                  "description": "你看着自己的成果，想起了什么？",
+                  "description": "在这三个月里，除了练习八极崩，你还会分配时间给：",
                   "choices": [
                     {
-                      "id": "choice_026_001",
-                      "text": "【回忆】想起三年前被人嘲笑的场景",
+                      "id": "c26_1",
+                      "text": "【专注斗气】全力冲击斗之气六段",
                       "effects": {
+                        "cultivation": 1,
                         "determination": 5
                       },
-                      "next": "node_026_008a"
+                      "next": "n26_3"
                     },
                     {
-                      "id": "choice_026_002",
-                      "text": "【展望】想象一年后成人仪式的场景",
+                      "id": "c26_2",
+                      "text": "【磨炼灵魂】顺便练习炼药基础",
                       "effects": {
-                        "determination": 3
+                        "alchemy_skill": 2,
+                        "intelligence": 5
                       },
-                      "next": "node_026_008b"
-                    },
-                    {
-                      "id": "choice_026_003",
-                      "text": "【感激】感谢药老的指导",
-                      "effects": {
-                        "relationship_yaolao": 5
-                      },
-                      "next": "node_026_008c"
+                      "next": "n26_3"
                     }
                   ]
                 },
                 {
-                  "node_id": "node_026_008a",
+                  "node_id": "n26_3",
                   "type": "narration",
-                  "content": "你想起三年前，那些嘲笑的眼神，那些轻蔑的话语。拳头紧握——我萧炎三年前能创造奇迹，三年后，我依然能！",
-                  "next": "node_026_009"
-                },
-                {
-                  "node_id": "node_026_008b",
-                  "type": "narration",
-                  "content": "一年后的成人仪式，当你展现第七段斗之气时，那些人会是什么表情？你很期待那一刻。",
-                  "next": "node_026_009"
-                },
-                {
-                  "node_id": "node_026_008c",
-                  "type": "dialogue",
-                  "speaker": "char_xiaoyan",
-                  "content": "老师，谢谢您。没有您，我不可能走到这一步。",
-                  "next": "node_026_009"
-                },
-                {
-                  "node_id": "node_026_009",
-                  "type": "narration",
-                  "content": "你对着天空大吼：纳兰嫣然，我正在一步步朝你爬过去！三年之后，云岚宗见！",
-                  "next": "end_chapter"
+                  "content": "功夫不负有心人，当你第一次在后山巨石上打出沉闷的多重回响时，药老露出了满意的笑容。"
                 }
               ]
             }
@@ -1509,7 +2062,7 @@
       {
         "chapter_id": "chapter_027",
         "chapter_name": "第二十七章：突破瓶颈",
-        "description": "又修炼两个月，萧炎突破到第七段斗之气",
+        "description": "又修炼2个月，萧炎成功突破到第7段斗之气（初阶高级），获得进入斗气阁的资格",
         "scenes": [
           {
             "scene_id": "scene_027_001",
@@ -1599,7 +2152,7 @@
       {
         "chapter_id": "chapter_028",
         "chapter_name": "第二十八章：组合斗技",
-        "description": "萧炎开发出吸掌+吹火掌的强大组合技",
+        "description": "萧炎开发出吸掌+吹火掌的组合技，药老传授吹火掌（玄阶低级），攻击力堪比玄阶中高级斗技",
         "scenes": [
           {
             "scene_id": "scene_028_001",
@@ -1707,7 +2260,7 @@
       {
         "chapter_id": "chapter_029",
         "chapter_name": "第二十九章：成人仪式预测",
-        "description": "成人仪式前，萧炎参加预测，展现第七段实力",
+        "description": "成人仪式前一月，萧炎参加预测（检测斗之气等级），萧炎从第3段到第7段仅用一年，薰儿能看透萧炎实力",
         "scenes": [
           {
             "scene_id": "scene_029_001",
@@ -1802,7 +2355,7 @@
       {
         "chapter_id": "chapter_030",
         "chapter_name": "第三十章：族内冲突",
-        "description": "测试场地，萧宁因嫉妒而挑衅萧炎",
+        "description": "萧炎和薰儿抵达测试场地，萧宁嫉妒萧炎与薰儿的关系",
         "scenes": [
           {
             "scene_id": "scene_030_001",
