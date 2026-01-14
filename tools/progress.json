@@ -2,9 +2,12 @@
     "current_chapter": 69,
     "total_chapters": 1694,
     "auto_mode": true,
-    "review_milestone": 70,
+    "review_milestone": 90,
     "last_success": true,
-    "needs_review": true,
-    "last_review_chapter": 60,
-    "last_review_date": "2026-01-13"
+    "needs_review": false,
+    "last_review_chapter": 69,
+    "last_review_date": "2026-01-13",
+    "review_count": 6,
+    "review_quality": "优秀 (93/100)",
+    "review_status": "通过 (自动批准)"
 }

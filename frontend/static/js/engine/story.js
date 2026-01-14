@@ -14,9 +14,16 @@ const StoryEngine = {
                 return response.data;
             }
         } catch (error) {
-            Utils.error('Failed to load chapter:', error);
+            // Convert to warning if local data exists, otherwise error
+            const localData = this._getLocalChapter(chapterId);
+            if (localData) {
+                Utils.log('Using local chapter data:', chapterId);
+                this._currentChapterData = localData; // Essential to set this for local mode
+                return localData;
+            }
 
-            return this._getLocalChapter(chapterId);
+            Utils.error('Failed to load chapter:', error);
+            return null;
         }
     },
 
@@ -31,9 +38,15 @@ const StoryEngine = {
                 return response.data;
             }
         } catch (error) {
-            Utils.error('Failed to load scene:', error);
+            const localData = this._getLocalScene(sceneId);
+            if (localData) {
+                Utils.log('Using local scene data:', sceneId);
+                this._currentSceneData = localData; // Essential to set this for local mode
+                return localData;
+            }
 
-            return this._getLocalScene(sceneId);
+            Utils.error('Failed to load scene:', error);
+            return null;
         }
     },
 

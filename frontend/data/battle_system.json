@@ -1,0 +1,568 @@
+{
+  "battle_system": {
+    "combat_mechanics": {
+      "turn_based": true,
+      "max_rounds": 20,
+      "escape_chance_base": 0.3,
+      "critical_chance_base": 0.1,
+      "dodge_chance_base": 0.15
+    },
+
+    "action_types": [
+      {
+        "type": "attack",
+        "name": "普通攻击",
+        "description": "使用基础攻击对敌人造成伤害",
+        "stamina_cost": 0,
+        "damage_multiplier": 1.0,
+        "cooldown": 0
+      },
+      {
+        "type": "skill",
+        "name": "使用斗技",
+        "description": "使用学会的斗技攻击敌人",
+        "stamina_cost_varies": true,
+        "damage_multiplier_varies": true,
+        "cooldown_varies": true
+      },
+      {
+        "type": "defend",
+        "name": "防御",
+        "description": "进入防御姿态，减少50%伤害",
+        "stamina_cost": 0,
+        "damage_reduction": 0.5,
+        "cooldown": 0
+      },
+      {
+        "type": "item",
+        "name": "使用物品",
+        "description": "使用背包中的消耗品",
+        "stamina_cost": 0,
+        "cooldown": 0
+      },
+      {
+        "type": "flee",
+        "name": "逃跑",
+        "description": "尝试逃离战斗",
+        "stamina_cost": 20,
+        "success_rate_varies": true,
+        "cooldown": 0
+      }
+    ],
+
+    "damage_calculation": {
+      "formula": "base_damage * (1 + (攻击力 - 防御力) / 100) * skill_multiplier * random(0.9, 1.1)",
+      "critical_multiplier": 2.0,
+      "attribute_influence": {
+        "strength": "影响物理攻击",
+        "cultivation": "影响斗气伤害",
+        "intelligence": "影响技能效果"
+      }
+    }
+  },
+
+  "skills": [
+    {
+      "skill_id": "skill_bajibeng",
+      "name": "八极崩",
+      "type": "physical",
+      "rank": "玄阶高级",
+      "description": "以肘击轰出，威力强大的斗技",
+      "stamina_cost": 30,
+      "damage_multiplier": 2.5,
+      "effects": [
+        {
+          "type": "damage",
+          "value": 150,
+          "attribute_scaling": "strength * 2 + cultivation * 3"
+        },
+        {
+          "type": "armor_break",
+          "value": 0.2,
+          "description": "无视敌人20%防御"
+        }
+      ],
+      "cooldown": 2,
+      "unlock_condition": {
+        "chapter": "chapter_026",
+        "cultivation": 6
+      },
+      "animation_text": "萧炎深吸一口气，斗气疯狂涌入手肘，猛然轰出——八极崩！"
+    },
+    {
+      "skill_id": "skill_xizh_chuihuozhang",
+      "name": "吸掌+吹火掌组合",
+      "type": "combo",
+      "rank": "玄阶中级",
+      "description": "先用吸掌控制敌人，再以吹火掌攻击",
+      "stamina_cost": 25,
+      "damage_multiplier": 1.8,
+      "effects": [
+        {
+          "type": "control",
+          "duration": 1,
+          "description": "敌人无法闪避下一次攻击"
+        },
+        {
+          "type": "fire_damage",
+          "value": 100,
+          "attribute_scaling": "cultivation * 2"
+        },
+        {
+          "type": "burn",
+          "chance": 0.3,
+          "duration": 2,
+          "damage_per_turn": 20
+        }
+      ],
+      "cooldown": 1,
+      "unlock_condition": {
+        "chapter": "chapter_028"
+      },
+      "animation_text": "萧炎右手吸掌，将敌人拉近，左手吹火掌瞬间打出，火焰吞没敌人！"
+    },
+    {
+      "skill_id": "skill_xizh",
+      "name": "吸掌",
+      "type": "control",
+      "rank": "玄阶低级",
+      "description": "吸取对手，将其拉向自己",
+      "stamina_cost": 15,
+      "damage_multiplier": 0.5,
+      "effects": [
+        {
+          "type": "pull",
+          "description": "将敌人拉近"
+        },
+        {
+          "type": "control",
+          "duration": 1
+        },
+        {
+          "type": "damage",
+          "value": 50
+        }
+      ],
+      "cooldown": 1,
+      "animation_text": "萧炎手掌一吸，强大的吸力将敌人拉了过来！"
+    },
+    {
+      "skill_id": "skill_chuihuozhang",
+      "name": "吹火掌",
+      "type": "fire",
+      "rank": "玄阶低级",
+      "description": "火焰攻击斗技",
+      "stamina_cost": 18,
+      "damage_multiplier": 1.3,
+      "effects": [
+        {
+          "type": "fire_damage",
+          "value": 80,
+          "attribute_scaling": "cultivation * 1.5"
+        },
+        {
+          "type": "burn",
+          "chance": 0.2,
+          "duration": 2,
+          "damage_per_turn": 15
+        }
+      ],
+      "cooldown": 1,
+      "animation_text": "萧炎一掌推出，炽热的火焰呼啸而出！"
+    },
+    {
+      "skill_id": "skill_fenjue_level1",
+      "name": "焚决·第一层",
+      "type": "cultivation",
+      "rank": "地阶低级",
+      "description": "萧家秘技焚决的第一层",
+      "stamina_cost": 40,
+      "damage_multiplier": 3.0,
+      "effects": [
+        {
+          "type": "fire_damage",
+          "value": 200,
+          "attribute_scaling": "cultivation * 4"
+        },
+        {
+          "type": "cultivation_boost",
+          "value": 0.2,
+          "duration": 3,
+          "description": "提升20%攻击力"
+        }
+      ],
+      "cooldown": 3,
+      "unlock_condition": {
+        "quest_completed": "quest_007_secret_technique"
+      },
+      "animation_text": "萧炎运转焚决，恐怖的火焰从体内爆发，焚天煮海！"
+    }
+  ],
+
+  "enemies": [
+    {
+      "enemy_id": "enemy_xiaoning",
+      "name": "萧宁",
+      "type": "human",
+      "level": 4,
+      "description": "萧家族人，修为第四段斗之气",
+      "stats": {
+        "max_hp": 150,
+        "max_stamina": 100,
+        "attack": 40,
+        "defense": 30,
+        "cultivation": 4,
+        "speed": 35
+      },
+      "skills": [
+        {
+          "skill_id": "basic_punch",
+          "name": "基础拳法",
+          "damage": 50,
+          "stamina_cost": 10
+        },
+        {
+          "skill_id": "family_technique",
+          "name": "家族斗技",
+          "damage": 80,
+          "stamina_cost": 25,
+          "cooldown": 2
+        }
+      ],
+      "ai_pattern": "balanced",
+      "drop_rewards": {
+        "experience": 100,
+        "gold": 500,
+        "items": [
+          { "item_id": "item_healing_potion", "chance": 0.5 }
+        ]
+      },
+      "defeat_dialogue": "我...我输了。萧炎，我小看你了..."
+    },
+    {
+      "enemy_id": "enemy_jiale_members",
+      "name": "加列家族人（3人）",
+      "type": "group",
+      "level": 5,
+      "description": "三个加列家的年轻修炼者",
+      "stats": {
+        "max_hp": 200,
+        "max_stamina": 120,
+        "attack": 50,
+        "defense": 35,
+        "cultivation": 5,
+        "speed": 40
+      },
+      "skills": [
+        {
+          "skill_id": "group_attack",
+          "name": "群体攻击",
+          "damage": 60,
+          "stamina_cost": 15,
+          "multi_hit": 3
+        },
+        {
+          "skill_id": "wind_blade",
+          "name": "风刃",
+          "damage": 90,
+          "stamina_cost": 30,
+          "cooldown": 2
+        }
+      ],
+      "ai_pattern": "aggressive",
+      "drop_rewards": {
+        "experience": 200,
+        "gold": 1000,
+        "reputation": 10,
+        "items": [
+          { "item_id": "item_wind_crystal", "chance": 0.3 }
+        ]
+      }
+    },
+    {
+      "enemy_id": "enemy_guardian_beast",
+      "name": "守护灵兽",
+      "type": "beast",
+      "level": 7,
+      "description": "守护天材地宝的强大灵兽",
+      "stats": {
+        "max_hp": 300,
+        "max_stamina": 150,
+        "attack": 70,
+        "defense": 50,
+        "cultivation": 7,
+        "speed": 55
+      },
+      "skills": [
+        {
+          "skill_id": "claw_strike",
+          "name": "利爪撕裂",
+          "damage": 100,
+          "stamina_cost": 20,
+          "effects": [
+            { "type": "bleed", "duration": 2, "damage_per_turn": 15 }
+          ]
+        },
+        {
+          "skill_id": "roar",
+          "name": "兽吼",
+          "damage": 0,
+          "stamina_cost": 30,
+          "effects": [
+            { "type": "stun", "chance": 0.4, "duration": 1 }
+          ],
+          "cooldown": 3
+        },
+        {
+          "skill_id": "frenzy",
+          "name": "狂暴",
+          "damage": 150,
+          "stamina_cost": 50,
+          "condition": "hp < 30%",
+          "cooldown": 5
+        }
+      ],
+      "ai_pattern": "defensive_until_low_hp",
+      "drop_rewards": {
+        "experience": 500,
+        "gold": 2000,
+        "items": [
+          { "item_id": "item_beast_core", "chance": 0.8 },
+          { "item_id": "item_spirit_essence", "chance": 0.5 }
+        ]
+      }
+    },
+    {
+      "enemy_id": "enemy_jiale_ao",
+      "name": "加列奥",
+      "type": "human",
+      "level": 7,
+      "description": "加列家天才，掌握风卷决",
+      "stats": {
+        "max_hp": 250,
+        "max_stamina": 140,
+        "attack": 75,
+        "defense": 60,
+        "cultivation": 7,
+        "speed": 65
+      },
+      "skills": [
+        {
+          "skill_id": "wind_roll",
+          "name": "风卷",
+          "damage": 120,
+          "stamina_cost": 35,
+          "effects": [
+            { "type": "knockback", "description": "击退对手" }
+          ],
+          "cooldown": 2
+        },
+        {
+          "skill_id": "wind_blade_storm",
+          "name": "风刃风暴",
+          "damage": 90,
+          "stamina_cost": 40,
+          "multi_hit": 4,
+          "cooldown": 3
+        },
+        {
+          "skill_id": "wind_barrier",
+          "name": "风之壁",
+          "damage": 0,
+          "stamina_cost": 25,
+          "effects": [
+            { "type": "shield", "value": 100, "duration": 2 }
+          ],
+          "cooldown": 4
+        }
+      ],
+      "ai_pattern": "tactical",
+      "special_dialogue": {
+        "battle_start": "萧炎，让你见识风卷决的威力！",
+        "hp_50": "可恶...竟然被你逼到这个地步！",
+        "defeat": "我...我输了。萧家，果然不可小觑..."
+      },
+      "drop_rewards": {
+        "experience": 600,
+        "gold": 5000,
+        "reputation": 30,
+        "items": [
+          { "item_id": "item_rare_weapon", "chance": 1.0 }
+        ]
+      }
+    },
+    {
+      "enemy_id": "enemy_suspicious_person",
+      "name": "可疑人员",
+      "type": "human",
+      "level": 6,
+      "description": "在萧家周边徘徊的可疑人物",
+      "stats": {
+        "max_hp": 180,
+        "max_stamina": 110,
+        "attack": 60,
+        "defense": 40,
+        "cultivation": 6,
+        "speed": 50
+      },
+      "skills": [
+        {
+          "skill_id": "sneak_attack",
+          "name": "偷袭",
+          "damage": 100,
+          "stamina_cost": 30,
+          "first_turn_only": true
+        },
+        {
+          "skill_id": "smoke_bomb",
+          "name": "烟雾弹",
+          "damage": 0,
+          "stamina_cost": 20,
+          "effects": [
+            { "type": "miss_chance", "value": 0.5, "duration": 2 }
+          ],
+          "cooldown": 3
+        }
+      ],
+      "ai_pattern": "hit_and_run",
+      "escape_chance": 0.3,
+      "drop_rewards": {
+        "experience": 150,
+        "gold": 800,
+        "items": [
+          { "item_id": "item_information_scroll", "chance": 0.6 }
+        ]
+      }
+    },
+    {
+      "enemy_id": "enemy_spirit_beast",
+      "name": "幽灵兽",
+      "type": "beast",
+      "level": 8,
+      "description": "稀有的灵兽，速度极快",
+      "stats": {
+        "max_hp": 220,
+        "max_stamina": 160,
+        "attack": 80,
+        "defense": 35,
+        "cultivation": 8,
+        "speed": 75
+      },
+      "skills": [
+        {
+          "skill_id": "phantom_strike",
+          "name": "幻影突袭",
+          "damage": 110,
+          "stamina_cost": 35,
+          "effects": [
+            { "type": "guaranteed_hit", "description": "无法闪避" }
+          ],
+          "cooldown": 2
+        },
+        {
+          "skill_id": "vanish",
+          "name": "消失",
+          "damage": 0,
+          "stamina_cost": 40,
+          "effects": [
+            { "type": "evasion", "value": 0.8, "duration": 1 }
+          ],
+          "cooldown": 4
+        }
+      ],
+      "ai_pattern": "evasive",
+      "drop_rewards": {
+        "experience": 700,
+        "gold": 3000,
+        "items": [
+          { "item_id": "item_spirit_stone", "chance": 0.7 },
+          { "item_id": "item_speed_boots", "chance": 0.4 }
+        ]
+      }
+    }
+  ],
+
+  "battle_ui": {
+    "display_elements": [
+      "player_hp_bar",
+      "player_stamina_bar",
+      "enemy_hp_bar",
+      "battle_log",
+      "action_buttons",
+      "skill_list",
+      "item_list"
+    ],
+    "animation_text_enabled": true,
+    "auto_battle_option": false,
+    "battle_speed_options": ["normal", "fast", "instant"]
+  },
+
+  "status_effects": [
+    {
+      "effect_id": "burn",
+      "name": "灼烧",
+      "type": "damage_over_time",
+      "description": "每回合受到火焰伤害",
+      "icon": "🔥"
+    },
+    {
+      "effect_id": "stun",
+      "name": "眩晕",
+      "type": "control",
+      "description": "无法行动",
+      "icon": "💫"
+    },
+    {
+      "effect_id": "bleed",
+      "name": "流血",
+      "type": "damage_over_time",
+      "description": "每回合失血",
+      "icon": "🩸"
+    },
+    {
+      "effect_id": "shield",
+      "name": "护盾",
+      "type": "buff",
+      "description": "吸收伤害",
+      "icon": "🛡️"
+    },
+    {
+      "effect_id": "cultivation_boost",
+      "name": "修为提升",
+      "type": "buff",
+      "description": "提升攻击力",
+      "icon": "⚡"
+    },
+    {
+      "effect_id": "defending",
+      "name": "防御姿态",
+      "type": "buff",
+      "description": "减少受到的伤害",
+      "icon": "🛡️"
+    }
+  ],
+
+  "battle_rewards": {
+    "experience_formula": "base_exp * (1 + level_diff * 0.1)",
+    "gold_formula": "base_gold * random(0.8, 1.2)",
+    "reputation_on_victory": true,
+    "special_rewards_on_perfect_victory": true
+  },
+
+  "battle_conditions": {
+    "victory": [
+      "enemy_hp_zero",
+      "enemy_surrender",
+      "objective_completed"
+    ],
+    "defeat": [
+      "player_hp_zero",
+      "time_limit_exceeded",
+      "objective_failed"
+    ],
+    "draw": [
+      "max_rounds_reached",
+      "mutual_knockout"
+    ]
+  }
+}

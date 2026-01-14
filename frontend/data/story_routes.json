@@ -1,0 +1,353 @@
+{
+  "story_routes": {
+    "route_001_power": {
+      "id": "route_001_power",
+      "name": "【强者之路】力量至上",
+      "description": "专注修炼，以绝对实力碾压一切对手",
+      "unlock_condition": {
+        "cultivation": 7,
+        "strength": 60,
+        "determination": 10
+      },
+      "key_choices": [
+        "choice_023_001",
+        "choice_026_001",
+        "choice_027_002",
+        "choice_029_002"
+      ],
+      "route_chapters": [
+        {
+          "chapter_id": "route_001_chapter_31",
+          "chapter_name": "第三十一章：挑战族内强者",
+          "trigger": "chapter_030_complete",
+          "description": "突破第七段后，你主动挑战族内长老，展现惊人实力"
+        },
+        {
+          "chapter_id": "route_001_chapter_32",
+          "chapter_name": "第三十二章：震惊全族",
+          "description": "你在族内大比中一路横扫，获得族长秘传"
+        },
+        {
+          "chapter_id": "route_001_chapter_33",
+          "chapter_name": "第三十三章：提前挑战",
+          "description": "不愿等待三年，你提前前往云岚宗挑战纳兰嫣然"
+        }
+      ],
+      "ending": {
+        "id": "ending_001_power",
+        "title": "【霸者】",
+        "description": "你以绝对实力击败纳兰嫣然，震惊云岚宗。但因过于激进，树敌太多。",
+        "attributes_final": {
+          "cultivation": 9,
+          "strength": 90,
+          "intelligence": 60,
+          "reputation": 80
+        }
+      }
+    },
+
+    "route_002_wisdom": {
+      "id": "route_002_wisdom",
+      "name": "【智者之路】谋略天下",
+      "description": "运用智慧和谋略，暗中布局，以小博大",
+      "unlock_condition": {
+        "intelligence": 75,
+        "charisma": 65,
+        "hidden_strength_flag": true
+      },
+      "key_choices": [
+        "choice_023_001",
+        "choice_024_003",
+        "choice_025_003",
+        "choice_029_001"
+      ],
+      "route_chapters": [
+        {
+          "chapter_id": "route_002_chapter_31",
+          "chapter_name": "第三十一章：暗棋布局",
+          "trigger": "chapter_030_complete",
+          "description": "你隐藏真实实力，暗中与米特尔家族达成合作"
+        },
+        {
+          "chapter_id": "route_002_chapter_32",
+          "chapter_name": "第三十二章：商业帝国",
+          "description": "通过炼药和商业手段，积累巨额财富"
+        },
+        {
+          "chapter_id": "route_002_chapter_33",
+          "chapter_name": "第三十三章：暗中掌控",
+          "description": "你暗中收购加列家产业，不战而屈人之兵"
+        }
+      ],
+      "ending": {
+        "id": "ending_002_wisdom",
+        "title": "【商王】",
+        "description": "你成为加玛帝国最年轻的商业巨头，掌控三大家族经济命脉。",
+        "attributes_final": {
+          "cultivation": 7,
+          "intelligence": 95,
+          "wealth": 500000,
+          "reputation": 70
+        }
+      }
+    },
+
+    "route_003_balance": {
+      "id": "route_003_balance",
+      "name": "【均衡之路】文武双全",
+      "description": "修炼与谋略并重，全面发展",
+      "unlock_condition": {
+        "cultivation": 7,
+        "intelligence": 70,
+        "strength": 50,
+        "charisma": 60
+      },
+      "key_choices": [
+        "choice_023_001",
+        "choice_025_001",
+        "choice_028_002",
+        "choice_029_002"
+      ],
+      "route_chapters": [
+        {
+          "chapter_id": "route_003_chapter_31",
+          "chapter_name": "第三十一章：稳扎稳打",
+          "trigger": "chapter_030_complete",
+          "description": "你既展现实力，又展现智慧，赢得全族尊重"
+        },
+        {
+          "chapter_id": "route_003_chapter_32",
+          "chapter_name": "第三十二章：声名鹊起",
+          "description": "你在乌坦城声名鹊起，各大势力纷纷拉拢"
+        },
+        {
+          "chapter_id": "route_003_chapter_33",
+          "chapter_name": "第三十三章：准备赴约",
+          "description": "你按照原计划，准备三年后的约定"
+        }
+      ],
+      "ending": {
+        "id": "ending_003_balance",
+        "title": "【王者】",
+        "description": "你文武双全，三年后如约击败纳兰嫣然，成为加玛帝国的传奇。",
+        "attributes_final": {
+          "cultivation": 8,
+          "intelligence": 80,
+          "strength": 80,
+          "reputation": 95
+        }
+      }
+    },
+
+    "route_004_love": {
+      "id": "route_004_love",
+      "name": "【情缘之路】携手薰儿",
+      "description": "重视与薰儿的感情，揭开她的神秘身世",
+      "unlock_condition": {
+        "relationship_xuner": 25,
+        "charisma": 65
+      },
+      "key_choices": [
+        "choice_025_003",
+        "choice_030_001",
+        "xuner_special_choice_001"
+      ],
+      "route_chapters": [
+        {
+          "chapter_id": "route_004_chapter_31",
+          "chapter_name": "第三十一章：薰儿的秘密",
+          "trigger": "chapter_030_complete",
+          "description": "薰儿向你坦白，她来自古族，身份尊贵"
+        },
+        {
+          "chapter_id": "route_004_chapter_32",
+          "chapter_name": "第三十二章：古族试炼",
+          "description": "为了与薰儿在一起，你必须通过古族的考验"
+        },
+        {
+          "chapter_id": "route_004_chapter_33",
+          "chapter_name": "第三十三章：古族之力",
+          "description": "获得古族的支持，实力暴涨"
+        }
+      ],
+      "ending": {
+        "id": "ending_004_love",
+        "title": "【情圣】",
+        "description": "你赢得薰儿的芳心，获得古族支持，实力和地位双双暴涨。",
+        "attributes_final": {
+          "cultivation": 8,
+          "relationship_xuner": 100,
+          "reputation": 85,
+          "special_title": "古族姑爷"
+        }
+      }
+    },
+
+    "route_005_alchemy": {
+      "id": "route_005_alchemy",
+      "name": "【炼药之路】药帝传承",
+      "description": "专注炼药术，继承药老衣钵",
+      "unlock_condition": {
+        "intelligence": 75,
+        "relationship_yaolao": 20,
+        "alchemy_skill": 5
+      },
+      "key_choices": [
+        "choice_024_002",
+        "alchemy_special_choice_001",
+        "alchemy_special_choice_002"
+      ],
+      "route_chapters": [
+        {
+          "chapter_id": "route_005_chapter_31",
+          "chapter_name": "第三十一章：炼药天才",
+          "trigger": "chapter_030_complete",
+          "description": "你展现出惊人的炼药天赋，成为炼药师"
+        },
+        {
+          "chapter_id": "route_005_chapter_32",
+          "chapter_name": "第三十二章：药王争霸",
+          "description": "你参加加玛帝国炼药师大会，一举成名"
+        },
+        {
+          "chapter_id": "route_005_chapter_33",
+          "chapter_name": "第三十三章：药帝传承",
+          "description": "药老传授你完整的炼药术，你成为最年轻的药帝"
+        }
+      ],
+      "ending": {
+        "id": "ending_005_alchemy",
+        "title": "【药帝】",
+        "description": "你成为加玛帝国最年轻的炼药宗师，各大势力争相拉拢。",
+        "attributes_final": {
+          "cultivation": 7,
+          "intelligence": 90,
+          "alchemy_skill": 10,
+          "reputation": 100,
+          "wealth": 300000
+        }
+      }
+    },
+
+    "route_006_revenge": {
+      "id": "route_006_revenge",
+      "name": "【复仇之路】血债血偿",
+      "description": "对纳兰嫣然的退婚充满愤怒，誓要报仇雪恨",
+      "unlock_condition": {
+        "determination": 15,
+        "anger_value": 10
+      },
+      "key_choices": [
+        "choice_025_002",
+        "choice_026_001",
+        "revenge_special_choice_001"
+      ],
+      "route_chapters": [
+        {
+          "chapter_id": "route_006_chapter_31",
+          "chapter_name": "第三十一章：复仇火焰",
+          "trigger": "chapter_030_complete",
+          "description": "你的愤怒化为修炼的动力，实力突飞猛进"
+        },
+        {
+          "chapter_id": "route_006_chapter_32",
+          "chapter_name": "第三十二章：魔道之路",
+          "description": "为了力量，你修炼了危险的魔道功法"
+        },
+        {
+          "chapter_id": "route_006_chapter_33",
+          "chapter_name": "第三十三章：血洗云岚",
+          "description": "你杀上云岚宗，与纳兰嫣然决一死战"
+        }
+      ],
+      "ending": {
+        "id": "ending_006_revenge",
+        "title": "【魔王】",
+        "description": "你击败纳兰嫣然，但因修炼魔道，被正道追杀，走上不归路。",
+        "attributes_final": {
+          "cultivation": 9,
+          "strength": 95,
+          "determination": 20,
+          "reputation": -50,
+          "dark_path": true
+        }
+      }
+    },
+
+    "route_007_family": {
+      "id": "route_007_family",
+      "name": "【家族之路】振兴萧家",
+      "description": "以家族利益为重，致力于振兴萧家",
+      "unlock_condition": {
+        "relationship_xiaozhan": 25,
+        "family_contribution": 10
+      },
+      "key_choices": [
+        "choice_023_004",
+        "choice_025_001",
+        "family_special_choice_001"
+      ],
+      "route_chapters": [
+        {
+          "chapter_id": "route_007_chapter_31",
+          "chapter_name": "第三十一章：家族责任",
+          "trigger": "chapter_030_complete",
+          "description": "你接手家族事务，帮助父亲管理萧家"
+        },
+        {
+          "chapter_id": "route_007_chapter_32",
+          "chapter_name": "第三十二章：统一乌坦",
+          "description": "你通过谋略和武力，让萧家成为乌坦城霸主"
+        },
+        {
+          "chapter_id": "route_007_chapter_33",
+          "chapter_name": "第三十三章：家族崛起",
+          "description": "萧家在你的带领下，成为加玛帝国的大家族"
+        }
+      ],
+      "ending": {
+        "id": "ending_007_family",
+        "title": "【族长】",
+        "description": "你继承父亲衣钵，成为新一代萧家族长，带领家族走向辉煌。",
+        "attributes_final": {
+          "cultivation": 8,
+          "relationship_xiaozhan": 100,
+          "family_power": 100,
+          "reputation": 90,
+          "title": "萧家族长"
+        }
+      }
+    }
+  },
+
+  "route_detection": {
+    "detection_points": [
+      {
+        "chapter": "chapter_023",
+        "check_choices": ["choice_023_001", "choice_023_004"]
+      },
+      {
+        "chapter": "chapter_025",
+        "check_attributes": ["intelligence", "determination", "relationship_xiaozhan"]
+      },
+      {
+        "chapter": "chapter_029",
+        "check_choices": ["choice_029_001", "choice_029_002", "choice_029_003"]
+      },
+      {
+        "chapter": "chapter_030",
+        "final_route_selection": true
+      }
+    ]
+  },
+
+  "route_hints": {
+    "hint_power": "你的实力提升很快，继续专注修炼，也许能走上强者之路",
+    "hint_wisdom": "你的智谋让人印象深刻，也许商业和谋略更适合你",
+    "hint_balance": "你全面发展，文武双全，这是一条稳健的王者之路",
+    "hint_love": "薰儿对你的感情越来越深，也许该多花时间陪陪她",
+    "hint_alchemy": "你在炼药方面展现出天赋，药老似乎很满意",
+    "hint_revenge": "你对纳兰嫣然的愤怒越来越强，小心不要被仇恨蒙蔽",
+    "hint_family": "父亲很欣慰你对家族的贡献，也许你可以承担更多"
+  }
+}
