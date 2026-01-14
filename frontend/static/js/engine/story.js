@@ -52,9 +52,28 @@ const StoryEngine = {
 
     _getLocalChapter(chapterId) {
         const gameData = GameState.get('gameData');
-        if (!gameData?.story_tree?.chapters) return null;
 
-        return gameData.story_tree.chapters.find(c => c.chapter_id === chapterId);
+        if (!gameData) {
+            Utils.warn('getLocalChapter: gameData is null');
+            return null;
+        }
+
+        if (!gameData.story_tree) {
+            Utils.warn('getLocalChapter: story_tree is missing', Object.keys(gameData));
+            return null;
+        }
+
+        if (!gameData.story_tree.chapters) {
+            Utils.warn('getLocalChapter: chapters array is missing');
+            return null;
+        }
+
+        const chapter = gameData.story_tree.chapters.find(c => c.chapter_id === chapterId);
+        if (!chapter) {
+            Utils.warn(`getLocalChapter: Chapter ${chapterId} not found in local data`,
+                gameData.story_tree.chapters.map(c => c.chapter_id));
+        }
+        return chapter;
     },
 
     _getLocalScene(sceneId) {
