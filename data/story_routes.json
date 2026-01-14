@@ -10,6 +10,8 @@
         "determination": 10
       },
       "key_choices": [
+        "choice_001_001",
+        "choice_004_001",
         "choice_023_001",
         "choice_026_001",
         "choice_027_002",
@@ -45,7 +47,6 @@
         }
       }
     },
-
     "route_002_wisdom": {
       "id": "route_002_wisdom",
       "name": "【智者之路】谋略天下",
@@ -91,7 +92,6 @@
         }
       }
     },
-
     "route_003_balance": {
       "id": "route_003_balance",
       "name": "【均衡之路】文武双全",
@@ -138,7 +138,6 @@
         }
       }
     },
-
     "route_004_love": {
       "id": "route_004_love",
       "name": "【情缘之路】携手薰儿",
@@ -182,7 +181,6 @@
         }
       }
     },
-
     "route_005_alchemy": {
       "id": "route_005_alchemy",
       "name": "【炼药之路】药帝传承",
@@ -228,7 +226,6 @@
         }
       }
     },
-
     "route_006_revenge": {
       "id": "route_006_revenge",
       "name": "【复仇之路】血债血偿",
@@ -273,7 +270,6 @@
         }
       }
     },
-
     "route_007_family": {
       "id": "route_007_family",
       "name": "【家族之路】振兴萧家",
@@ -319,20 +315,30 @@
       }
     }
   },
-
   "route_detection": {
     "detection_points": [
       {
         "chapter": "chapter_023",
-        "check_choices": ["choice_023_001", "choice_023_004"]
+        "check_choices": [
+          "choice_023_001",
+          "choice_023_004"
+        ]
       },
       {
         "chapter": "chapter_025",
-        "check_attributes": ["intelligence", "determination", "relationship_xiaozhan"]
+        "check_attributes": [
+          "intelligence",
+          "determination",
+          "relationship_xiaozhan"
+        ]
       },
       {
         "chapter": "chapter_029",
-        "check_choices": ["choice_029_001", "choice_029_002", "choice_029_003"]
+        "check_choices": [
+          "choice_029_001",
+          "choice_029_002",
+          "choice_029_003"
+        ]
       },
       {
         "chapter": "chapter_030",
@@ -340,7 +346,6 @@
       }
     ]
   },
-
   "route_hints": {
     "hint_power": "你的实力提升很快，继续专注修炼，也许能走上强者之路",
     "hint_wisdom": "你的智谋让人印象深刻，也许商业和谋略更适合你",
